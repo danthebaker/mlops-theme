@@ -117,8 +117,15 @@ img {
   margin-bottom: 10px;
 }
 
-ul li::marker {
-  color: #E4E4F0;
+ul {
+  &.no-style {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  li::marker {
+    color: #E4E4F0;
+  }
 }
 
 .provider-overview .col-wrapper {

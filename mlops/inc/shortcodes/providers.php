@@ -76,7 +76,7 @@ ob_start();
                             echo '<div class="placeholder"><span>short demo</span><p>Video Coming Soon</p></div>';
                         }
                         ?>
-                        <ul class="provider-short-profile">
+                        <ul class="provider-short-profile no-style">
                             <?php
                             // $overview = get_field('overview', $p->ID);
                             // $overview = $overview[0];
