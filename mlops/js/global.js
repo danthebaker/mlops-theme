@@ -218,8 +218,18 @@ jQuery('.compare-popup input[name="filter"]').on('change', function(){
   }
 });
 
-jQuery('.compare-tab-toggle').on('click', function(){
+jQuery('.compare-tab-toggle').on('click', function(e){
   jQuery('.compare-bar').toggleClass('open');
+  e.stopPropagation();
+});
+
+jQuery('.compare-providers, .compare-popup').on('click', function(e){
+  e.stopPropagation();
+});
+
+jQuery(document).on('click', function(e){
+  jQuery('.compare-bar').removeClass('open');
+  e.stopPropagation();
 });
 
 // populate compare tab list item
