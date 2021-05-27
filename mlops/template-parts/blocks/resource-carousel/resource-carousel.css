@@ -48,7 +48,10 @@
     opacity: 0.65; }
   .resource-carousel .item .embed-responsive {
     padding-bottom: 63.25%;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    background-color: transparent; }
+    .resource-carousel .item .embed-responsive img {
+      opacity: 1; }
 
 .resource-carousel .item a {
   text-decoration: none;

@@ -91,7 +91,7 @@ $resources = get_field('resource');
     ?>
 
 
-    <div class="resource-video-popup popup" id="resource-video-popup">
+    <div class="resource-video-popup popup video-popup" id="resource-video-popup">
         <div class="content-wrapper clear">
             <div class="content">
                 <button type="button" class="close">

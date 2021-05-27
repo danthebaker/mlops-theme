@@ -53,7 +53,7 @@ $video = get_field('video');
             
             printf('<button type="button" class="open-video-popup" data-id="profile-video-%s"><div class="embed-responsive embed-responsive-16by9"><img src="%s"></div></button>', get_the_ID(), $video_image);
             
-            printf('<div class="provider-video-popup popup" id="profile-video-%s"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/%s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>', get_the_ID(), $video['youtube_video_id']);
+            printf('<div class="provider-video-popup popup video-popup" id="profile-video-%s"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/%s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>', get_the_ID(), $video['youtube_video_id']);
             echo '</div>';
         }else{
             echo '<div class="placeholder"><p>Video coming soon</p></div>';

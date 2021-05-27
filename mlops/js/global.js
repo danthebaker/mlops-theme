@@ -427,7 +427,7 @@ function populate_table_item(item){
     if(jQuery('body').hasClass('single-provider') && !jQuery('body').hasClass('postid-'+item.ID)){
       // we only want this on the single-provider template because the feature store template will already have all the video popups
       // and we only want this on the single provider template if the current page is not the current item
-      iframe = '<div class="provider-video-popup popup" id="profile-video-'+item.ID+'"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+item.video+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>';
+      iframe = '<div class="provider-video-popup popup video-popup" id="profile-video-'+item.ID+'"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+item.video+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>';
     }
   }
   jQuery('.comparison-table tr[data-key="video"]').append('<td>'+vid_button+iframe+'</td>');

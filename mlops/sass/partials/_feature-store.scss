@@ -524,7 +524,9 @@ input[type="radio"]:checked + label:after {
 
 .popup.provider-video-popup {
 z-index: 203;
+}
 
+.popup.video-popup {
   .content-wrapper {
     max-width: 900px;
     margin-left: auto;

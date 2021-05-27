@@ -65,6 +65,11 @@
   .embed-responsive {
     padding-bottom: 63.25%;
     margin-bottom: 15px;
+    background-color: transparent;
+
+    img {
+      opacity: 1;
+    }
   }
 }
 
