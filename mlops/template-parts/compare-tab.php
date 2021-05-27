@@ -39,15 +39,22 @@
                         </li>
                     </ul> -->
                 </header>
-                <div class="compare-content provider-profile">
-                    
-                    <table class="comparison-table overview">
-                        <thead>
+                <div class="compare-content">
+
+                    <section class="provider-profile">
+            
+                        <table class="comparison-table logos">
                             <tr class="exc">
                                 <td></td>
                             </tr>
-                        </thead>
-                        <tbody>
+                        </table>
+
+                    </section>
+
+                    <section class="provider-profile">
+                        <h2>Commercial Information</h2>
+            
+                        <table class="comparison-table overview">
                             <tr data-key="vendor_name" class="exc">
                                 <td>Vendor</td>
                             </tr>
@@ -73,8 +80,9 @@
                                 endwhile;
                             endif;
                             ?>
-                        </tbody>
-                    </table>
+                        </table>
+
+                    </section>
 
                     <section class="provider-profile">
                         <h2>Feature Store Capabilities</h2>

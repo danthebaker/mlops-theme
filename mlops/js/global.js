@@ -428,7 +428,7 @@ function populate_table_item(item){
       logo = item.name;
     }
   }
-  jQuery('.comparison-table thead tr').append('<td data-provider-id="'+item.ID+'">'+logo+'</td>');
+  jQuery('.comparison-table.logos tr').append('<td data-provider-id="'+item.ID+'">'+logo+'</td>');
 
   // video
   if(item.video){
@@ -496,6 +496,7 @@ jQuery('.providers-list select').on('change', function(){
   var list = jQuery('.providers-list-ul');
   var listItems = list.children('li');
   list.append(listItems.get().reverse());
+  jQuery.fn.matchHeight._update();
 });
 
 // accordion
