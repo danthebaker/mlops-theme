@@ -10,6 +10,7 @@
 <header class="hero-home">
 	<div>
 		<h1><?php the_title(); ?></h1>
+		<p>Telling Feature Stores Apart</p>
 	</div>
 	<img src="/wp-content/themes/mlops/assets/img/bkg3.jpg" class="Photograph of keyboard warrior">
 </header>
