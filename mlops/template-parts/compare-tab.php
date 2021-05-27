@@ -1,6 +1,7 @@
 <section class="compare-bar">
     <div class="section-content-wrapper">
         <button class="compare-tab-toggle">Compare providers</button>
+        <div class="gradient-radial-wrapper"><span class="gradient-radial"></span></div>
         <div class="compare-providers">
             <ul class="compare-list ul-reset">
                 <?php

@@ -98,13 +98,15 @@
     background-color: transparent;
     text-align: center;
 
-    img {
-      width: 114%;
-      max-width: none;
-    }
-
     &:before {
       display: none;
     }
   }
+
+  // .yt-thumb {
+  //   img {
+  //     width: 114%;
+  //     max-width: none;
+  //   }
+  // }
 }

@@ -68,9 +68,6 @@
 .resource-carousel .open-video-popup {
   background-color: transparent;
   text-align: center; }
-  .resource-carousel .open-video-popup img {
-    width: 114%;
-    max-width: none; }
   .resource-carousel .open-video-popup:before {
     display: none; }
 

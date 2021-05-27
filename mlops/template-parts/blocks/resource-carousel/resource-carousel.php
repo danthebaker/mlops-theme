@@ -48,17 +48,19 @@ $resources = get_field('resource');
 
                         
                         $img = "";
+                        $class = "";
                         if($resource['image']){
                             $img = $resource['image']['sizes']['medium'];
                         }
                         else {
                             if($resource['youtube_video_id']){
+                                $class = "yt-thumb";
                                 $img = 'https://img.youtube.com/vi/'.$resource['youtube_video_id'].'/hqdefault.jpg';
                             }
                         }
 
                         if($img){
-                            printf('<div class="embed-responsive embed-responsive-16by9"><img src="%s"></div>', $img);
+                            printf('<div class="embed-responsive embed-responsive-16by9 %s"><img src="%s"></div>', $class, $img);
                         }
 
                         if($resource['title']){
