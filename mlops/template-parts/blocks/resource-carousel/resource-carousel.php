@@ -58,7 +58,7 @@ $resources = get_field('resource');
                         }
 
                         if($img){
-                            printf('<img src="%s">', $img);
+                            printf('<div class="embed-responsive embed-responsive-16by9"><img src="%s"></div>', $img);
                         }
 
                         if($resource['title']){

@@ -61,6 +61,11 @@
       opacity: 0.65;
     }
   }
+
+  .embed-responsive {
+    padding-bottom: 63.25%;
+    margin-bottom: 15px;
+  }
 }
 
 .resource-carousel .item a{
@@ -69,9 +74,9 @@
   height: 100%;
 }
 
-.resource-carousel .item img{
-  margin: 0 auto 15px;
-}
+// .resource-carousel .item img{
+//   margin: 0 auto 15px;
+// }
 
 .resource-carousel .item .title{
   font-size: 0.875rem;
@@ -86,6 +91,12 @@
 
   .resource-carousel & {
     background-color: transparent;
+    text-align: center;
+
+    img {
+      width: 114%;
+      max-width: none;
+    }
 
     &:before {
       display: none;

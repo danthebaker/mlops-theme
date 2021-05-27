@@ -46,14 +46,14 @@
   text-align: center; }
   .resource-carousel .item:hover img {
     opacity: 0.65; }
+  .resource-carousel .item .embed-responsive {
+    padding-bottom: 63.25%;
+    margin-bottom: 15px; }
 
 .resource-carousel .item a {
   text-decoration: none;
   display: block;
   height: 100%; }
-
-.resource-carousel .item img {
-  margin: 0 auto 15px; }
 
 .resource-carousel .item .title {
   font-size: 0.875rem; }
@@ -63,7 +63,11 @@
   color: black; }
 
 .resource-carousel .open-video-popup {
-  background-color: transparent; }
+  background-color: transparent;
+  text-align: center; }
+  .resource-carousel .open-video-popup img {
+    width: 114%;
+    max-width: none; }
   .resource-carousel .open-video-popup:before {
     display: none; }
 
