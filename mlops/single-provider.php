@@ -12,7 +12,7 @@ $video = get_field('video');
     }
     ?>
     <div class="provider-title">
-        <h1><?php the_title(); ?></h1>
+        <h1 class="testing-new-git"><?php the_title(); ?></h1>
 
         <?php
         $added = "";
