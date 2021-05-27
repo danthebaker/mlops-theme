@@ -31,7 +31,7 @@ function mlops_add_to_compare(){
                 $item_arr['overview'] = get_field('overview', $p->ID)[0];
                 //$item_arr['capabilities'] = get_field('capabilities', $p->ID)[0];
                 $item_arr['feature_store_capabilities'] = get_field('feature_store_capabilities', $p->ID)[0];
-                $item_arr['demo_link'] = get_field('demo_link', $p->ID);
+                //$item_arr['demo_link'] = get_field('demo_link', $p->ID);
 
                 array_push($arr, $item_arr);
             }

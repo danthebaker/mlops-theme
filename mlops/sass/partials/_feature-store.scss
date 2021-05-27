@@ -95,8 +95,11 @@ img {
   border-radius: 10px;
   box-shadow: 10px 10px 10px 0 #EFEFEF;
   padding: 20px;
-  width: 60%;
   margin: 0 auto 60px;
+
+  @media(min-width: 900px){
+    width: 60%;
+  }
 
   .provider-logo {
     margin-bottom: 25px;
@@ -149,10 +152,8 @@ ul li::marker {
   }
 }
 
-.provider-profile {
+.provider-body .provider-profile {
   margin-bottom: 60px;
-
-  
 }
 
 .provider-profile h2 {

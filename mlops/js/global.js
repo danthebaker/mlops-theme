@@ -397,7 +397,7 @@ function populate_table_item(item){
   var vid_button = "";
   var iframe = "";
   var h = "";
-  var demo_button = "";
+  // var demo_button = "";
 
   // vendor name
   if(item.name){
@@ -433,10 +433,10 @@ function populate_table_item(item){
   jQuery('.comparison-table tr[data-key="video"]').append('<td>'+vid_button+iframe+'</td>');
 
   // demo button
-  if(item.demo_link){
-    demo_button = '<a href="'+item.demo_link+'" target="_blank" class="button">Book a demo</a>';
-  }
-  jQuery('.comparison-table tr[data-key="demo_link"]').append('<td>'+demo_button+'</td>');
+  // if(item.demo_link){
+  //   demo_button = '<a href="'+item.demo_link+'" target="_blank" class="button">Book a demo</a>';
+  // }
+  // jQuery('.comparison-table tr[data-key="demo_link"]').append('<td>'+demo_button+'</td>');
 
   //overview
   console.log(item);

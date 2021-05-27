@@ -53,9 +53,6 @@
                             <tr data-key="video" class="exc">
                                 <td>Demo link</td>
                             </tr>
-                            <tr data-key="demo_link" class="exc">
-                                <td></td>
-                            </tr>
                             <?php
                             $post = get_posts(array('post_type' => 'provider', 'numberposts' => 1));
                             $id = $post[0]->ID; // any post id. we just need one to get the acf field objects
@@ -151,12 +148,6 @@
                     // endif; 
                     
                     ?>
-
-                    <table class="comparison-table demo_links">
-                        <tr data-key="demo_link">
-                            <td></td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
