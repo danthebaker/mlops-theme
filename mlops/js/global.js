@@ -403,7 +403,7 @@ function populate_table_item(item){
   if(item.name){
     name = item.name;
   }
-  jQuery('.comparison-table.overview tr[data-key="vendor_name"]').append('<td>'+item.name+'</td>');
+  jQuery('.comparison-table.overview tr[data-key="vendor_name"]').append('<td><p>'+item.name+'</p></td>');
 
   // theader
   if(item.logo != false){
@@ -422,7 +422,7 @@ function populate_table_item(item){
 
   // video
   if(item.video){
-    vid_button = '<button type="button" class="open-video-popup in-comparison-table" data-id="profile-video-'+item.ID+'">Watch demo</button>';
+    vid_button = '<p><button type="button" class="open-video-popup in-comparison-table" data-id="profile-video-'+item.ID+'">Watch demo</button></p>';
 
     if(jQuery('body').hasClass('single-provider') && !jQuery('body').hasClass('postid-'+item.ID)){
       // we only want this on the single-provider template because the feature store template will already have all the video popups

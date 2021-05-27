@@ -86,7 +86,7 @@ $video = get_field('video');
                     
                     echo '<tr>';
                         printf('<td>%s</td>', $section_label);
-                        printf('<td><p>%s</p></td>', get_sub_field($k));
+                        printf('<td>%s</td>', get_sub_field($k));
                     echo '</tr>';
                     
                 }

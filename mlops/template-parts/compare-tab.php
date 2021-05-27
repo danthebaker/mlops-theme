@@ -38,7 +38,7 @@
                         </li>
                     </ul> -->
                 </header>
-                <div class="compare-content">
+                <div class="compare-content provider-profile">
                     
                     <table class="comparison-table overview">
                         <thead>

@@ -107,6 +107,18 @@ img {
   }
 }
 
+.provider-short-profile {
+  li > * {
+    display: inline;
+
+    &:not(:first-child):not(:nth-child(2)){
+      &:before {
+        content: ", ";
+      }
+    }
+  }
+}
+
 .provider-short-profile, .wp-block-group ul {
   margin-left: 13px;
   padding-left: 0;
@@ -512,6 +524,12 @@ input[type="radio"]:checked + label:after {
 
 .popup.provider-video-popup {
 z-index: 203;
+
+  .content-wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .embed-responsive {

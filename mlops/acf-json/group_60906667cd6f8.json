@@ -89,7 +89,7 @@
                     "key": "field_6092e9c22944a",
                     "label": "History",
                     "name": "history",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -100,15 +100,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9cf2944b",
                     "label": "Stand-alone vs. Platform",
                     "name": "standalone_vs_platform",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -119,15 +119,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9e72944d",
                     "label": "Delivery Model",
                     "name": "delivery_model",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -138,15 +138,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9d92944c",
                     "label": "Clouds Supported",
                     "name": "clouds_supported",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -157,15 +157,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9eb2944e",
                     "label": "Pricing Model",
                     "name": "pricing_model",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -176,15 +176,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9ef2944f",
                     "label": "Service Level Guarantees",
                     "name": "slos_exist_for",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -195,15 +195,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_6092e9f929450",
                     "label": "Support",
                     "name": "support",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -214,9 +214,9 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
                 }
             ]
         },
@@ -470,5 +470,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622138391
+    "modified": 1622142677
 }
