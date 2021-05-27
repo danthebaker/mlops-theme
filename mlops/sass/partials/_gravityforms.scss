@@ -1,0 +1,17 @@
+.gfield_error {
+    input[type="text"]{
+        outline: 2px solid red;
+    }
+}
+
+.validation_message {
+    color: red;
+    font-size: 0.625rem;
+    padding-top: 4px;
+}
+
+.validation_error {
+    font-size: 0.625rem;
+    text-align: center;
+    color: red;
+}

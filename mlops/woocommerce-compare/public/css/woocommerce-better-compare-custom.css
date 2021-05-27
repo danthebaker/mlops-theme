@@ -1,0 +1,43 @@
+.woocommerce-compare-bar {
+			bottom: 0;
+			color: #333;
+		}.woocommerce-compare-bar, .woocommerce-compare-bar-item a, .woocommerce-compare-bar-item a:hover {
+			color: #333;
+		}.woocommerce-compare-bar-open-close-container {
+				top: -32px;
+			}.woocommerce-compare-bar-open-close {
+				    border-radius: 15px 15px 0 0;
+				}a.woocommerce-compare-bar-action-clear, a.woocommerce-compare-bar-action-clear:hover {
+			color: #333;
+		}.woocommerce-compare-bar-items {
+			height: 210px;
+		}.woocommerce-compare-bar-item {
+			max-width: 150px;
+			width: 150px;
+			height: 170px;
+		}.woocommerce-compare-bar-open-close, .woocommerce-compare-bar-items {
+			background-color: rgba(255,255,255,0.98);
+			color: #333;
+		}.woocommerce-compare-table-container {
+			color: #333;
+			background-color: rgba(255,255,255,1);
+		}.woocommerce-compare-table-container .compare-table-row:nth-child(even) {
+			background-color: rgba(255,255,255,0.9);
+		}.woocommerce-compare-table-container .compare-table-row:nth-child(odd) {
+			background-color: rgba(243,243,243,1);
+		}.woocommerce-compare-table-container .compare-table-row .compare-table-highlight  {
+			background-color: rgba(211,0,0,0.9);
+		}.woocommerce-compare-table-close {
+			color: #333;
+		}.woocommerce-single-compare-table-container {
+			color: #000000;
+		}.woocommerce-single-compare-table-container .single-product-compare-value.even, 
+				.woocommerce-single-compare-table-container .single-product-compare-key-column.even {
+			background-color: rgba(247,247,247,1);
+		}.woocommerce-single-compare-table-container .single-product-compare-value.oddd, 
+				.woocommerce-single-compare-table-container .single-product-compare-key-column.oddd {
+			background-color: rgba(255,255,255,1);
+		}.woocommerce-single-compare-table-container .single-product-compare-value.compare-table-highlight, 
+				.woocommerce-single-compare-table-container .single-product-compare-key-column.compare-table-highlight  {
+			background-color: rgba(255,247,123,1);
+		}

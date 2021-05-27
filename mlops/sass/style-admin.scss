@@ -1,0 +1,57 @@
+/* .acf-table > thead > tr > th[data-key="field_609066f922bf9"] {
+    font-weight: bold;
+    font-size: 25px;
+} */
+
+.mlops-capabilities .acf-th[data-type="repeater"] {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.mlops-capability .acf-fields.-left > .acf-field > .acf-label,
+.mlops-capability .acf-fields.-left > .acf-field > .acf-input {
+    width: 50%;
+}
+
+.mlops-capability .acf-fields.-left > .acf-field:before {
+    width: 50%;
+}
+
+.wp-block {
+    max-width: 1400px;
+}
+
+.section-header {
+    max-width: 770px;
+    margin: 0 auto 40px;
+  }
+
+.acf-field[data-key="field_609066ae22bf5"] > .acf-label > label, 
+.acf-field[data-key="field_60a7ee45ca196"] > .acf-label > label {
+    font-size: 16px;
+}
+
+/* .wp-block {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-left: clamp(30px, 8%, 12vw);
+    padding-right: clamp(30px, 8%, 12vw);
+    max-width: none;
+}
+
+@media screen and (min-width: 1600px) {
+    .wp-block {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+
+    .wp-block .wp-block {
+        padding-right: unset;
+        padding-left: unset;
+    }
+}
+
+.wp-block .wp-block {
+    padding-right: unset;
+    padding-left: unset;
+} */

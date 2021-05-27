@@ -1,0 +1,58 @@
+<wpml-config>
+	<admin-texts>
+		<key name="woocommerce_better_compare_options">
+			<key name="enable" />
+			<key name="hideSimilarities" />
+			<key name="highlightDifferences" />
+			<key name="maxProducts" />
+			<key name="notAvailableText" />
+			<key name="enableCategoryRestrictionText" />
+
+			<key name="compareBarPosition" />
+			<key name="compareBarHeight" />
+			<key name="compareBarItemWidth" />
+			<key name="compareBarItemHeight" />
+			<key name="compareBarTextColor" />
+			<key name="compareBarTextColor" />
+			<key name="compareBarBackgroundColor" />
+			<key name="compareTableTextColor" />
+			<key name="compareTableBackgroundColor" />
+			<key name="compareTableOddBackgroundColor" />
+			<key name="compareTableEvenBackgroundColor" />
+			<key name="compareTableHighlightBackgroundColor" />
+			<key name="compareSingleTableTextColor" />
+			<key name="compareSingleTableOddBackgroundColor" />
+			<key name="compareSingleTableEvenBackgroundColor" />
+			<key name="compareSingleTableHighlightBackgroundColor" />
+
+			<key name="dataToCompare" />
+			<key name="display" />
+			<key name="displayProductPage" />
+			<key name="displayProductPageTitle" />
+			<key name="displayProductPageText" />
+			<key name="displayProductPagePosition" />
+			<key name="displayProductPagePriority" />
+			<key name="displayProductPageMaxProducts" />
+			<key name="displayProductPageColumns" />
+			<key name="displayProductPageSlider" />
+			<key name="displayProductPageSliderSlidesToShow" />
+			<key name="displayProductPageSliderSlidesToScroll" />
+			<key name="displayProductPageSliderDots" />
+			<key name="displayProductPageSliderArrows" />
+			<key name="displayProductPageSliderInfinite" />
+			<key name="displayProductPageDataToCompare" />
+
+			<key name="dataToCompareTaxonomyName1" />
+			<key name="dataToCompareTaxonomyName2" />
+			<key name="dataToCompareTaxonomyName3" />
+			<key name="dataToCompareTaxonomyName4" />
+
+			
+
+			<key name="customCSS" />
+			<key name="customJS" />
+		</key> 
+	</admin-texts>
+</wpml-config>
+
+
