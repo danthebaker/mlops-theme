@@ -90,17 +90,18 @@ img {
   display: none;
 }
 
-.provider-overview {
+.provider-logo-vid {
   border: 1px solid #F0F0F0;
   border-radius: 10px;
   box-shadow: 10px 10px 10px 0 #EFEFEF;
   padding: 20px;
-  margin-bottom: 60px;
-}
+  width: 60%;
+  margin: 0 auto 60px;
 
-.provider-overview .provider-logo {
-  margin-bottom: 25px;
-  margin-top: 15px;
+  .provider-logo {
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
 }
 
 .provider-short-profile, .wp-block-group ul {
@@ -559,6 +560,31 @@ z-index: 203;
   position: relative;
   display: flex;
   flex-direction: column;
+
+  .placeholder {
+    background-color: #e4e4f0;
+    margin: 0 -20px 20px;
+    width: calc(100% + 40px);
+    padding: 10px 20px 20px;
+    padding-bottom: calc(56% + 20px);
+    position: relative; 
+    text-align: center;
+
+    span {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+      text-align: right;
+    }
+
+    p {
+      text-align: center;
+      position: absolute;
+      top: calc(50% - 10px);
+      width: calc(100% - 40px);
+    }
+  }
 }
 
 .providers-list-ul .provider-overview-card:before {
@@ -1143,5 +1169,19 @@ p.lead-bigger {
 
   .wp-block-group.evalutation-framework .wp-block-columns .wp-block-column:first-child {
     margin-bottom: 20px;
+  }
+}
+
+.col-vid .placeholder {
+  background-color:   #e4e4f0;
+  padding-bottom: calc(56.25% + 40px);
+  text-align: center;
+  position: relative;
+
+  p {
+    top: 50%;
+    position: absolute;
+    transform: translate(0, -50%);
+    width: 100%;
   }
 }

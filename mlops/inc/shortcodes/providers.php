@@ -23,7 +23,6 @@ ob_start();
             foreach($posts as $p){
                 $link = get_permalink($p->ID);
                 $logo = get_the_post_thumbnail_url($p->ID, 'original');
-                $demo_link = get_field('demo_link', $p->ID);
                 $video = get_field('video', $p->ID);
 
                 ?>
@@ -74,19 +73,41 @@ ob_start();
                             
                             printf('<div class="provider-video-popup popup" id="profile-video-%s"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/%s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>', $p->ID, $video['youtube_video_id']);
                         }else{
-                            echo '<div class="placeholder" style="background-color: #e4e4f0;margin: 0 -20px 20px;width: calc(100% + 40px);padding: 10px 20px 20px;padding-bottom: calc(56% + 20px);position: relative; text-align: center;"><span style="font-size: 12px;font-weight: 700;text-transform: uppercase;display: block;text-align: right;">short demo</span><p style="text-align: center;position: absolute;top: calc(50% - 10px);width: calc(100% - 40px);">Video Coming Soon</p></div>';
+                            echo '<div class="placeholder"><span>short demo</span><p>Video Coming Soon</p></div>';
                         }
                         ?>
                         <ul class="provider-short-profile">
                             <?php
-                            $overview = get_field('overview', $p->ID);
-                            $overview = $overview[0];
-                            foreach($overview as $overview_item){
-                                if($overview_item != "" && strtolower($overview_item) != "n/a"){
-                                    printf('<li>%s</li>', $overview_item);
-                                }
+                            // $overview = get_field('overview', $p->ID);
+                            // $overview = $overview[0];
+                            // foreach($overview as $overview_item){
+                            //     if($overview_item != "" && strtolower($overview_item) != "n/a"){
+                            //         printf('<li>%s</li>', $overview_item);
+                            //     }
                                 
-                            }
+                            // }
+
+                            if( have_rows('overview', $p->ID) ):
+                                $c_obj = get_field_object('overview', $p->ID);    
+                                $sfk = array(); // sub field keys
+                                foreach($c_obj['value'][0] as $key => $val){
+                                    array_push($sfk, $key);
+                                }
+                                //output($sfk);
+                                while( have_rows('overview', $p->ID) ): the_row();
+
+                                    foreach($sfk as $k){
+                                        $section_obj = get_sub_field_object($k);
+                                        $section_label = $section_obj['label'];
+
+                                        
+                                        echo '<li data-mh="item-'.$k.'">';
+                                            printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
+                                        echo '</li>';
+                                        
+                                    }
+                                endwhile;
+                            endif;
                             ?>
                         </ul>
                         <footer>

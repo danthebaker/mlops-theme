@@ -3,22 +3,6 @@
     "title": "Providers",
     "fields": [
         {
-            "key": "field_609066b622bf6",
-            "label": "Demo Link",
-            "name": "demo_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_609066c722bf7",
             "label": "Video",
             "name": "video",
@@ -122,27 +106,8 @@
                 },
                 {
                     "key": "field_6092e9cf2944b",
-                    "label": "Standalone vs. Platform",
+                    "label": "Stand-alone vs. Platform",
                     "name": "standalone_vs_platform",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6092e9d92944c",
-                    "label": "Clouds Supported",
-                    "name": "clouds_supported",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -162,6 +127,25 @@
                     "key": "field_6092e9e72944d",
                     "label": "Delivery Model",
                     "name": "delivery_model",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6092e9d92944c",
+                    "label": "Clouds Supported",
+                    "name": "clouds_supported",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -198,7 +182,7 @@
                 },
                 {
                     "key": "field_6092e9ef2944f",
-                    "label": "SLOs exist for:",
+                    "label": "Service Level Guarantees",
                     "name": "slos_exist_for",
                     "type": "text",
                     "instructions": "",
@@ -217,7 +201,7 @@
                 },
                 {
                     "key": "field_6092e9f929450",
-                    "label": "Provides 24x7 support & response time guarantees?",
+                    "label": "Support",
                     "name": "support",
                     "type": "text",
                     "instructions": "",
@@ -486,5 +470,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621623081
+    "modified": 1622138391
 }
