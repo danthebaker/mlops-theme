@@ -1,5 +1,5 @@
 <?php
-function shortcode_providers(){
+function shortcode_providers($params){
 ob_start();
 ?>
 <div class="providers-list">
@@ -94,18 +94,27 @@ ob_start();
                                     array_push($sfk, $key);
                                 }
                                 //output($sfk);
+
+                                $exc = "";
+                                if(isset($params['exclude']) && $params['exclude'] != ""){
+                                    $exc = str_replace(" ", "", $params['exclude']);
+                                    $exc = explode(',', $exc);
+                                    $exc = array_filter($exc);
+                                }
+
                                 while( have_rows('overview', $p->ID) ): the_row();
 
                                     foreach($sfk as $k){
                                         $section_obj = get_sub_field_object($k);
                                         $section_label = $section_obj['label'];
 
-                                        
-                                        echo '<li data-mh="item-'.$k.'">';
-                                            printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
-                                        echo '</li>';
-                                        
+                                        if(!($exc && in_array($k, $exc))){
+                                            echo '<li data-mh="item-'.$k.'">';
+                                                printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
+                                            echo '</li>';
+                                        }
                                     }
+                                    
                                 endwhile;
                             endif;
                             ?>
