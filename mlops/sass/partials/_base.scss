@@ -1640,7 +1640,7 @@ select:focus {
     font-size: calc(1rem + 4vw);
     max-width: 800px;
     color: #fff;
-    margin-bottom: 1rem !important;
+    // margin-bottom: 1rem !important;
 
     @media screen and (min-width: 1600px) {
         max-width: 1100px;
@@ -1657,8 +1657,8 @@ select:focus {
     font-size: calc(1rem + 2vw);
 
     @media screen and (min-width: 1600px) {
-      max-width: 1100px;
-  }
+        max-width: 1100px;
+    }
   }
 }
 
