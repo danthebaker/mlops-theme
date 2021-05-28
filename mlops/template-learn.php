@@ -38,7 +38,7 @@
 			<img src="/wp-content/themes/mlops/assets/img/hero-learn2.jpg" alt="">
 		</div>
 	  <main>
-		<h2>Feature store comparison</h2>
+		<h2>Feature Store Comparison</h2>
 		<p>A one stop shop that make it easy for a user to handle everything from data discovery to monitoring and sharing of features for machine learning workflows.</p>
 	  </main>
 	</a>
