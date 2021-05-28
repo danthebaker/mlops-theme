@@ -1066,7 +1066,7 @@ z-index: 203;
 
 .compare-popup .comparison-table.logos {
   margin-bottom: 0;
-  
+
   tr {
     border: none;
 
@@ -1253,5 +1253,17 @@ p.lead-bigger {
       border-radius: 0 0 50% 50%;
       box-shadow: 0px 10px 10px #c33082;
       margin: -31px auto 0;
+    }
+
+    .gradient-radial::after{
+      content: "";
+      display: block;
+      height: 36px;
+      width: 264px;
+      background-color: #c33082;
+      border-radius: 0 0 50% 50%;
+      box-shadow: 0px 10px 10px #c33082;
+      bottom: 49px;
+      position: absolute;
     }
 }
