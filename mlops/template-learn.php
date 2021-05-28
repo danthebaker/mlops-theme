@@ -39,7 +39,7 @@
 		</div>
 	  <main>
 		<h2>Feature store</h2>
-		<p>A one stop shop that make it easy for a user to handle everything from data discovery to monitoring and sharing of features for machine learning workflows.</p>
+		<p>MLOps Community presents a feature store comparison page to help data practitioners evaluate and choose the right feature store solution for their operational machine learning applications</p>
 	  </main>
 	</a>
 </article>
