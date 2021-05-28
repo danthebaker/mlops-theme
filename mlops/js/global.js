@@ -296,7 +296,7 @@ function add_compare_item(id){
 
         if(result){
           result.forEach(function(item, index){
-            console.log(item);
+            //console.log(item);
             populate_compare_item(id, item.logo, item.name, (jQuery('.compare-list .empty').first().index() + 1));
             populate_table_item(item);
             var curnum = jQuery('.compare-content').attr('data-compare-num');
