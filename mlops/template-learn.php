@@ -14,11 +14,11 @@
 </header>
 
   <div class="learn-bod">
-    <div class="learn-grid">
+    <div class="learn-grid" style="display: block;">
 
 		<?php the_content(); ?>
       
-<article>
+<!-- <article>
 	<a href="#">
 	<div>
 			<img src="/wp-content/themes/mlops/assets/img/hero-learn1.jpg" alt="">
@@ -28,7 +28,7 @@
 		<p>There are a range of choices for using models to make business decisions. Deploying machine learning models can mean different things, depending on the context. Understanding the types of prediction use-cases can help to decide on which tools apply to your use case.</p>
 	  </main>
 	</a>
-</article>
+</article> -->
 
       
       
@@ -46,7 +46,7 @@
 
       
       
-<article>
+<!-- <article>
 	<a href="#">
 	<div>
 			<img src="/wp-content/themes/mlops/assets/img/hero-learn3.jpg" alt="">
@@ -70,7 +70,7 @@
 		<p>One of the key elements of the MLOps ecosystem. A Pipeline is a sequence of linked steps that perform complex operations on given inputs and produce a bunch of outputs.</p>
 	  </main>
 	</a>
-</article>
+</article> -->
 
     
     </div>
