@@ -1,10 +1,20 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3SBESTQV5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G3SBESTQV5');
+    </script>
+    <meta name="google-site-verification" content="jyVPI0wmsbnR3dh3ITnqf3Qdhbprbo8TUP5S6uzt3b0" />
+
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<title><?php wp_title( '' ); ?></title>
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />
-
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/mlops/assets/favicons/apple-touch-icon.png">
