@@ -492,6 +492,12 @@ function populate_table_item(item){
   video_popups();
 }
 
+var data_mh = [];
+if(jQuery('.providers-list-ul > li').length){
+  jQuery('.providers-list-ul > li:first-child li').each(function(){
+    data_mh.push(jQuery(this).data('mh'));
+  });
+}
 jQuery('.providers-list select').on('change', function(){
   var list = jQuery('.providers-list-ul');
   var listItems = list.children('li');
@@ -506,7 +512,13 @@ jQuery('.providers-list select').on('change', function(){
   else {
     listItems.sort(sort_popularity_asc).appendTo(list);
   }
-  jQuery.fn.matchHeight._update();
+  listItems.find('li').matchHeight({ remove: true });
+  jQuery.each(data_mh, function(i,v){
+    listItems.find('li[data-mh="'+v+'"]').matchHeight();
+  });
+  
+  //jQuery.fn.matchHeight._update();
+  //jQuery.fn.matchHeight._rows(listItems.find('li'));
 });
 // accending sort
 function sort_title_asc(a, b){
