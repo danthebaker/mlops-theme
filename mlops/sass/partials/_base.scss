@@ -2817,13 +2817,13 @@ section.home {
           animation-delay: 2s;
 }
 
-body.home, body.watch, body.past-schedule {
+.page-template-template-home, .page-template-template-schedule-all, .page-template-template-schedule-past {
   .prefooter--sizemore:before {
     background-color: #1d1d2c;
   }
 }
 
-body.watch {
+.page-template-template-schedule-all {
   .footer {
     &:before {
 
