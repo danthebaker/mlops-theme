@@ -116,7 +116,7 @@ function scripts_setup(){
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
-    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.0', true );
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.1', true );
     wp_localize_script( 'global', 'mlops', 
         array(
             //To use this variable in javascript use "mlops.ajaxurl"

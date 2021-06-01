@@ -495,9 +495,30 @@ function populate_table_item(item){
 jQuery('.providers-list select').on('change', function(){
   var list = jQuery('.providers-list-ul');
   var listItems = list.children('li');
-  list.append(listItems.get().reverse());
-  jQuery.fn.matchHeight._update();
+  // list.append(listItems.get().reverse());
+  // jQuery.fn.matchHeight._update();
+  if(this.value == "title-asc"){
+    listItems.sort(sort_title_asc).appendTo(list);
+  }
+  else if(this.value == "title-dec"){
+    listItems.sort(sort_title_dec).appendTo(list);
+  }
+  else {
+    listItems.sort(sort_popularity_asc).appendTo(list);
+  }
 });
+// accending sort
+function sort_title_asc(a, b){
+    return (jQuery(b).data("title")) < (jQuery(a).data("title")) ? 1 : -1;    
+}
+// decending sort
+function sort_title_dec(a, b){
+    return (jQuery(b).data("title")) > (jQuery(a).data("title")) ? 1 : -1;    
+}
+// accending sort
+function sort_popularity_asc(a, b){
+  return (jQuery(b).data("popularity")) < (jQuery(a).data("popularity")) ? 1 : -1;    
+}
 
 // accordion
 jQuery('.accordion-toggle').on('click', function(){

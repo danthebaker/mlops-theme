@@ -6,8 +6,9 @@ ob_start();
     <div class="sort">
         <span>Sort by <span></span></span>
         <select autocomplete="off">
-            <option value="title-asc" selected="selected">name A-Z</option>
-            <option value="title-desc">name Z-A</option>
+        <option value="popularity" selected="selected">Popularity</option>
+            <option value="title-asc">name A-Z</option>
+            <option value="title-dec">name Z-A</option>
         </select>
     </div>
     <ul class="ul-reset providers-list-ul">
@@ -15,18 +16,18 @@ ob_start();
         $args = array(
             'post_type' => 'provider',
             'numberposts' => -1,
-            'orderby' => 'title',
+            'orderby' => 'menu_order',
             'order' => 'ASC',
         );
         $posts = get_posts($args);
         if($posts){
-            foreach($posts as $p){
+            foreach($posts as $k => $p){
                 $link = get_permalink($p->ID);
                 $logo = get_the_post_thumbnail_url($p->ID, 'original');
                 $video = get_field('video', $p->ID);
 
                 ?>
-                <li>
+                <li data-title="<?php echo $p->post_title; ?>" data-popularity="<?php echo $k + 1; ?>">
                     <div class="provider-overview-card" data-provider-id="<?php echo $p->ID; ?>">
                         <header>
 
