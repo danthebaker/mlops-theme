@@ -14,7 +14,7 @@
 </header>
 
   <div class="learn-bod">
-    <div class="learn-grid" style="display: block;">
+    <div class="learn-grid">
 
 		<?php the_content(); ?>
 
