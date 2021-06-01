@@ -449,7 +449,7 @@ function populate_table_item(item){
   // jQuery('.comparison-table tr[data-key="demo_link"]').append('<td>'+demo_button+'</td>');
 
   //overview
-  console.log(item);
+//  console.log(item);
   if(item.overview){
     Object.keys(item.overview).forEach(function(key) {
       jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.overview[key]+'</td>');
