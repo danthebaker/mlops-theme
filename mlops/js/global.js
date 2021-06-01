@@ -506,6 +506,7 @@ jQuery('.providers-list select').on('change', function(){
   else {
     listItems.sort(sort_popularity_asc).appendTo(list);
   }
+  jQuery.fn.matchHeight._update();
 });
 // accending sort
 function sort_title_asc(a, b){
