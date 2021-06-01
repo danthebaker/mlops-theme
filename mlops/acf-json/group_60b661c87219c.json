@@ -1,0 +1,43 @@
+{
+    "key": "group_60b661c87219c",
+    "title": "Learn Child Pages",
+    "fields": [
+        {
+            "key": "field_60b66478b94d5",
+            "label": "Coming Soon",
+            "name": "coming_soon",
+            "type": "true_false",
+            "instructions": "Check to mark this page \"coming soon\". This will display the title, excerpt and featured image on the Learn page (not linked).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_parent",
+                "operator": "==",
+                "value": "30"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1622566168
+}

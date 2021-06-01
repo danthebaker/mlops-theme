@@ -17,6 +17,71 @@
     <div class="learn-grid" style="display: block;">
 
 		<?php the_content(); ?>
+
+		<?php
+		
+		$args = array(
+			'post_type'      => 'page',
+			'posts_per_page' => -1,
+			'post_parent'    => $post->ID,
+			'order'          => 'ASC',
+			'orderby'        => 'menu_order'
+		);
+
+		$coming_soon = array();
+
+		$children = new WP_Query( $args );
+
+		if ( $children->have_posts() ) : ?>
+
+			<?php while ( $children->have_posts() ) : $children->the_post(); ?>
+			<?php
+			if(get_field('coming_soon') === true){
+				array_push($coming_soon, array("title" => get_the_title(), "feature_image_url" => get_the_post_thumbnail_url($post->ID, 'original'), "excerpt" => get_the_excerpt()));
+			}
+			else {
+				?>
+				<article>
+					<a href="<?php the_permalink(); ?>">
+						<div>
+							<img src="<?php echo get_the_post_thumbnail_url($post->ID, 'original'); ?>" alt="">
+						</div>
+						<main>
+							<h2><?php echo the_title(); ?></h2>
+							<p><?php echo the_excerpt(); ?></p>
+						</main>
+					</a>
+				</article>
+				<?php
+
+			}
+			?>
+			
+
+			<?php endwhile; ?>
+
+		<?php endif; wp_reset_postdata(); ?>
+
+		<?php
+
+		if(!empty($coming_soon)){
+			foreach($coming_soon as $cs){
+				?>
+				<article>
+					<div>
+						<div>
+							<img src="<?php echo $cs['feature_image_url']; ?>" alt="">
+						</div>
+						<main>
+							<h2><?php echo $cs['title']; ?></h2>
+							<p><?php echo $cs['excerpt']; ?></p>
+						</main>
+					</div>
+				</article>
+				<?php
+			}
+		}
+		?>
       
 <!-- <article>
 	<a href="#">
@@ -32,7 +97,7 @@
 
       
       
-<article>
+<!-- <article>
 	<a href="/learn/feature-store/">
 	<div>
 			<img src="/wp-content/themes/mlops/assets/img/hero-learn2.jpg" alt="">
@@ -42,7 +107,7 @@
 		<p>MLOps Community presents a feature store comparison page to help data practitioners evaluate and choose the right feature store solution for their operational machine learning applications</p>
 	  </main>
 	</a>
-</article>
+</article> -->
 
       
       
@@ -77,13 +142,7 @@
   </div>
 </section>
 
-<section class="prefooter prefooter--sizemore">
-  <h5>Sponsors</h5>
-  <ul class="sponsors-grid">
-    <li><a href="https://www.tecton.ai" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-tecton.jpg" alt="Tecton logo"></a></li>
-    <li><a href="https://ydata.ai" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-ydata.jpg" alt="YData logo"></a></li>
-  </ul>
-</section>
+<?php get_template_part('template-parts/sponsors');?>
 
 <section class="prefooter prefooter--footer-top"></section>
 

@@ -71,13 +71,8 @@ $events->populateRelatedField("Speakers", "Speaker");
   </div>
 </section>
 
-<section class="prefooter">
-  <h5>Sponsors</h5>
-  <ul class="sponsors-grid">
-    <li><a href="https://www.tecton.ai" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-tecton.jpg" alt="Tecton logo"></a></li>
-    <li><a href="https://ydata.ai" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-ydata.jpg" alt="YData logo"></a></li>
-  </ul>
-</section>
+<?php get_template_part('template-parts/sponsors');?>
+<section class="prefooter prefooter--footer-top"></section>
 
 		
 	</div>

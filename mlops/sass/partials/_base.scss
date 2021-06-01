@@ -1807,7 +1807,7 @@ select:focus {
 
 .sponsors-grid {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.625rem 1.875rem;
@@ -1815,18 +1815,16 @@ select:focus {
 }
 
 .sponsors-grid li {
-  flex-basis: 10%;
-}
+  flex-basis: 45%;
 
-.sponsors-grid a {
-  filter: grayscale(100%);
+  @media(min-width: 600px){
+    flex-basis: 18%;
+  }
 }
 
 .sponsors-grid img {
-  max-width: 100px;
   height: auto;
   display: block;
-  filter: grayscale(100%);
 }
 
 .tab-menu {
@@ -2464,7 +2462,7 @@ section.home {
   font-size: 1rem;
 }
 
-.learn-grid article a {
+.learn-grid article a, .learn-grid article > div {
   color: #1D1D2C;
   text-decoration: none;
   z-index: 2;
@@ -2479,7 +2477,7 @@ section.home {
 }
 
 @media screen and (min-width: 600px) {
-  .learn-grid article a {
+  .learn-grid article a, .learn-grid article > div {
     -ms-grid-columns: 1fr minmax(100px, 200px);
     grid-template-columns: 1fr minmax(100px, 200px);
   }
@@ -2817,6 +2815,20 @@ section.home {
 .schedule_event_speakers img:nth-child(10n) {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
+}
+
+body.home, body.watch, body.past-schedule {
+  .prefooter--sizemore:before {
+    background-color: #1d1d2c;
+  }
+}
+
+body.watch {
+  .footer {
+    &:before {
+
+    }
+  }
 }
 
 // to do: split the styles here into their own partial for better organizing
