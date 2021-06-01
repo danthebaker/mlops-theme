@@ -25,9 +25,14 @@
     "location": [
         [
             {
-                "param": "page_parent",
+                "param": "page_type",
                 "operator": "==",
-                "value": "30"
+                "value": "child"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-schedule-past.php"
             }
         ]
     ],
@@ -39,5 +44,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622566168
+    "modified": 1622571103
 }
