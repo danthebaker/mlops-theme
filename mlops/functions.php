@@ -543,4 +543,6 @@ class Main_Nav extends Walker_Nav_Menu {
     }
   
   }
+
+  add_post_type_support( 'page', 'excerpt' );
 ?>
