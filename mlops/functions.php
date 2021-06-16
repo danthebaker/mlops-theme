@@ -460,6 +460,7 @@ function output($content){
 }
 
 include "inc/post-types/provider.php";
+include "inc/taxonomies/provider_category.php";
 include "inc/ajax/add_to_compare.php";
 include "inc/shortcodes/providers.php";
 include "inc/acf-blocks/resource-carousel.php";
