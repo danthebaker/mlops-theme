@@ -1,74 +1,10 @@
 {
     "key": "group_60906667cd6f8",
-    "title": "Providers",
+    "title": "Providers - Feature Store",
     "fields": [
         {
-            "key": "field_609066c722bf7",
-            "label": "Video",
-            "name": "video",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 1,
-            "max": 1,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6092ecc37e84d",
-                    "label": "Youtube Video ID",
-                    "name": "youtube_video_id",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6092eccb7e84e",
-                    "label": "Video Image",
-                    "name": "video_image",
-                    "type": "image",
-                    "instructions": "Optional",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
             "key": "field_609066ae22bf5",
-            "label": "Overview",
+            "label": "Feature Store Overview",
             "name": "overview",
             "type": "repeater",
             "instructions": "",
@@ -430,27 +366,6 @@
                     "new_lines": "wpautop"
                 }
             ]
-        },
-        {
-            "key": "field_60907f028d04e",
-            "label": "Logo Height",
-            "name": "logo_height",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
         }
     ],
     "location": [
@@ -459,6 +374,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "provider"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "provider_category:feature-store"
             }
         ]
     ],
@@ -470,5 +390,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622142677
+    "modified": 1623878297
 }

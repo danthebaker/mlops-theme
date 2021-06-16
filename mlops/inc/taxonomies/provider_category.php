@@ -9,8 +9,8 @@ function register_tax_provider_category() {
 	$args = array(
 		"label" => __( 'Provider Categories', 'mlops' ),
 		"labels" => $labels,
-		"public" => true,
-		"hierarchical" => true,
+		"public" => false,
+		"hierarchical" => false,
 		"label" => "Provider Categories",
 		"show_ui" => true,
 		"show_in_menu" => true,

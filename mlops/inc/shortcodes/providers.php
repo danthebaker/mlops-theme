@@ -19,6 +19,18 @@ ob_start();
             'orderby' => 'menu_order',
             'order' => 'ASC',
         );
+
+        if(isset($params['category']) && $params['category'] != ""){
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'provider_category',
+                    'terms' => $params['category'],
+                    'field' => 'slug',
+                    'operator' => 'IN'
+                )
+            );
+        }
+
         $posts = get_posts($args);
         if($posts){
             foreach($posts as $k => $p){
@@ -79,45 +91,46 @@ ob_start();
                         ?>
                         <ul class="provider-short-profile no-style">
                             <?php
-                            // $overview = get_field('overview', $p->ID);
-                            // $overview = $overview[0];
-                            // foreach($overview as $overview_item){
-                            //     if($overview_item != "" && strtolower($overview_item) != "n/a"){
-                            //         printf('<li>%s</li>', $overview_item);
-                            //     }
-                                
-                            // }
-
-                            if( have_rows('overview', $p->ID) ):
-                                $c_obj = get_field_object('overview', $p->ID);    
-                                $sfk = array(); // sub field keys
-                                foreach($c_obj['value'][0] as $key => $val){
-                                    array_push($sfk, $key);
+                            
+                            if(isset($params['category']) && $params['category'] != ""){
+                                switch($params['category']){
+                                    case 'feature-store':
+                                        if( have_rows('overview', $p->ID) ):
+                                            $c_obj = get_field_object('overview', $p->ID);    
+                                            $sfk = array(); // sub field keys
+                                            foreach($c_obj['value'][0] as $key => $val){
+                                                array_push($sfk, $key);
+                                            }
+                                            //output($sfk);
+            
+                                            $exc = "";
+                                            if(isset($params['exclude']) && $params['exclude'] != ""){
+                                                $exc = str_replace(" ", "", $params['exclude']);
+                                                $exc = explode(',', $exc);
+                                                $exc = array_filter($exc);
+                                            }
+            
+                                            while( have_rows('overview', $p->ID) ): the_row();
+            
+                                                foreach($sfk as $k){
+                                                    $section_obj = get_sub_field_object($k);
+                                                    $section_label = $section_obj['label'];
+            
+                                                    if(!($exc && in_array($k, $exc))){
+                                                        echo '<li data-mh="item-'.$k.'">';
+                                                            printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
+                                                        echo '</li>';
+                                                    }
+                                                }
+                                                
+                                            endwhile;
+                                        endif;
+                                        break;
+                                    default:
                                 }
-                                //output($sfk);
+                            }
 
-                                $exc = "";
-                                if(isset($params['exclude']) && $params['exclude'] != ""){
-                                    $exc = str_replace(" ", "", $params['exclude']);
-                                    $exc = explode(',', $exc);
-                                    $exc = array_filter($exc);
-                                }
-
-                                while( have_rows('overview', $p->ID) ): the_row();
-
-                                    foreach($sfk as $k){
-                                        $section_obj = get_sub_field_object($k);
-                                        $section_label = $section_obj['label'];
-
-                                        if(!($exc && in_array($k, $exc))){
-                                            echo '<li data-mh="item-'.$k.'">';
-                                                printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
-                                            echo '</li>';
-                                        }
-                                    }
-                                    
-                                endwhile;
-                            endif;
+                            
                             ?>
                         </ul>
                         <footer>
