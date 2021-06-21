@@ -37,6 +37,9 @@
     ul {
         @extend ul.marker-pink;
     }
+    ol {
+        @extend ol.marker-pink;
+    }
 }
 
 .provider-profile {
@@ -62,6 +65,10 @@
             li {
                 margin-bottom: 0;
             }
+        }
+
+        ol {
+            @extend ol.marker-pink;
         }
     }
 

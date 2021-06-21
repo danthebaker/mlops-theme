@@ -420,6 +420,18 @@ ul {
 
 ol {
   list-style-type: decimal;
+
+  &.marker-pink {
+    margin-left: 20px;
+    li {
+      margin-bottom: 10px;
+    }
+    
+    li::marker {
+      color: #C33082;
+      font-weight: bold;
+    }
+  }
 }
 
 .paging {
