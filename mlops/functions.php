@@ -116,7 +116,7 @@ function scripts_setup(){
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
-    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.3', true );
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.4', true );
     wp_localize_script( 'global', 'mlops', 
         array(
             //To use this variable in javascript use "mlops.ajaxurl"
@@ -132,7 +132,7 @@ function html5blank_styles()
     // wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     // wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.1.8', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.1.9', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
 
@@ -471,19 +471,23 @@ function yoast_seo_breadcrumb_append_link( $links ) {
     global $post;
 
     if ( is_singular ( 'provider' ) ) {
+
         $breadcrumb[] = array(
             'url' => site_url( '/learn/' ),
             'text' => 'Learn',
         );
 
-        $breadcrumb[] = array(
-            'url' => site_url( '/learn/feature-store/' ),
-            'text' => 'Feature Store',
-        );
-
+        $terms = get_the_terms($post->ID, "provider_category");
+        if($terms){
+            $breadcrumb[] = array(
+                'url' => site_url( '/learn/'.$terms[0]->slug.'/' ),
+                'text' => $terms[0]->name,
+            );
+        }
+        
         array_splice( $links, 1, -2, $breadcrumb );
+        unset($links[3]); // remove duplicate link
     }
-
     return $links;
 }
 

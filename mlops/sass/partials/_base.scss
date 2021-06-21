@@ -269,17 +269,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-h1 {
+h1, .h1 {
   font-size: 3.125rem;
   line-height: 1.52;
 }
 
-h2 {
+h2, .h2 {
   font-size: 2.188rem;
   line-height: 1.52;
 }
 
-h3 {
+h3, .h3 {
   font-size: 1.563rem;
   line-height: 1.52;
 }
@@ -395,6 +395,29 @@ ul {
   list-style-type: disc;
 }
 
+ul {
+  &.no-style {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  li::marker {
+    color: #E4E4F0;
+  }
+
+  &.marker-pink {
+    margin-left: 20px;
+    li {
+      margin-bottom: 10px;
+    }
+    
+    li::marker {
+      color: #C33082;
+      font-size: 19px;
+    }
+  }
+}
+
 ol {
   list-style-type: decimal;
 }
@@ -491,25 +514,25 @@ a.skiplink:focus, a.skiplink:active {
   color: #1D1D2C;
 }
 
-.h1, .typeset h1 {
+.typeset h1 {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
-.h2, .typeset h2 {
+.typeset h2 {
   font-size: 2.25rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
-.h3, .typeset h3, .typeset h4, .typeset h5, .typeset h6, .typeset--extended p:first-of-type, .cta-block a h6, .contact main h2, .contact aside h3 {
+.typeset h3, .typeset h4, .typeset h5, .typeset h6, .typeset--extended p:first-of-type, .cta-block a h6, .contact main h2, .contact aside h3 {
   font-size: 1.625rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
-.h4, .prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2 {
+.prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2 {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 1rem;
@@ -517,7 +540,7 @@ a.skiplink:focus, a.skiplink:active {
   margin-bottom: 0.5rem;
 }
 
-.h5, .related_caption span, .schedule_event_ep {
+.related_caption span, .schedule_event_ep {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 0.875rem;
@@ -525,7 +548,7 @@ a.skiplink:focus, a.skiplink:active {
   margin-bottom: 0.5rem;
 }
 
-.h6, .tab-menu button {
+.tab-menu button {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 0.75rem;

@@ -148,19 +148,18 @@ img {
   margin-bottom: 25px;
 }
 
-.provider-short-profile li, .wp-block-group li {
-  margin-bottom: 10px;
+div.provider-short-profile {
+  margin-left: 0;
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-ul {
-  &.no-style {
-    list-style: none;
-    margin-left: 0;
-  }
-
-  li::marker {
-    color: #E4E4F0;
-  }
+.provider-short-profile li, .wp-block-group li {
+  margin-bottom: 10px;
 }
 
 .provider-overview .col-wrapper {
@@ -238,6 +237,7 @@ ul {
 
 .provider-profile table td:first-child {
   width: 30%;
+  vertical-align: middle;
 }
 
 /* Newsletter Signup Section */
@@ -804,7 +804,8 @@ z-index: 203;
   position: fixed;
   bottom: -2px;
   z-index: 201;
-  width: 100%;
+  width: 100vw;
+  left: 0;
   box-shadow: 0 12px 58px -7px rgba(69,77,89,.22);
   height: 0px;
   transition: height 0.25s ease-in-out;
@@ -1062,6 +1063,7 @@ z-index: 203;
   border-top: 1px solid #E4E4F0;
   border-bottom: 1px solid #E4E4F0;
   width: 33.33%;
+  vertical-align: top;
 }
 
 .compare-popup .comparison-table.logos {
@@ -1199,7 +1201,7 @@ p.lead-bigger {
   margin-bottom: 0;
 }
 
-.wp-block-group.evalutation-framework .section-main > .wp-block-column{
+.profile-card {
   box-shadow: 5px 5px 10px 0 #E4E4F0;
   background-color: white;
   border: 1px solid #F5F5FF;
@@ -1208,6 +1210,10 @@ p.lead-bigger {
   background-image:  url(../assets/img/img2.jpg);
   background-size: 100%;
   background-position: bottom center;
+}
+
+.wp-block-group.evalutation-framework .section-main > .wp-block-column{
+  @extend .profile-card;
 }
 
 .wp-block-group.evalutation-framework .section-main .wp-block-column > *:last-child {

@@ -1,8 +1,13 @@
 <?php
+
 function shortcode_providers($params){
+global $provider_category;
 ob_start();
+if(isset($params['category']) && $params['category'] != ""){
+    $provider_category = $params['category'];
+    $cookiename = "compare_providers_".$provider_category
 ?>
-<div class="providers-list">
+<div class="providers-list" <?php echo $provider_category ? 'data-provider_category="'.$provider_category.'"':''?>>
     <div class="sort">
         <span>Sort by <span></span></span>
         <select autocomplete="off">
@@ -63,8 +68,8 @@ ob_start();
 
                             $added = "";
                             $added_text = "Add to compare";
-                            if($_COOKIE['compare_providers']){
-                                $cookie = explode(',', $_COOKIE['compare_providers']);
+                            if($_COOKIE[$cookiename]){
+                                $cookie = explode(',', $_COOKIE[$cookiename]);
                                 if(in_array($p->ID, $cookie)){
                                     $added = "added";
                                     $added_text = "Added to compare";
@@ -89,50 +94,58 @@ ob_start();
                             echo '<div class="placeholder"><span>short demo</span><p>Video Coming Soon</p></div>';
                         }
                         ?>
-                        <ul class="provider-short-profile no-style">
-                            <?php
-                            
-                            if(isset($params['category']) && $params['category'] != ""){
-                                switch($params['category']){
-                                    case 'feature-store':
-                                        if( have_rows('overview', $p->ID) ):
-                                            $c_obj = get_field_object('overview', $p->ID);    
-                                            $sfk = array(); // sub field keys
-                                            foreach($c_obj['value'][0] as $key => $val){
-                                                array_push($sfk, $key);
-                                            }
-                                            //output($sfk);
-            
-                                            $exc = "";
-                                            if(isset($params['exclude']) && $params['exclude'] != ""){
-                                                $exc = str_replace(" ", "", $params['exclude']);
-                                                $exc = explode(',', $exc);
-                                                $exc = array_filter($exc);
-                                            }
-            
-                                            while( have_rows('overview', $p->ID) ): the_row();
-            
-                                                foreach($sfk as $k){
-                                                    $section_obj = get_sub_field_object($k);
-                                                    $section_label = $section_obj['label'];
-            
-                                                    if(!($exc && in_array($k, $exc))){
-                                                        echo '<li data-mh="item-'.$k.'">';
-                                                            printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
-                                                        echo '</li>';
-                                                    }
+                        
+                        <?php
+                        
+                        if(isset($params['category']) && $params['category'] != ""){
+                            switch($params['category']){
+                                case 'feature-store':
+                                    if( have_rows('overview', $p->ID) ):
+                                        $c_obj = get_field_object('overview', $p->ID);    
+                                        $sfk = array(); // sub field keys
+                                        foreach($c_obj['value'][0] as $key => $val){
+                                            array_push($sfk, $key);
+                                        }
+                                        //output($sfk);
+                                        echo '<ul class="provider-short-profile no-style">';
+        
+                                        $exc = "";
+                                        if(isset($params['exclude']) && $params['exclude'] != ""){
+                                            $exc = str_replace(" ", "", $params['exclude']);
+                                            $exc = explode(',', $exc);
+                                            $exc = array_filter($exc);
+                                        }
+        
+                                        while( have_rows('overview', $p->ID) ): the_row();
+        
+                                            foreach($sfk as $k){
+                                                $section_obj = get_sub_field_object($k);
+                                                $section_label = $section_obj['label'];
+        
+                                                if(!($exc && in_array($k, $exc))){
+                                                    echo '<li data-mh="item-'.$k.'">';
+                                                        printf('<strong>%s: </strong> %s', $section_label, get_sub_field($k));
+                                                    echo '</li>';
                                                 }
-                                                
-                                            endwhile;
-                                        endif;
-                                        break;
-                                    default:
-                                }
-                            }
+                                            }
+                                            
+                                        endwhile;
 
-                            
-                            ?>
-                        </ul>
+                                        echo '</ul>';
+                                    endif;
+                                    break;
+                                case 'monitoring':
+                                    if($short_bio = get_field('providers_short_bio', $p->ID)){
+                                        printf('<div class="provider-short-profile" data-mh="short-bio">%s</div>', $short_bio);
+                                    }
+                                    break;
+                                default:
+                            }
+                        }
+
+                        
+                        ?>
+                        
                         <footer>
                             <div>
                                 <?php
@@ -153,7 +166,9 @@ ob_start();
         ?>
     </ul>
 </div>
+<?php get_template_part('template-parts/compare-tab');?>
 <?php
+}
 $content = ob_get_contents();
 ob_end_clean();
 return $content;

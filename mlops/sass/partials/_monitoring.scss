@@ -1,0 +1,71 @@
+.full-bio-2up .bio {
+
+    @media(min-width: 600px){
+        column-count: 2;
+        column-gap: 30px;
+    }
+    
+}
+
+.profile-cards-2up {
+
+    @media(min-width: 900px){
+        display: flex;
+    }
+
+    .profile-card {
+        margin-bottom: 30px;
+
+        @media(min-width: 900px){
+            margin-bottom: 0;
+            flex: 0 0 calc(50% - 15px);
+            width: calc(50% - 15px);
+
+            &:nth-child(odd){
+                margin-right: 15px;
+            }
+
+            &:nth-child(even){
+                margin-left: 15px;
+            }
+        }
+    }
+    
+}
+
+.profile-list {
+    ul {
+        @extend ul.marker-pink;
+    }
+}
+
+.provider-profile {
+    li, p {
+        a {
+            font-weight: bold;
+        }
+    }
+}
+
+.compare-popup[data-provider_category="monitoring"] {
+    td {
+        p{
+            padding-left: 0;
+            &:before {
+                display: none;
+            }
+        }
+
+        ul {
+            @extend ul.marker-pink;
+
+            li {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .overview{
+        margin-bottom: -1px;
+    }
+}

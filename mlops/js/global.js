@@ -123,7 +123,8 @@ function delete_cookie(cname) {
 // --------------------------------------------------------------------
 // Feature Store Provider - add to compare button
 // --------------------------------------------------------------------
-const compare_cookie_name = "compare_providers";
+const provider_category = jQuery(".compare-bar").data("provider_category");
+const compare_cookie_name = "compare_providers_"+provider_category;
 
 function compare_button_disable_toggle(clicksource){
   var source = clicksource || "";
@@ -289,7 +290,8 @@ function add_compare_item(id){
       url: mlops.ajaxurl,
       data: {
           action: 'mlops_add_to_compare',
-          ids: id
+          ids: id,
+          category: provider_category
       },
       success: function(response){
         result = jQuery.parseJSON(response);
@@ -381,7 +383,8 @@ function populate_compare_tab_from_cookie(){
       url: mlops.ajaxurl,
       data: {
           action: 'mlops_add_to_compare',
-          ids: ids
+          ids: ids,
+          category: provider_category
       },
       success: function(response){
           result = jQuery.parseJSON(response);
@@ -442,52 +445,31 @@ function populate_table_item(item){
   }
   jQuery('.comparison-table tr[data-key="video"]').append('<td>'+vid_button+iframe+'</td>');
 
-  // demo button
-  // if(item.demo_link){
-  //   demo_button = '<a href="'+item.demo_link+'" target="_blank" class="button">Book a demo</a>';
-  // }
-  // jQuery('.comparison-table tr[data-key="demo_link"]').append('<td>'+demo_button+'</td>');
+  switch(provider_category){
+    case "feature-store":
+      if(item.overview){
+        Object.keys(item.overview).forEach(function(key) {
+          jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.overview[key]+'</td>');
+        });
+      }
+    
+      if(item.feature_store_capabilities){
+        Object.keys(item.feature_store_capabilities).forEach(function(key) {
+          jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.feature_store_capabilities[key]+'</td>');
+        });
+      }
+      break;
+    case "monitoring":
+      if(item.info){
+        Object.keys(item.info).forEach(function(key) {
+          jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.info[key]+'</td>');
+        });
+      }
 
-  //overview
-//  console.log(item);
-  if(item.overview){
-    Object.keys(item.overview).forEach(function(key) {
-      jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.overview[key]+'</td>');
-    });
+    default:
   }
 
-  //overview
-  if(item.feature_store_capabilities){
-    Object.keys(item.feature_store_capabilities).forEach(function(key) {
-      jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.feature_store_capabilities[key]+'</td>');
-    });
-  }
-
-  //capabilities
-  // if(item.capabilities){
-  //   Object.keys(item.capabilities).forEach(function(key) {
-
-  //     var cat_key = item.capabilities[key];
-  //     Object.keys(cat_key[0]).forEach(function(k) {
-  //       if(cat_key[0][k][0]){
-        
-  //         var value = "";
-  //         var y_or_n = cat_key[0][k][0].value;
-  //         if(y_or_n == "y"){
-  //           value = '<span class="checkmark-round-pink"><span class="sr-only">Yes</span></span>';
-  //         }
-  //         else if (y_or_n == "n") {
-  //           value = '<span class="x-round-grey"><span class="sr-only">No</span></span>';
-  //         }
-  //         else {
-  //           value = cat_key[0][k][0].other_value;
-  //         }
-  //         jQuery('.comparison-table tr[data-key="'+k+'"]').append('<td>'+value+'</td>');
-  //       }
-  //     });
-
-  //   });
-  // }
+  
 
   video_popups();
 }
@@ -590,8 +572,8 @@ function video_popups(){
 // --------------------------------------------------------------------
 jQuery(function(){
 
-  // limit to feature store landing and profile pages only
-  if(jQuery('body').hasClass('page-template-template-feature-store') || jQuery('body').hasClass('single-provider') ){
+  // limit to pages where the compare bar exists
+  if(jQuery('.compare-bar').length > 0 ){
     populate_compare_tab_from_cookie();
     video_popups();
     compare_button_disable_toggle();

@@ -15,6 +15,5 @@
 <?php endwhile; endif; ?>
 
 <?php get_template_part('template-parts/newsletter');?>
-<?php get_template_part('template-parts/compare-tab');?>
 </div>
 <?php get_footer(); ?>

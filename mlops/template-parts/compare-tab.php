@@ -1,4 +1,10 @@
-<section class="compare-bar">
+<?php
+
+global $provider_category;
+
+if($provider_category){
+?>
+<div class="compare-bar" data-provider_category="<?php echo $provider_category; ?>">
     <div class="section-content-wrapper">
         <button class="compare-tab-toggle">Compare providers</button>
         <div class="gradient-radial-wrapper"><span class="gradient-radial"></span></div>
@@ -19,9 +25,9 @@
             <button class="compare button" disabled>Compare</button>
         </div>
     </div>
-</section>
+</div>
 
-<div class="compare-popup popup">
+<div class="compare-popup popup" data-provider_category="<?php echo $provider_category; ?>"">
     <div class="section-content-wrapper">
         <div class="content-wrapper clear">
             <button type="button" class="close"><span class="sr-only">Close</span></button>
@@ -62,103 +68,95 @@
                                 <td>Demo link</td>
                             </tr>
                             <?php
-                            $post = get_posts(array('post_type' => 'provider', 'numberposts' => 1));
-                            $id = $post[0]->ID; // any post id. we just need one to get the acf field objects
-
-                            if( have_rows('overview', $id) ):
-                                $c_obj = get_field_object('overview', $id);    
-                                $sfk = array(); // sub field keys
-                                foreach($c_obj['value'][0] as $key => $val){
-                                    array_push($sfk, $key);
-                                }
-                                while( have_rows('overview', $id) ): the_row();
-                                    foreach($sfk as $k){
-                                        $section_obj = get_sub_field_object($k);
-                                        $section_label = $section_obj['label'];
-                                        printf('<tr data-key="%s"><td>%s</td></tr>', $k, $section_label);
-                                    }
-                                endwhile;
-                            endif;
+                            switch($provider_category){
+                                case 'feature-store':
+                                    $post = get_posts(array('post_type' => 'provider', 'numberposts' => 1,
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'provider_category',
+                                            'terms' => $provider_category,
+                                            'field' => 'slug',
+                                            'operator' => 'IN'
+                                        )
+                                    )));
+                                    $id = $post[0]->ID; // any post id from category. we just need one to get the acf field objects
+                                    
+                                    if( have_rows('overview', $id) ):
+                                        $c_obj = get_field_object('overview', $id);    
+                                        $sfk = array(); // sub field keys
+                                        foreach($c_obj['value'][0] as $key => $val){
+                                            array_push($sfk, $key);
+                                        }
+                                        while( have_rows('overview', $id) ): the_row();
+                                            foreach($sfk as $k){
+                                                $section_obj = get_sub_field_object($k);
+                                                $section_label = $section_obj['label'];
+                                                printf('<tr data-key="%s"><td>%s</td></tr>', $k, $section_label);
+                                            }
+                                        endwhile;
+                                    endif;
+                                    break;
+                                default:
+                            }
+                            
                             ?>
                         </table>
 
                     </section>
 
-                    <section class="provider-profile">
-                        <h2>Feature Store Capabilities</h2>
-                        <?php
+                    
 
-                        if( have_rows('feature_store_capabilities', $id) ):
-                            $c_obj = get_field_object('feature_store_capabilities', $id);    
-                            $sfk = array(); // sub field keys
-                            foreach($c_obj['value'][0] as $key => $val){
-                                array_push($sfk, $key);
-                            }
-                            while( have_rows('feature_store_capabilities', $id) ): the_row();
-                                echo '<table class="comparison-table feature_store_capabilities">';
-                                foreach($sfk as $k){
-                                    $section_obj = get_sub_field_object($k);
-                                    $section_label = $section_obj['label'];
+                    <section class="provider-profile">
+                        <?php
+                        switch($provider_category){
+                            case 'feature-store':
+                                echo '<h2>Feature Store Capabilities</h2>';
+                                if( have_rows('feature_store_capabilities', $id) ):
+                                    $c_obj = get_field_object('feature_store_capabilities', $id);    
+                                    $sfk = array(); // sub field keys
+                                    foreach($c_obj['value'][0] as $key => $val){
+                                        array_push($sfk, $key);
+                                    }
+                                    while( have_rows('feature_store_capabilities', $id) ): the_row();
+                                        echo '<table class="comparison-table feature_store_capabilities">';
+                                        foreach($sfk as $k){
+                                            $section_obj = get_sub_field_object($k);
+                                            $section_label = $section_obj['label'];
+                                            
+                                            echo '<tr data-key="'.$k.'">';
+                                                printf('<td>%s</td>', $section_label);
+                                            echo '</tr>';
+                                            
+                                        }
+                                        echo '</table>';
+                                    endwhile;
+                                endif;
+                                break;
+                            case 'monitoring':
+                                $keys = array(
+                                    "providers_short_bio" => "Summary",
+                                    "cost" => "How much does it cost?",
+                                    "video_tutorials" => "Video/Tutorials",
+                                    "sample_use_case" => "What’s a sample use case? Where can I learn from?",
+                                    "feature_list" => "Feature List"
+                                );
+                                echo '<table class="comparison-table">';
+                                foreach($keys as $k => $title){
                                     
                                     echo '<tr data-key="'.$k.'">';
-                                        printf('<td>%s</td>', $section_label);
+                                        printf('<td>%s</td>', $title);
                                     echo '</tr>';
                                     
                                 }
                                 echo '</table>';
-                            endwhile;
-                        endif;
+                                break;
+                            default:
+                            }
                         ?>
                     </section>
-
-                    <?php 
-
-                    // if( have_rows('capabilities', $id) ):
-                    //     $c_obj = get_field_object('capabilities', $id);    
-                    //     $sfk = array(); // sub field keys
-                    //     foreach($c_obj['value'][0] as $key => $val){
-                    //         array_push($sfk, $key);
-                    //     }
-                    //     while( have_rows('capabilities', $id) ): the_row();
-                            
-                    //         foreach($sfk as $k){
-                    //             $section_obj = get_sub_field_object($k);
-                    //             $section_label = $section_obj['label'];
-                    //             ?>
-                    <!-- //             <div class="compare-accordion <?php //echo $k; ?>">
-                    //                 <button type="button" class="accordion-toggle"><?php //echo $section_label; ?></button>
-                    //                 <div class="accordion-content">
-                    //                     <table class="comparison-table <?php //echo $k; ?>"> -->
-                                             <?php
-                    //                         $items = array();
-                    //                         foreach($section_obj['value'][0] as $kk => $section_val){
-                    //                             array_push($items, $kk);
-                    //                         }
-                    //                         if( have_rows($k) ):
-                    //                             while( have_rows($k) ): the_row();
-                    //                                 foreach($items as $item_val){
-                    //                                     $item_obj = get_sub_field_object($item_val);
-                    //                                     $item_label = $item_obj['instructions'];
-                    //                                     ?>
-                    <!-- //                                     <tr data-key="<?php //echo $item_val; ?>">
-                    //                                         <td><?php //echo $item_label; ?></td>
-                    //                                     </tr> -->
-                                                         <?php
-                    //                                 }
-                    //                             endwhile;
-                    //                         endif; 
-                    //                         ?>
-                    <!-- //                     </table>
-                    //                 </div>
-                    //             </div> -->
-                                 <?php
-                    //         }
-                    //     endwhile;
-                    // endif; 
-                    
-                    ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php } ?>
