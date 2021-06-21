@@ -3,7 +3,6 @@ $pages = get_pages(array(
     'meta_key' => '_wp_page_template',
     'meta_value' => 'template-learn.php'
 ));
-output($pages);
 get_header(); ?>
 <style>
 .hero-standard {
