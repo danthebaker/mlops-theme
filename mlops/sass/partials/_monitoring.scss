@@ -28,6 +28,10 @@
             &:nth-child(even){
                 margin-left: 15px;
             }
+        }.card-content {
+            > *:last-child {
+                margin-bottom: 0;
+            }
         }
     }
     

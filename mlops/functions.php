@@ -132,7 +132,7 @@ function html5blank_styles()
     // wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     // wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.2', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.2.1', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
 
@@ -550,18 +550,4 @@ class Main_Nav extends Walker_Nav_Menu {
   }
 
   add_post_type_support( 'page', 'excerpt' );
-
-
-/* -Change SEO tag Learn page, using yoast filter------------------------------------------------- */
-
-//title
-add_filter('wpseo_title', 'filter_wpseo_title');
-add_filter('wpseo_opengraph_title', 'filter_wpseo_title');
-add_filter('wpseo_twitter_title', 'filter_wpseo_title');
-function filter_wpseo_title($title) {	
-    if(is_post_type_archive('provider')) {
-        $title = "Learn - MLOps Community";
-    }
-    return $title;
-}
 ?>
