@@ -116,7 +116,7 @@ function scripts_setup(){
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
-    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.4', true );
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.5', true );
     wp_localize_script( 'global', 'mlops', 
         array(
             //To use this variable in javascript use "mlops.ajaxurl"
@@ -550,4 +550,18 @@ class Main_Nav extends Walker_Nav_Menu {
   }
 
   add_post_type_support( 'page', 'excerpt' );
+
+
+/* -Change SEO tag Learn page, using yoast filter------------------------------------------------- */
+
+//title
+add_filter('wpseo_title', 'filter_wpseo_title');
+function filter_wpseo_title($title) {
+	global $jobPost;
+	
+    if(is_post_type_archive('provider')) {
+        $title = "Learn";
+    }
+    return $title;
+}
 ?>

@@ -350,7 +350,7 @@ function remove_compare_item(id){
       jQuery('.compare-list li[data-provider-id="'+id+'"]').remove();
       jQuery('.compare-list').append('<li class="empty"><button class="remove"><span class="sr-only">remove</span></button><div></div></li>');
     
-      // remove from popup
+      
     }
   }
 
@@ -358,7 +358,8 @@ function remove_compare_item(id){
   jQuery('.add-to-compare[data-provider-id="'+id+'"]').removeClass('added').text('Add to compare');
   jQuery('.compare-content, .compare-popup .content').attr('data-compare-num',(parseInt(jQuery('.compare-content').attr('data-compare-num')) - 1));
 
-  var table_index = jQuery('.comparison-table.overview thead td[data-provider-id="'+id+'"]').index();
+  // remove from popup
+  var table_index = jQuery('.comparison-table.logos td[data-provider-id="'+id+'"]').index();
   jQuery('.comparison-table td:nth-child('+(table_index+1)+')').remove();
 }
 // populate compare tab from cookie. happens on load
