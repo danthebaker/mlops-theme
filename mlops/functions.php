@@ -556,11 +556,11 @@ class Main_Nav extends Walker_Nav_Menu {
 
 //title
 add_filter('wpseo_title', 'filter_wpseo_title');
-function filter_wpseo_title($title) {
-	global $jobPost;
-	
+add_filter('wpseo_opengraph_title', 'filter_wpseo_title');
+add_filter('wpseo_twitter_title', 'filter_wpseo_title');
+function filter_wpseo_title($title) {	
     if(is_post_type_archive('provider')) {
-        $title = "Learn";
+        $title = "Learn - MLOps Community";
     }
     return $title;
 }
