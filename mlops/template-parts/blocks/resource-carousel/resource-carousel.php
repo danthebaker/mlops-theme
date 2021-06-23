@@ -50,7 +50,7 @@ $resources = get_field('resource');
                         $img = "";
                         $class = "";
                         if($resource['image']){
-                            $img = $resource['image']['sizes']['medium'];
+                            $img = $resource['image']['sizes']['large'];
                         }
                         else {
                             if($resource['youtube_video_id']){
