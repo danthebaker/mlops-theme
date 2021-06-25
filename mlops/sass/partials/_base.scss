@@ -1671,6 +1671,10 @@ select:focus {
   background-image: linear-gradient(122deg, rgba(34, 34, 74, 0.5), rgba(152, 76, 154, 0.3));
   background-blend-mode: normal;
 
+  h2 {
+    margin-bottom: 20px;
+  }
+
   h1 {
     font-size: calc(1rem + 4vw);
     max-width: 800px;
