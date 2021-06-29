@@ -422,6 +422,25 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
 
+add_filter( 'replace_editor', 'enable_gutenberg_editor_for_blog_page', 10, 2 );
+/**
+ * Simulate non-empty content to enable Gutenberg editor
+ *
+ * @param bool    $replace Whether to replace the editor.
+ * @param WP_Post $post    Post object.
+ * @return bool
+ */
+function enable_gutenberg_editor_for_blog_page( $replace, $post ) {
+
+    if ( ! $replace && absint( get_option( 'page_for_posts' ) ) === $post->ID && empty( $post->post_content ) ) {
+        // This comment will be removed by Gutenberg since it won't parse into block.
+        $post->post_content = '<!--non-empty-content-->';
+    }
+
+    return $replace;
+
+}
+
 
 /*------------------------------------*\
 	ShortCode Functions

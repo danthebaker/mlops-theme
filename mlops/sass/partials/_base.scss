@@ -1666,6 +1666,12 @@ select:focus {
   max-width: 1200px;
 }
 
+.wp-block-group__inner-container {
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
 .hero-home {
   background-color: rgba(34, 34, 74, 0.6);
   background-image: linear-gradient(122deg, rgba(34, 34, 74, 0.5), rgba(152, 76, 154, 0.3));
