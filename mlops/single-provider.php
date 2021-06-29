@@ -143,7 +143,7 @@ $cookiename = "compare_providers_".$provider_category;
             if($bio = get_field('what_do_you_do')){
                 ?>
                 <section class="provider-profile full-bio full-bio-2up">
-                    <h2 class="h3">What do you do</h2>
+                    <h2 class="h3">What do you do?</h2>
                     <div class="bio"><?php echo $bio; ?></div>
                 </section>
                 <?php
