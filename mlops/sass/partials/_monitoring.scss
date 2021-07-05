@@ -52,6 +52,14 @@
             font-weight: bold;
         }
     }
+
+    .bio {
+        ul {
+            &:not(:last-child){
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 
 .compare-popup[data-provider_category="monitoring"] {
