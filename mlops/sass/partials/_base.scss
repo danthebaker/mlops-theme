@@ -1847,25 +1847,41 @@ select:focus {
 }
 
 .sponsors-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.625rem 1.875rem;
   list-style-type: none;
+  @media(min-width: 600px){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 .sponsors-grid li {
-  flex-basis: 45%;
+  padding: 0 10px;
+  margin-bottom: 30px;
 
   @media(min-width: 600px){
-    flex-basis: 18%;
+    flex-basis: 20%;
+    margin-bottom: 0px;
+  }
+
+  @media(min-width: 900px){
+    padding: 0 25px;
+  }
+
+  @media(min-width: 1200px){
+    padding: 0 50px;
   }
 }
 
 .sponsors-grid img {
   height: auto;
   display: block;
+
+  @media(max-width: 599px){
+    max-width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .tab-menu {
