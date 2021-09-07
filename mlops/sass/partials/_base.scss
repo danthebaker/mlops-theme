@@ -2320,6 +2320,7 @@ select:focus {
   grid-template-rows: auto;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(20px, 30px));
+  list-style: none;
 }
 
 .episode_media ul a {
@@ -2340,8 +2341,12 @@ select:focus {
   transform: translateY(5px);
 }
 
-.episode_media ul img[src*="spotify"] {
-  transform: translateY(3px);
+// .episode_media ul img[src*="spotify"] {
+//   transform: translateY(3px);
+// }
+
+.episode_media .iframe-wrapper iframe {
+  width: 100%;
 }
 
 @media screen and (min-width: 960px) {

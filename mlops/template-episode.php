@@ -88,14 +88,18 @@ $event->populateRelatedField("Speakers", "Speaker");
 				</div>
 			<?php endif ?>
 			<?php if ($e["AnchorFM"]): ?>
-			<div class="video"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
+			<div class="iframe-wrapper"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
 			<?php endif ?>
-			<?php if ($e["Spotify"]): ?>
+			<?php //if ($e["Spotify"] || $e["Apple"] || $e["Google"] || $e["Pandora"] || $e["Audible"] || $e["NPROne"] || $e["TuneIn"] || $e["iHeartRadio"] || $e["Deezer"] || $e["Amazon"]): ?>
 				<h4>Listen on</h4>
 				<ul>
-					<li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
+					<?php //if($e["Spotify"]): ?>
+						<!-- <li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li> -->
+					<?php //endif ?>
+					<li><a href="https://open.spotify.com/show/7wZygk3mUUqBaRbBGB1lgh" target="_blank" title="Listen on Spotify"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
+					<li><a href="https://podcasts.apple.com/ca/podcast/mlops-community/id1505372978" target="_blank" title="Listen on Apple Podcasts"><img src="/wp-content/themes/mlops/assets/img/ico_applepodcasts.png" alt="Logo for Apple Podcasts"></a></li>
 				</ul>
-			<?php endif ?>
+			<?php //endif ?>
 		</div>
 	</aside>
 	<main>
