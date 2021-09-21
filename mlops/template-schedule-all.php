@@ -13,7 +13,8 @@
 	</div>
 	<img src="/wp-content/themes/mlops/assets/img/hero-ep3.jpg" class="Photograph of keyboard warrior">
 </header>
-
+<script async src="https://cse.google.com/cse.js?cx=a5087c92853fcb7fa"></script>
+<div class="gcse-searchbox-only"></div>
   <div class="schedule-body tabs">
     <nav class="tab-menu">
       <ul>
