@@ -14,8 +14,10 @@
 	<img src="/wp-content/themes/mlops/assets/img/hero-ep3.jpg" class="Photograph of keyboard warrior">
 </header>
   <div class="schedule-body tabs">
-<script async src="https://cse.google.com/cse.js?cx=a5087c92853fcb7fa"></script>
-<div class="gcse-search"></div>
+<div style="margin-bottom:30px;">
+	<script async src="https://cse.google.com/cse.js?cx=a5087c92853fcb7fa"></script>
+	<div class="gcse-search"></div>
+</div>
     <nav class="tab-menu">
       <ul>
         <li><button class="active">All episodes</button></li>
