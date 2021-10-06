@@ -104,14 +104,14 @@ $event->populateRelatedField("Speakers", "Speaker");
 
 		<?php if ($e["TalkTakeaways"]): ?>
 		<h3 class="episode_title">Take-aways</h3>
-		<div class="typeset">
+		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
 			<?= $e["TalkTakeaways"][0] ?>
 		</div>
 		<?php endif ?>
 
 		<?php if ($e["Transcript"]): ?>
 		<h3 class="episode_title">Transcript</h3>
-		<div class="typeset">
+		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
 			<?= $e["Transcript"] ?>
 		</div>
 		<?php endif ?>
