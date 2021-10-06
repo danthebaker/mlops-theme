@@ -88,25 +88,21 @@ $event->populateRelatedField("Speakers", "Speaker");
 				</div>
 			<?php endif ?>
 			<?php if ($e["AnchorFM"]): ?>
-			<div class="iframe-wrapper"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
+			<div class="video"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
 			<?php endif ?>
-			<?php //if ($e["Spotify"] || $e["Apple"] || $e["Google"] || $e["Pandora"] || $e["Audible"] || $e["NPROne"] || $e["TuneIn"] || $e["iHeartRadio"] || $e["Deezer"] || $e["Amazon"]): ?>
+			<?php if ($e["Spotify"]): ?>
 				<h4>Listen on</h4>
 				<ul>
-					<?php //if($e["Spotify"]): ?>
-						<!-- <li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li> -->
-					<?php //endif ?>
-					<li><a href="https://open.spotify.com/show/7wZygk3mUUqBaRbBGB1lgh" target="_blank" title="Listen on Spotify"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
-					<li><a href="https://podcasts.apple.com/ca/podcast/mlops-community/id1505372978" target="_blank" title="Listen on Apple Podcasts"><img src="/wp-content/themes/mlops/assets/img/ico_applepodcasts.png" alt="Logo for Apple Podcasts"></a></li>
+					<li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
 				</ul>
-			<?php //endif ?>
+			<?php endif ?>
 		</div>
 	</aside>
 	<main>
 
 		<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
 
-		<?php if ($e["Transcript"]): ?>
+		<?php if ($e["TalkTakeaways"]): ?>
 		<h3 class="episode_title">Take-aways</h3>
 		<div class="typeset">
 			<?= $e["TalkTakeaways"][0] ?>
@@ -130,7 +126,7 @@ $event->populateRelatedField("Speakers", "Speaker");
 				<h4><?= $e["SpeakerName"][0] ?></h4>
 				<p><b style="color: #FD94CE;"><?= $e["SpeakerPosition"][0] ?></b></p>
 				<p><?= $e["SpeakerBio"][0] ?></p>
-				<?php if ($e["SpeakerTwitter"][0]): ?><p><a href="https://twitter.com/<?= $e["SpeakerTwitter"][0] ?>" target="_blank"><?= $e["SpeakerTwitter"][0] ?></a></p><?php endif ?>
+				<?php if ($e["SpeakerTwitter"][0]): ?><p><a href="<?= $e["SpeakerTwitter"][0] ?>" target="_blank">Twitter</a></p><?php endif ?>
 				<?php if ($e["SpeakerLinkedIn"][0]): ?><p><a href="<?= $e["SpeakerLinkedIn"][0] ?>" target="_blank">LinkedIn</a></p><?php endif ?>
 			</div>	
 			<?php endif ?>
@@ -140,7 +136,7 @@ $event->populateRelatedField("Speakers", "Speaker");
 				<h4><?= $e["SpeakerName"][1] ?></h4>
 				<p><b style="color: #FD94CE;"><?= $e["SpeakerPosition"][1] ?></b></p>
 				<p><?= $e["SpeakerBio"][1] ?></p>
-				<?php if ($e["SpeakerTwitter"][1]): ?><p><a href="https://twitter.com/<?= $e["SpeakerTwitter"][1] ?>" target="_blank"><?= $e["SpeakerTwitter"][1] ?></a></p><?php endif ?>
+				<?php if ($e["SpeakerTwitter"][1]): ?><p><a href="<?= $e["SpeakerTwitter"][1] ?>" target="_blank">Twitter</a></p><?php endif ?>
 				<?php if ($e["SpeakerLinkedIn"][1]): ?><p><a href="<?= $e["SpeakerLinkedIn"][1] ?>" target="_blank">LinkedIn</a></p><?php endif ?>
 			
 			</div>	
@@ -151,7 +147,7 @@ $event->populateRelatedField("Speakers", "Speaker");
 				<h4><?= $e["SpeakerName"][2] ?></h4>
 				<p><b style="color: #FD94CE;"><?= $e["SpeakerPosition"][2] ?></b></p>
 				<p><?= $e["SpeakerBio"][2] ?></p>
-				<?php if ($e["SpeakerTwitter"][2]): ?><p><a href="https://twitter.com/<?= $e["SpeakerTwitter"][2] ?>" target="_blank"><?= $e["SpeakerTwitter"][2] ?></a></p><?php endif ?>
+				<?php if ($e["SpeakerTwitter"][2]): ?><p><a href="<?= $e["SpeakerTwitter"][2] ?>" target="_blank">Twitter</a></p><?php endif ?>
 				<?php if ($e["SpeakerLinkedIn"][2]): ?><p><a href="<?= $e["SpeakerLinkedIn"][2] ?>" target="_blank">LinkedIn</a></p><?php endif ?>
 			
 			</div>	
@@ -162,7 +158,7 @@ $event->populateRelatedField("Speakers", "Speaker");
 				<h4><?= $e["SpeakerName"][3] ?></h4>
 				<p><b style="color: #FD94CE;"><?= $e["SpeakerPosition"][3] ?></b></p>
 				<p><?= $e["SpeakerBio"][3] ?></p>
-				<?php if ($e["SpeakerTwitter"][3]): ?><p><a href="https://twitter.com/<?= $e["SpeakerTwitter"][3] ?>" target="_blank"><?= $e["SpeakerTwitter"][3] ?></a></p><?php endif ?>
+				<?php if ($e["SpeakerTwitter"][3]): ?><p><a href="<?= $e["SpeakerTwitter"][3] ?>" target="_blank">Twitter</a></p><?php endif ?>
 				<?php if ($e["SpeakerLinkedIn"][3]): ?><p><a href="<?= $e["SpeakerLinkedIn"][3] ?>" target="_blank">LinkedIn</a></p><?php endif ?>
 			
 			</div>	
