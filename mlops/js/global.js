@@ -626,3 +626,11 @@ jQuery(function(){
 jQuery(window).on('resize', function(){
 	mobile_submenus();
 });
+
+// --------------------------------------------------------------------
+// Global accordion
+// --------------------------------------------------------------------
+jQuery('.accordion-ul li > h3').on('click', function(){
+  jQuery(this).parents('li').toggleClass('open');
+  jQuery(this).next('div').slideToggle();
+});

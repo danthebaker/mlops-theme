@@ -188,7 +188,23 @@ $cookiename = "compare_providers_".$provider_category;
     }
     ?>
 </div>
-
+<?php
+$args = [
+    'post_type' => 'page',
+    'nopaging' => true,
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'template-feature-store.php'
+];
+$pages = get_posts( $args );
+if(count($pages) > 0){
+    $blocks = parse_blocks($pages[0]->post_content);
+    foreach($blocks as $block){
+        if($block['blockName'] === 'acf/feature-store-faq'){
+            echo render_block($block);
+        }
+    }
+}
+?>
 <?php get_template_part('template-parts/newsletter');?>
 <?php get_template_part('template-parts/compare-tab');?>
 		

@@ -116,7 +116,7 @@ function scripts_setup(){
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
-    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.5', true );
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.6', true );
     wp_localize_script( 'global', 'mlops', 
         array(
             //To use this variable in javascript use "mlops.ajaxurl"
@@ -138,7 +138,7 @@ function html5blank_styles()
 
 // Load Admin styles
 function load_admin_style() {
-    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.3', 'all');
+    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.4', 'all');
     wp_enqueue_style('style-admin'); // Enqueue it!
 }
 
@@ -483,6 +483,7 @@ include "inc/taxonomies/provider_category.php";
 include "inc/ajax/add_to_compare.php";
 include "inc/shortcodes/providers.php";
 include "inc/acf-blocks/resource-carousel.php";
+include "inc/acf-blocks/feature-store-faq.php";
 
 add_filter( 'wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_append_link' );
 
