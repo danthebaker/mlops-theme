@@ -1850,7 +1850,7 @@ select:focus {
   list-style-type: none;
   @media(min-width: 600px){
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -1858,19 +1858,19 @@ select:focus {
 
 .sponsors-grid li {
   padding: 0 10px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
+  max-width: 150px;
 
   @media(min-width: 600px){
-    flex-basis: 20%;
-    margin-bottom: 0px;
+    flex-basis: 25%;
+    padding: 0 25px;
+    max-width: none;
+    margin: 0 0 30px;
   }
 
   @media(min-width: 900px){
-    padding: 0 25px;
-  }
-
-  @media(min-width: 1200px){
-    padding: 0 50px;
+    flex-basis: 14.25%;
+    margin-bottom: 0;
   }
 }
 
@@ -1879,7 +1879,7 @@ select:focus {
   display: block;
 
   @media(max-width: 599px){
-    max-width: 50%;
+    //max-width: 50%;
     margin: 0 auto;
   }
 }
