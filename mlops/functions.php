@@ -448,15 +448,10 @@ add_action( 'template_redirect', 'remove_wpseo' );
  * Removes output from Yoast SEO on the frontend for a specific post, page or custom post type.
  */
 function remove_wpseo() {
-    if ( get_the_ID()==7 ) {
-        global $wpseo_front;
+    if ( is_page ( 7 ) ) {
+        $front_end = YoastSEO()->classes->get( Yoast\WP\SEO\Integrations\Front_End_Integration::class );
 
-        if ( defined( $wpseo_front ) ) {
-            remove_action( 'wp_head', array ($wpseo_front, 'head' ), 1 );
-        } else {
-            $wp_thing = WPSEO_Frontend::get_instance();
-            remove_action( 'wp_head', array( $wp_thing, 'head' ), 1 );
-        }
+        remove_action( 'wpseo_head', [ $front_end, 'present_head' ], -9999 );
     }
 }
 
