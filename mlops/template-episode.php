@@ -14,15 +14,6 @@ $event->populateRelatedField("Speakers", "Speaker");
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
-
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3SBESTQV5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-G3SBESTQV5');
-    </script>
     <meta name="google-site-verification" content="jyVPI0wmsbnR3dh3ITnqf3Qdhbprbo8TUP5S6uzt3b0" />
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
