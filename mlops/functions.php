@@ -62,6 +62,19 @@ if (function_exists('add_theme_support'))
 	Functions
 \*------------------------------------*/
 
+add_action( 'template_redirect', 'remove_wpseo' );
+
+/**
+ * Removes output from Yoast SEO on the frontend for a specific post, page or custom post type.
+ */
+function remove_wpseo() {
+    if ( is_page ( 7 ) ) {
+        $front_end = YoastSEO()->classes->get( Yoast\WP\SEO\Integrations\Front_End_Integration::class );
+
+        remove_action( 'wpseo_head', [ $front_end, 'present_head' ], -9999 );
+    }
+}
+
 // HTML5 Blank navigation
 function html5blank_nav()
 {
@@ -439,20 +452,6 @@ function enable_gutenberg_editor_for_blog_page( $replace, $post ) {
 
     return $replace;
 
-}
-
-
-add_action( 'template_redirect', 'remove_wpseo' );
-
-/**
- * Removes output from Yoast SEO on the frontend for a specific post, page or custom post type.
- */
-function remove_wpseo() {
-    if ( is_page ( 7 ) ) {
-        $front_end = YoastSEO()->classes->get( Yoast\WP\SEO\Integrations\Front_End_Integration::class );
-
-        remove_action( 'wpseo_head', [ $front_end, 'present_head' ], -9999 );
-    }
 }
 
 
