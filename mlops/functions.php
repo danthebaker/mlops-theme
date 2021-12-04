@@ -442,6 +442,20 @@ function enable_gutenberg_editor_for_blog_page( $replace, $post ) {
 }
 
 
+add_action( 'template_redirect', 'remove_wpseo' );
+
+/**
+ * Removes output from Yoast SEO on the frontend for a specific post, page or custom post type.
+ */
+function remove_wpseo() {
+    if ( is_single ( 22 ) ) {
+        $front_end = YoastSEO()->classes->get( Yoast\WP\SEO\Integrations\Front_End_Integration::class );
+
+        remove_action( 'wpseo_head', [ $front_end, 'present_head' ], -9999 );
+    }
+}
+
+
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
