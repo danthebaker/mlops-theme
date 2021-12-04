@@ -2,7 +2,6 @@
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
     <meta name="google-site-verification" content="jyVPI0wmsbnR3dh3ITnqf3Qdhbprbo8TUP5S6uzt3b0" />
-
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<title><?php wp_title( '' ); ?></title>
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />

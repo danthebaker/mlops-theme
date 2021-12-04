@@ -13,13 +13,12 @@ $event->populateRelatedField("Speakers", "Speaker");
 <?php foreach($event as $e): ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
-	<head>
+  <head>
     <meta name="google-site-verification" content="jyVPI0wmsbnR3dh3ITnqf3Qdhbprbo8TUP5S6uzt3b0" />
-
-		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<title><?= $e["TalkTitle"][0] ?></title>
-		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<title><?= $e["TalkTitle"][0] ?></title>
+	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/mlops/assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/mlops/assets/favicons/favicon-32x32.png">
