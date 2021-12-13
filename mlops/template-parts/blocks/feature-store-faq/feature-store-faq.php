@@ -37,15 +37,7 @@ if(count($pages) > 0){
     $faq_header_content = get_field('feature_store_faq_header', $feature_store_page_id);
     $faq_items = get_field('feature_store_faq', $feature_store_page_id);
 
-    $display = true;
-
-    if(is_singular('provider')){
-        if(get_field('add_to_provider_single', $feature_store_page_id) === false){
-            $display = false;
-        }
-    }
-
-    if($faq_items && $display === true){
+    if($faq_items){
         ?>
         <section id="<?php echo esc_attr($id); ?>" class="block-container wp-block-group <?php echo esc_attr($className); ?>" style="<?php echo esc_attr($styles); ?>"> 
             <div class="wp-block-group__inner-container">

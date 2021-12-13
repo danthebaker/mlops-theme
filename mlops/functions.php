@@ -134,6 +134,11 @@ function html5blank_styles()
 
     wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.2.5', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
+
+    if(is_singular('provider')){
+        wp_register_style('faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.0', 'all');
+        wp_enqueue_style('faq'); // Enqueue it!
+    }
 }
 
 // Load Admin styles

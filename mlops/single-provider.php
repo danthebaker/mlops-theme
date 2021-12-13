@@ -189,20 +189,25 @@ $cookiename = "compare_providers_".$provider_category;
     ?>
 </div>
 <?php
-$args = [
-    'post_type' => 'page',
-    'nopaging' => true,
-    'meta_key' => '_wp_page_template',
-    'meta_value' => 'template-feature-store.php'
-];
-$pages = get_posts( $args );
-if(count($pages) > 0){
-    $blocks = parse_blocks($pages[0]->post_content);
-    foreach($blocks as $block){
-        if($block['blockName'] === 'acf/feature-store-faq'){
-            echo render_block($block);
-        }
-    }
+$faq_header_content = get_field('feature_store_faq_header');
+$faq_items = get_field('feature_store_faq');
+if($faq_items){
+    ?>
+    <section class="block-container wp-block-group feature-store-faq"> 
+        <div class="wp-block-group__inner-container">
+            <div class="section-header"><?php echo $faq_header_content; ?></div>
+
+            <ul class="accordion-ul">
+                <?php
+                foreach($faq_items as $faq_item){
+                    printf('<li><h3>%s <button class="toggle"><span class="sr-only">toggle</span></button></h3><div>%s</div></li>', $faq_item['question'], $faq_item['answer']);
+                }
+                ?>
+            </ul>
+        </div>
+        
+    </section>
+    <?php
 }
 ?>
 <?php get_template_part('template-parts/newsletter');?>
