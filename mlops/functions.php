@@ -139,8 +139,8 @@ function html5blank_styles()
     wp_enqueue_style('html5blank'); // Enqueue it!
 
     if(is_singular('provider')){
-        wp_register_style('faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2', 'all');
-        wp_enqueue_style('faq'); // Enqueue it!
+        wp_register_style('feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2', 'all');
+        wp_enqueue_style('feature-store-faq'); // Enqueue it!
     }
 }
 
