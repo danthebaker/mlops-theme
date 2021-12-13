@@ -19,7 +19,7 @@ const sass = require('node-sass');
             // },
             css: {
               files: ['sass/{,*/}{,*/}{,*/}*.{scss,sass}', 'template-parts/blocks/**/*.scss'],
-              tasks: ['sass', 'postcss'],
+              tasks: ['sass:dev', 'postcss:dev'],
               options: {
                 spawn: false,
               }
@@ -74,24 +74,39 @@ const sass = require('node-sass');
         //     }
         // },
         sass: {
-            dist: {
-                options: {
-                 implementation: sass,
-                  style: 'compressed', // This controls the compiled css and can be changed to nested, compact or compressed
-                  sourceMap: false
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'sass',
-                    src: ['*.scss','../template-parts/blocks/**/*.scss'],
-                    dest: 'css/',
-                    ext: '.css'
-                }],
-                tasks: ["postcss:dist"]
-
-            }
+          prod:{
+            options: {
+              implementation: sass,
+               style: 'compressed', // This controls the compiled css and can be changed to nested, compact or compressed
+               sourceMap: false
+             },
+             files: [{
+                 expand: true,
+                 cwd: 'sass',
+                 src: ['*.scss','../template-parts/blocks/**/*.scss'],
+                 dest: 'css/',
+                 ext: '.css'
+             }],
+             tasks: ["postcss:prod"]
+          },
+          dev:{
+            options: {
+              implementation: sass,
+               style: 'compressed', // This controls the compiled css and can be changed to nested, compact or compressed
+               sourceMap: true
+             },
+             files: [{
+                 expand: true,
+                 cwd: 'sass',
+                 src: ['*.scss','../template-parts/blocks/**/*.scss'],
+                 dest: 'css/',
+                 ext: '.css'
+             }],
+             tasks: ["postcss:dev"]
+          }
         },
         postcss: {
+          prod: {
             options: {
               map: false,
               processors: [
@@ -100,10 +115,20 @@ const sass = require('node-sass');
                 require('cssnano')() // minify the result
               ]
             },
-            dist: {
-              src: 'css/*.css'
-            }
+            src: 'css/*.css'
           },
+          dev: {
+            options: {
+              map: true,
+              processors: [
+                require('pixrem')(), // add fallbacks for rem units
+                //require('autoprefixer')(), // add vendor prefixes
+                require('cssnano')() // minify the result
+              ]
+            },
+            src: 'css/*.css'
+          },
+        },
           // uncomment this for purifycss
           // purifycss: {
           //   options: {            
@@ -137,6 +162,6 @@ const sass = require('node-sass');
     // the default task can be run just by typing "grunt" on the command line
     //if purifycss is desired, add to end
     //grunt.registerTask('default', ['concat', 'uglify', 'sass', 'postcss:dist']);
-    grunt.registerTask('default', ['sass', 'postcss:dist']);
+    grunt.registerTask('default', ['sass:prod', 'postcss:prod']);
 
 };
