@@ -159,9 +159,8 @@ const sass = require('node-sass');
     // this would be run by typing "grunt test" on the command line
     //grunt.registerTask('test', ['jshint', 'qunit']);
     
-    // the default task can be run just by typing "grunt" on the command line
-    //if purifycss is desired, add to end
-    //grunt.registerTask('default', ['concat', 'uglify', 'sass', 'postcss:dist']);
+    // the default task can be run just by typing "grunt" on the command line. this will not output maps
+    // run "grunt watch" when developing. this will output maps
     grunt.registerTask('default', ['sass:prod', 'postcss:prod']);
 
 };

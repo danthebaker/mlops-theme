@@ -24,8 +24,8 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
-$faq_header_content = get_field('feature_store_faq_header', $post_id);
-$faq_items = get_field('feature_store_faq', $post_id);
+$faq_header_content = get_field('feature_store_faq_header');
+$faq_items = get_field('feature_store_faq');
 
 if($faq_items){
     ?>
