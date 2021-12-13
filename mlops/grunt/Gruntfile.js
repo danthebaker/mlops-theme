@@ -78,7 +78,7 @@ const sass = require('node-sass');
                 options: {
                  implementation: sass,
                   style: 'compressed', // This controls the compiled css and can be changed to nested, compact or compressed
-                  sourceMap: true
+                  sourceMap: false
                 },
                 files: [{
                     expand: true,
@@ -93,7 +93,7 @@ const sass = require('node-sass');
         },
         postcss: {
             options: {
-              map: true,
+              map: false,
               processors: [
                 require('pixrem')(), // add fallbacks for rem units
                 //require('autoprefixer')(), // add vendor prefixes
