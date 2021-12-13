@@ -146,7 +146,7 @@ function html5blank_styles()
 
 // Load Admin styles
 function load_admin_style() {
-    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.5', 'all');
+    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.6', 'all');
     wp_enqueue_style('style-admin'); // Enqueue it!
 }
 
