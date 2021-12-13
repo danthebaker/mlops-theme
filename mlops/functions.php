@@ -113,10 +113,10 @@ function html5blank_conditional_scripts()
 }
 
 function scripts_setup(){
-    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
+    //wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
-    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'slick', 'match-height'), '1.1.6', true );
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'match-height'), '1.1.6', true );
     wp_localize_script( 'global', 'mlops', 
         array(
             //To use this variable in javascript use "mlops.ajaxurl"
@@ -124,6 +124,9 @@ function scripts_setup(){
         ) 
     );  
     wp_enqueue_script('global');
+    if(is_singular('provider')){
+        wp_enqueue_script( 'feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.js', array('jquery'), '1.0', true );
+    }
 }
 
 // Load HTML5 Blank styles
@@ -136,14 +139,14 @@ function html5blank_styles()
     wp_enqueue_style('html5blank'); // Enqueue it!
 
     if(is_singular('provider')){
-        wp_register_style('faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.0', 'all');
+        wp_register_style('faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.1', 'all');
         wp_enqueue_style('faq'); // Enqueue it!
     }
 }
 
 // Load Admin styles
 function load_admin_style() {
-    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.4', 'all');
+    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.5', 'all');
     wp_enqueue_style('style-admin'); // Enqueue it!
 }
 

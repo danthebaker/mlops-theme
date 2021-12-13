@@ -3,70 +3,73 @@
 
   .accordion-ul {
     margin-bottom: 0;
-  }
-}
-
-.accordion-ul {
-  margin-bottom: 0;
-
-  li {
-    background-color: white;
-    padding: 15px 15px 15px 25px;
-    border-radius: 10px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    > div {
-      display: none;
-      padding-top: 15px;
-      padding-bottom: 15px;
-
-      > *:last-child {
+    list-style: none;
+  
+    li {
+      background-color: white;
+      padding: 15px 15px 15px 25px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+  
+      &:last-child {
         margin-bottom: 0;
       }
-    }
-
-    &.open {
-      box-shadow: 10px 10px 10px 0 #EFEFEF;
-
-      .toggle {
-        &:before {
-          background-image: url(../../../assets/icons/minus/icon-minus-pink.svg);
-          background-color: white;
+  
+      > div {
+        display: none;
+        padding-top: 15px;
+        padding-bottom: 15px;
+  
+        > *:last-child {
+          margin-bottom: 0;
+        }
+      }
+  
+      &.open {
+        box-shadow: 10px 10px 10px 0 #EFEFEF;
+  
+        .toggle {
+          &:before {
+            background-image: url(../../../assets/icons/minus/icon-minus-pink.svg);
+            background-color: white;
+          }
         }
       }
     }
-  }
-
-  h3 {
-    position: relative;
-    padding-right: 40px;
-    font-size: 16px;
-    line-height: 1.5625;
-    cursor: pointer;
-  }
-
-  .toggle {
-    position: absolute;
-    right: 0;
-    top: 1px;
-
-    &:before {
-      content: "";
-      background-image: url(../../../assets/icons/plus/icon-plus-white.svg);
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      border: 2px solid #C33082;
-      border-radius: 5px;
-      background-color: #C33082;
-      background-size: 10px 10px;
-      background-repeat: no-repeat;
-      background-position: center;
-      top: 2px;
+  
+    h3 {
       position: relative;
+      padding-right: 40px;
+      font-size: 16px;
+      line-height: 1.5625;
+      cursor: pointer;
+      margin: 0;
+    }
+  
+    .toggle {
+      position: absolute;
+      right: 0;
+      top: 1px;
+      border: none;
+      margin: 0;
+      padding: 0;
+      background: none;
+  
+      &:before {
+        content: "";
+        background-image: url(../../../assets/icons/plus/icon-plus-white.svg);
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border: 2px solid #C33082;
+        border-radius: 5px;
+        background-color: #C33082;
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 2px;
+        position: relative;
+      }
     }
   }
 }

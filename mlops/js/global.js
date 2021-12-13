@@ -580,42 +580,6 @@ jQuery(function(){
     compare_button_disable_toggle();
   }
 
-  jQuery('[data-slick]').slick();
-
-  jQuery('.resource-carousel-slider').slick({
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-
   mobile_submenus();
   
 });
@@ -625,12 +589,4 @@ jQuery(function(){
 // --------------------------------------------------------------------
 jQuery(window).on('resize', function(){
 	mobile_submenus();
-});
-
-// --------------------------------------------------------------------
-// Global accordion
-// --------------------------------------------------------------------
-jQuery('.accordion-ul li > h3').on('click', function(){
-  jQuery(this).parents('li').toggleClass('open');
-  jQuery(this).next('div').slideToggle();
 });

@@ -59,3 +59,15 @@
 #acf-group_619ec9cb841eb .inside {
     padding: 50px !important;
 }
+
+.wp-block-group {
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    > .wp-block-group__inner-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+  
+  
