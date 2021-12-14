@@ -8,7 +8,7 @@ acf_register_block_type(array(
 	'icon'              => 'admin-comments',
      'keywords'          => array( 'faq', 'feature store', 'feature store faq', 'feature', 'store' ),
      'enqueue_assets' => function(){
-          wp_enqueue_style('feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2', 'all');
+          wp_enqueue_style('feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2.1', 'all');
           wp_enqueue_script( 'feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.js', array('jquery'), '1.0', true );
      },
      'supports'          => array(

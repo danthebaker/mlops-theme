@@ -5,7 +5,7 @@
     margin-bottom: 0;
     list-style: none; 
   
-    li {
+    > li {
       background-color: white;
       padding: 15px 15px 15px 25px;
       border-radius: 10px;
@@ -35,41 +35,43 @@
           }
         }
       }
-    }
-  
-    h3 {
-      position: relative;
-      padding-right: 40px;
-      font-size: 16px;
-      line-height: 1.5625;
-      cursor: pointer;
-      margin: 0;
-    }
-  
-    .toggle {
-      position: absolute;
-      right: 0;
-      top: 1px;
-      border: none;
-      margin: 0;
-      padding: 0;
-      background: none;
-  
-      &:before {
-        content: "";
-        background-image: url(../../../assets/icons/plus/icon-plus-white.svg);
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        border: 2px solid #C33082;
-        border-radius: 5px;
-        background-color: #C33082;
-        background-size: 10px 10px;
-        background-repeat: no-repeat;
-        background-position: center;
-        top: 2px;
+
+      > h3 {
         position: relative;
+        padding-right: 40px;
+        font-size: 16px;
+        line-height: 1.5625;
+        cursor: pointer;
+        margin: 0;
+
+        .toggle {
+          position: absolute;
+          right: 0;
+          top: 1px;
+          border: none;
+          margin: 0;
+          padding: 0;
+          background: none;
+      
+          &:before {
+            content: "";
+            background-image: url(../../../assets/icons/plus/icon-plus-white.svg);
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: 2px solid #C33082;
+            border-radius: 5px;
+            background-color: #C33082;
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+            background-position: center;
+            top: 2px;
+            position: relative;
+          }
+        }
       }
+    
+      
     }
   }
 }
