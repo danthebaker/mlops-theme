@@ -27,14 +27,6 @@ if( !empty($block['align']) ) {
 $faq_header_content = get_field('feature_store_faq_header');
 $faq_items = get_field('feature_store_faq');
 
-$faq_header_content_page = get_field('feature_store_faq_header', $post_id);
-$faq_items_page = get_field('feature_store_faq', $post_id);
-
-echo '<div style="display: none;">';
-output($faq_header_content_page);
-output($faq_items_page);
-echo '</div>';
-
 if($faq_items){
     ?>
     <section id="<?php echo esc_attr($id); ?>" class="block-container wp-block-group <?php echo esc_attr($className); ?>" style="<?php echo esc_attr($styles); ?>"> 
