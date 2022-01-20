@@ -159,4 +159,24 @@ if($provider_category){
         </div>
     </div>
 </div>
+<?php
+wp_reset_postdata();
+global $post;
+if(!is_singular('provider') && has_block('acf/resource-carousel') === false){
+    ?>
+    <div class="resource-video-popup popup video-popup">
+        <div class="content-wrapper clear">
+            <div class="content">
+                <button type="button" class="close">
+                    <span class="sr-only">Close</span>
+                </button>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
 <?php } ?>

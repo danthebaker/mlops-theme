@@ -436,13 +436,7 @@ function populate_table_item(item){
 
   // video
   if(item.video){
-    vid_button = '<p><button type="button" class="open-video-popup in-comparison-table" data-id="profile-video-'+item.ID+'">Watch demo</button></p>';
-
-    if(jQuery('body').hasClass('single-provider') && !jQuery('body').hasClass('postid-'+item.ID)){
-      // we only want this on the single-provider template because the feature store template will already have all the video popups
-      // and we only want this on the single provider template if the current page is not the current item
-      iframe = '<div class="provider-video-popup popup video-popup" id="profile-video-'+item.ID+'"><div class="content-wrapper clear"><div class="content"><button type="button" class="close"><span class="sr-only">Close</span></button><div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+item.video+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div></div>';
-    }
+    vid_button = '<p><button type="button" class="open-video-popup in-comparison-table" data-id="profile-video-'+item.ID+'" data-video="'+item.video+'">Watch demo</button></p>';
   }
   jQuery('.comparison-table tr[data-key="video"]').append('<td>'+vid_button+iframe+'</td>');
 
@@ -535,16 +529,10 @@ function video_popups(){
   var popup_closed = jQuery.Event( "popup_closed" );
 
   jQuery('.open-video-popup').on('click', function(){
-    if(jQuery(this).hasClass('resource')){ // from resource carousel
-      var vid_id = jQuery(this).data('video');
-      var src = 'https://www.youtube.com/embed/' + vid_id;
-      jQuery('#resource-video-popup iframe').attr("src", src);
-      jQuery('#resource-video-popup').addClass('displaying').show();
-    }
-    else {
-      var id = jQuery(this).data('id');
-      jQuery('#'+id).addClass('displaying').show();
-    }
+    var vid_id = jQuery(this).data('video');
+    var src = 'https://www.youtube.com/embed/' + vid_id;
+    jQuery('.video-popup iframe').attr("src", src);
+    jQuery('.video-popup').addClass('displaying').show();
 
     jQuery('body').addClass('noscroll');
     
@@ -552,17 +540,17 @@ function video_popups(){
   
   jQuery('.popup .close').on('click', function(){
     jQuery(this).closest('.popup').removeClass('displaying').hide();
-    jQuery( 'body' ).trigger("popup_closed", [jQuery(this).closest('.popup').attr('id')]);
+    jQuery( 'body' ).trigger("popup_closed", [jQuery(this).closest('.popup')]);
     
     if(!jQuery('.compare-popup').hasClass('displaying')){
       jQuery('body').removeClass('noscroll');
     }
   });
   
-  jQuery( 'body' ).on("popup_closed", function(e, id){
-    if(id){
-      if(jQuery("#"+id+" iframe").length){ // if has iframe (basically, if video)
-        jQuery("#"+id+" iframe").attr("src", jQuery("#"+id+" iframe").attr("src"));
+  jQuery( 'body' ).on("popup_closed", function(e, popup){
+    if(popup){
+      if(popup.find('iframe').length){ // if has iframe (basically, if video)
+        popup.find('iframe').attr("src", popup.find('iframe').attr("src"));
       }
     }
   });
