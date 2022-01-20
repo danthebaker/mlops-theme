@@ -188,6 +188,7 @@ $cookiename = "compare_providers_".$provider_category;
     }
     ?>
 </div>
+
 <?php
 $faq_header_content = get_field('feature_store_faq_header');
 $faq_items = get_field('feature_store_faq');
@@ -210,6 +211,44 @@ if($faq_items){
     <?php
 }
 ?>
+
+<?php
+if((current_user_can('administrator') && get_field('enable_reviews_for_admins', 'option') === true) || get_field('enable_reviews_for_users', 'option') === true){ ?>
+    
+    <section class="block-container wp-block-group feature-store-reviews"> 
+        <div class="wp-block-group__inner-container">
+            
+            <div class="section-header"><h2 style="text-align: center;">Reviews</h2></div>
+            
+            <div class="reviews-summary"><?php echo do_shortcode('[site_reviews_summary assigned_posts="post_id" hide="if_empty"]'); ?></div>
+            
+            <div class="reviews"><?php echo do_shortcode('[site_reviews assigned_posts="post_id"]'); ?></div>
+            
+            <div class="reviews-form">
+                <h3 style="text-align: center;">Review <?php the_title(); ?></h3>
+                <?php
+                if(is_user_logged_in()){
+
+                    $current_user = wp_get_current_user();
+                    echo '<div class="reviewer-wrapper">';
+                        echo '<p>You are reviewing as:';
+                            echo reviewer($current_user->ID);
+                        echo '</p>';
+                        printf('<p><a href="%s">Log out</a></p>', wp_logout_url(get_permalink()));
+                    echo '</div>';
+                    echo do_shortcode('[site_reviews_form assigned_posts="post_id" hide="email,name,terms"]');
+                }
+                else {
+                    do_action('oa_social_login');
+                }
+                ?>
+            </div>
+
+        </div>
+        
+    </section>
+
+<?php } ?>
 <?php get_template_part('template-parts/newsletter');?>
 <?php get_template_part('template-parts/compare-tab');?>
 		

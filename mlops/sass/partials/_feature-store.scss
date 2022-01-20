@@ -1269,3 +1269,19 @@ p.lead-bigger {
       position: absolute;
     }
 }
+
+.provider-body {
+  + .block-container {
+    background-color: #F9F9F9;
+    
+    + .block-container {
+      background-color: white;
+
+      &.feature-store-faq {
+        .accordion-ul > li {
+          background-color: #f9f9f9;
+        }
+      }
+    }
+  }
+}

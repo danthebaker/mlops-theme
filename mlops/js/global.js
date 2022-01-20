@@ -569,6 +569,31 @@ function video_popups(){
 }
 
 // --------------------------------------------------------------------
+// Reviews
+// --------------------------------------------------------------------
+
+jQuery('.reviewer').each(function(){
+  var reviewer = jQuery(this);
+  var profile = reviewer.data('profile');
+  var from = reviewer.data('from');
+
+  if(profile && from){
+    if(from == 'Github.com'){
+      jQuery.getJSON(profile, function(data) {
+        if(data && data.html_url){
+          reviewer.find('span').wrap('<a href="'+data.html_url+'" target="_blank"></a>');
+        }
+      });
+    }
+    else {
+      reviewer.find('span').wrap('<a href="'+profile+'" target="_blank"></a>');
+    }
+  }
+});
+  
+
+
+// --------------------------------------------------------------------
 // On page load
 // --------------------------------------------------------------------
 jQuery(function(){

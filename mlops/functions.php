@@ -578,4 +578,39 @@ class Main_Nav extends Walker_Nav_Menu {
   }
 
   add_post_type_support( 'page', 'excerpt' );
+
+function wpse66093_no_admin_access() {
+    $redirect = home_url( '/' );
+    if ( ! current_user_can( 'edit_posts' ) && ( ! wp_doing_ajax() ) ) {
+        exit( wp_redirect( $redirect ) );
+    }
+}
+add_action( 'admin_init', 'wpse66093_no_admin_access', 1 );
+
+
+function reviewer($user_id){
+    $current_user = get_user_by('id', $user_id);
+    $avatar = get_avatar($current_user->ID);
+    $name = $current_user->display_name;
+
+    // get profile link
+    $profile_link = '';
+    $signed_in_from = get_user_meta($current_user->ID, 'oa_social_login_identity_provider', true);
+
+    if($signed_in_from == 'Github.com'){
+        $github_id = get_user_meta($current_user->ID, 'oa_social_login_user_picture', true);
+        if (strpos($github_id, 'https://avatars.githubusercontent.com/u/') !== false) {
+            $github_id = str_replace('https://avatars.githubusercontent.com/u/', '', $github_id);
+            $github_id = strtok($github_id, '?');
+
+            if(intval($github_id) > 0){
+                $profile_link = 'https://api.github.com/user/'.$github_id;
+            }
+        }
+    }
+
+    $data = $profile_link ? 'data-profile="'.$profile_link.'" data-from="'.$signed_in_from.'"':'';
+
+    return '<span class="reviewer" '.$data.'><span class="avatar">'.$avatar.'</span><span class="name">'.$name.'</span></span>';
+}
 ?>

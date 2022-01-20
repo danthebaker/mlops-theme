@@ -1,0 +1,70 @@
+.feature-store-reviews {
+
+    .reviews-summary {
+        margin-bottom: 40px;
+    }
+    
+    .reviews {
+        margin-bottom: 40px;
+
+        .glsr-no-margins {
+            text-align: center;
+        }
+    }
+
+    .reviews-form {
+        .oneall_social_login {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .oneall_social_login_providers {
+            width: 440px;
+            margin: 0 auto;
+        }
+
+        .reviewer-wrapper {
+            margin: 1rem 0 2rem;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .glsr-default {
+        .glsr-reviews {
+            .glsr-review-title h3 {
+                font-size: 1rem;
+                line-height: 1.52;
+                margin-bottom: 0.5rem;
+            }
+        }
+    
+        form.glsr-form {
+            row-gap: 2rem;
+        }
+    }
+
+    .glsr-review-content {
+        + .reviewer {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.reviewer {
+    display: block;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    span.avatar {
+        margin-right: 1rem;
+        width: 40px;
+        display: inline-block;
+        margin: 0.5rem 1rem 1rem 0;
+    }
+}
