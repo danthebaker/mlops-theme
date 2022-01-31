@@ -9,5 +9,6 @@
     <li><a href="https://flyte.org/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/flyte.png" alt="Flyte logo"></a></li>
     <li><a href="https://www.datarobot.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/datarobot.png" alt="DataRobot logo"></a></li>
     <li><a href="https://arize.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-arize.png" alt="Arize logo"></a></li>
+    <li><a href="https://www.run.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/runai.png" alt="Run.Ai logo"></a></li>
   </ul>
 </section>
