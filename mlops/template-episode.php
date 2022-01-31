@@ -271,9 +271,9 @@ $event->populateRelatedField("Speakers", "Speaker");
 	<main>
 		<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
 
-		<?php if (array_key_exists('Transcript', $e)): ?>
+		<?php if (array_key_exists('TalkTakeaways', $e) && $e["TalkTakeaways"]): ?>
 		<h3 class="episode_title">Take-aways</h3>
-		<div class="typeset">
+		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
 			<?= $e["TalkTakeaways"][0] ?>
 		</div>
 		<?php endif ?>
