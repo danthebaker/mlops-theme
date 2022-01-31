@@ -36,18 +36,23 @@
 	<?php $i = 0; foreach($events as $e => $row): ?>
 	<?php
 		if(++$i > 2) break;
-		$speaker_name = $row[SpeakerName];
-		$speaker_avatar = $row[SpeakerAvatar];
+        $talk_title = array_key_exists('TalkTitle', $row) ? $row['TalkTitle'] : '';
+
+        if(!$talk_title) break;
+
+		$speaker_name = $row['SpeakerName'];
+		$speaker_avatar = $row['SpeakerAvatar'];
+        
 	?>
 		<article class="schedule_event h-event">
 			<a href="/watch/<?= $row["slug"] ?>">
 			<header>
-			<div class="schedule_event_tile" style="background-image: url(<?= $row["CoverImage"][0][thumbnails][large][url] ?>)"></div>
-			<div class="schedule_event_speakers">
-				<?php foreach($speaker_avatar as $sa): ?>
-					<img src="<?= $sa[thumbnails][large][url] ?>">
-				<?php endforeach; ?>	  
-			</div>
+                <div class="schedule_event_tile" style="background-image: url(<?= $row["CoverImage"][0]['thumbnails']['large']['url'] ?>)"></div>
+                <div class="schedule_event_speakers">
+                    <?php foreach($speaker_avatar as $sa): ?>
+                        <img src="<?= $sa['thumbnails']['large']['url'] ?>">
+                    <?php endforeach; ?>	  
+                </div>
 			</header>
 			<main class="schedule_event_description">
 			<span class="schedule_event_ep"><?= $row["Type"] ?> #<?= $row["EpisodeNumber"] ?></span>
@@ -63,7 +68,8 @@
 			</main>
 			</a>
 			</article>
-	<?php endforeach; ?>
+	<?php 
+    endforeach; ?>
 <!-- event list end -->
 
     </div>

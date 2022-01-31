@@ -42,16 +42,16 @@
 
 			<?php foreach($events as $e): ?>
 			<?php
-			 $speaker_name = $e[SpeakerName];
-			 $speaker_avatar = $e[SpeakerAvatar];
+			 $speaker_name = $e['SpeakerName'];
+			 $speaker_avatar = $e['SpeakerAvatar'];
 			?>
 				<article class="schedule_event h-event">
 				<a href="/watch/<?= $e["slug"] ?>">
 				<header>
-				<div class="schedule_event_tile" style="background-image: url(<?= $e["CoverImage"][0][thumbnails][large][url] ?>)"></div>
+				<div class="schedule_event_tile" style="background-image: url(<?= $e["CoverImage"][0]['thumbnails']['large']['url'] ?>)"></div>
 				<div class="schedule_event_speakers">
 					<?php foreach($speaker_avatar as $sa): ?>
-						<img src="<?= $sa[thumbnails][large][url] ?>">
+						<img src="<?= $sa['thumbnails']['large']['url'] ?>">
 					<?php endforeach; ?>	  
 				</div>
 				</header>
@@ -62,7 +62,7 @@
 					<?php foreach($speaker_name as $sn): ?>
 					<li><?= $sn ?></li>	
 					<?php endforeach; ?>
-					<?php if ($e["DateString"] != ""): ?> 
+					<?php if (array_key_exists('DateString', $e) && $e["DateString"] != ""): ?> 
 						<li><time class="dt-start" datetime="YYY-MM-DD HH:MM"><?= $e["DateString"] ?></time></li>		
 					<?php endif ?>		
 				</ul>
