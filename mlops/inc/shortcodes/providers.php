@@ -45,7 +45,7 @@ if(isset($params['category']) && $params['category'] != ""){
 
                 ?>
                 <li data-title="<?php echo $p->post_title; ?>" data-popularity="<?php echo $k + 1; ?>">
-                    <div class="provider-overview-card" data-provider-id="<?php echo $p->ID; ?>">
+                    <div class="provider-overview-card post-card" data-provider-id="<?php echo $p->ID; ?>">
                         <header>
 
                             <div class="logo-wrapper">
