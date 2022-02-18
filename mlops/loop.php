@@ -19,7 +19,7 @@
             <!-- post title -->
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <!-- /post title -->	
-            <?php html5wp_excerpt('html5wp_custom_post'); ?>			
+            <?php html5wp_excerpt('html5wp_custom_post', 'html5_blank_view_article'); ?>			
         </main>
 		
 	</article>

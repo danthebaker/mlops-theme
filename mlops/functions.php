@@ -280,7 +280,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
     if (function_exists($more_callback)) {
         add_filter('excerpt_more', $more_callback);
     }
-    $output = get_the_excerpt();
+    $output = $post->post_excerpt ? $post->post_excerpt . '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View article', 'html5blank') . '</a>' : get_the_excerpt();
     $output = apply_filters('wptexturize', $output);
     $output = apply_filters('convert_chars', $output);
     $output = '<p class="excerpt">' . $output . '</p>';
@@ -291,7 +291,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View article', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar
@@ -616,4 +616,11 @@ function reviewer($user_id){
 
     return '<span class="reviewer" '.$data.'><span class="avatar">'.$avatar.'</span><span class="name">'.$name.'</span></span>';
 }
+
+add_action('init', function() {
+	register_block_style('core/image', [
+		'name' => 'image-padded',
+		'label' => __('Padded Image', 'mlops'),
+	]);
+});
 ?>

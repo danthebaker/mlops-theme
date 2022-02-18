@@ -560,7 +560,7 @@ a.skiplink:focus, a.skiplink:active {
   transform: translateY(0);
 }
 
-.h1, .typeset h1, .h2, .typeset h2, .h3, .typeset h3, .typeset h4, .typeset h5, .typeset h6, .typeset--extended p:first-of-type, .cta-block a h6, .contact main h2, .contact aside h3, .h4, .prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2, .h5, .related_caption span, .schedule_event_ep, .h6, .tab-menu button {
+.h1, .typeset h1, .h2, .typeset h2, .h3, .typeset h3, .typeset h4, .typeset h5, .typeset h6, .cta-block a h6, .contact main h2, .contact aside h3, .h4, .prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2, .h5, .related_caption span, .schedule_event_ep, .h6, .tab-menu button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block;
@@ -580,15 +580,33 @@ a.skiplink:focus, a.skiplink:active {
 }
 
 .typeset h2 {
-  font-size: 2.25rem;
+  font-size: 2.125rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
-.typeset h3, .typeset h4, .typeset h5, .typeset h6, .typeset--extended p:first-of-type, .cta-block a h6, .contact main h2, .contact aside h3 {
+.typeset h3, .contact main h2, .contact aside h3, .cta-block a h6 {
   font-size: 1.625rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+}
+
+.typeset h4 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.typeset h5 {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.typeset h6 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 
 .prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2 {
@@ -617,7 +635,6 @@ a.skiplink:focus, a.skiplink:active {
 
 .text, .typeset p, .typeset li {
   font-size: 1rem;
-  font-size: calc(1rem + 0.1vw);
   margin-bottom: 1rem;
 }
 
@@ -685,24 +702,15 @@ a.skiplink:focus, a.skiplink:active {
 .typeset ol + h4,
 .typeset ol + h5,
 .typeset ol + h6 {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
-.typeset--extended p:first-of-type {
-  margin-bottom: 1.5rem;
-}
-
-@media screen and (min-width: 960px) {
-  .typeset--article p, .typeset--article li {
-    font-size: 1.25rem;
-    font-size: calc(1.25rem + 0.1vw);
-  }
-}
 
 @font-face {
   font-family: system-ui;
   font-style: normal;
   font-weight: 300;
+  display: swap;
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Segoe UI Light"), local("Ubuntu Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 
@@ -710,6 +718,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: italic;
   font-weight: 300;
+  display: swap;
   src: local(".SFNSText-LightItalic"), local(".HelveticaNeueDeskInterface-Italic"), local(".LucidaGrandeUI"), local("Segoe UI Light Italic"), local("Ubuntu Light Italic"), local("Roboto-LightItalic"), local("DroidSans"), local("Tahoma");
 }
 
@@ -717,6 +726,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: normal;
   font-weight: 400;
+  display: swap;
   src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"), local(".LucidaGrandeUI"), local("Segoe UI"), local("Ubuntu"), local("Roboto-Regular"), local("DroidSans"), local("Tahoma");
 }
 
@@ -724,6 +734,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: italic;
   font-weight: 400;
+  display: swap;
   src: local(".SFNSText-Italic"), local(".HelveticaNeueDeskInterface-Italic"), local(".LucidaGrandeUI"), local("Segoe UI Italic"), local("Ubuntu Italic"), local("Roboto-Italic"), local("DroidSans"), local("Tahoma");
 }
 
@@ -731,6 +742,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: normal;
   font-weight: 500;
+  display: swap;
   src: local(".SFNSText-Medium"), local(".HelveticaNeueDeskInterface-MediumP4"), local(".LucidaGrandeUI"), local("Segoe UI Semibold"), local("Ubuntu Medium"), local("Roboto-Medium"), local("DroidSans-Bold"), local("Tahoma Bold");
 }
 
@@ -738,6 +750,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: italic;
   font-weight: 500;
+  display: swap;
   src: local(".SFNSText-MediumItalic"), local(".HelveticaNeueDeskInterface-MediumItalicP4"), local(".LucidaGrandeUI"), local("Segoe UI Semibold Italic"), local("Ubuntu Medium Italic"), local("Roboto-MediumItalic"), local("DroidSans-Bold"), local("Tahoma Bold");
 }
 
@@ -745,6 +758,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: normal;
   font-weight: 700;
+  display: swap;
   src: local(".SFNSText-Bold"), local(".HelveticaNeueDeskInterface-Bold"), local(".LucidaGrandeUI"), local("Segoe UI Bold"), local("Ubuntu Bold"), local("Roboto-Bold"), local("DroidSans-Bold"), local("Tahoma Bold");
 }
 
@@ -752,6 +766,7 @@ a.skiplink:focus, a.skiplink:active {
   font-family: system-ui;
   font-style: italic;
   font-weight: 700;
+  display: swap;
   src: local(".SFNSText-BoldItalic"), local(".HelveticaNeueDeskInterface-BoldItalic"), local(".LucidaGrandeUI"), local("Segoe UI Bold Italic"), local("Ubuntu Bold Italic"), local("Roboto-BoldItalic"), local("DroidSans-Bold"), local("Tahoma Bold");
 }
 
@@ -2034,7 +2049,7 @@ select:focus {
 .blog-author h2 {
   font-size: 1rem;
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: normal;
   transform: translateY(2px);
 }
 
@@ -2089,91 +2104,87 @@ select:focus {
 }
 
 .blog-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 3.75rem;
-}
-
-@media screen and (min-width: 600px) {
-  .blog-grid {
-    -ms-grid-columns: 1fr 1.875rem 1fr;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-column-gap: 1.875rem;
-    grid-row-gap: 3.75rem;
-  }
-}
-
-.blog-grid article h2 {
-  font-size: 1.625rem;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-  transition: all ease-in-out 0.3s;
-  font-weight: 700;
-}
-
-.blog-grid article a {
-  text-decoration: none;
-  display: block;
-  transition: all ease-out 0.2s;
-}
-
-.blog-grid article{
-    transition: all ease-in-out 0.3s;
-
-    &:hover{
-        transform: scale(1.02);
-    }
-
-    .thumb {
-        margin: 0 -20px 20px;
-        max-width: calc(100% + 40px);
-        display: block;
-        height: 200px;
+    article {
+        transition: all ease-in-out 0.3s;
+        padding: 0;
         overflow: hidden;
-        border-radius: 10px 10px 0 0;
+        border: 1px solid #efefef;
 
-        img {
-            object-fit: cover;
-            object-position: center;
-            width: 100%;
-            height: 100%;
+        + article {
+            margin-top: 20px;
         }
-    }
 
-    .date {
-        margin-bottom: 0;
-    }
+        @media(min-width: 1200px){
+            flex-direction: row-reverse;
+            min-height: 200px;
+        }
 
-    .excerpt {
+        &:hover{
+            transform: scale(1.02);
+        }
+
+        main {
+            padding: 30px;
+            width: 75%;
+            flex: 0 0 75%;
+        }
+
+        .thumb {
+            margin: 0;
+            max-width: calc(100% + 40px);
+            display: block;
+            width: 25%;
+            flex: 0 0 25%;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .date {
+            margin-bottom: .5rem;
+        }
+
+        .excerpt {
+            margin-bottom: 0;
+            a {
+                color: #c33082;
+                margin-top: 0.5rem;
+
+                &:after {
+                    content: "";
+                    background-image: url(../assets/icons/arrow/right/small/icon-arrow-right-pink.svg);
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    margin-left: 5px;
+                }
+
+                &:hover {
+                    color: #22224a;
+                }
+            }
+        }
+
+        h2 {
+            font-size: 1.625rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            transition: all ease-in-out 0.3s;
+            font-weight: 700;
+        }
+
         a {
-            color: #c33082;
-            margin-top: 0.5rem;
-
-            &:after {
-                content: "";
-                background-image: url(../assets/icons/arrow/right/small/icon-arrow-right-pink.svg);
-                width: 10px;
-                height: 10px;
-                display: inline-block;
-                margin-left: 5px;
-            }
-
-            &:hover {
-                color: #22224a;
-            }
+            text-decoration: none;
+            display: block;
+            transition: all ease-out 0.2s;
         }
     }
 }
-
-// .blog-grid article a:hover img, .blog-grid article a:focus img, .blog-grid article a:active img {
-//   transform: scale(0.96);
-//   filter: brightness(80%);
-// }
 
 .contact {
   display: -ms-grid;
@@ -3000,4 +3011,36 @@ section.home {
   }
 }
 
+.wp-block-image {
+    margin: 40px 0;
+
+    img {
+        display: block;
+        border: 1px solid white;
+        margin: 0 auto;
+        box-shadow: 10px 10px 10px 0 #efefef;
+    }
+
+    &.is-style-image-padded {
+        img {
+            padding: 20px;
+        }
+    }
+
+    figcaption {
+        margin-top: 1em;
+        font-style: italic;
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+.wp-block-quote {
+    overflow-wrap: break-word;
+    background-color: #f7f7f7;
+    padding: 40px;
+    box-shadow: 10px 10px 10px 0 #efefef;
+    border-radius: 10px;
+    border: 1px solid white;
+}
 // to do: split the styles here into their own partial for better organizing
