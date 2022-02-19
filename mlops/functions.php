@@ -623,4 +623,20 @@ add_action('init', function() {
 		'label' => __('Padded Image', 'mlops'),
 	]);
 });
+
+// This styles the gutenberg editor to resemble the front end.
+add_action( 'enqueue_block_editor_assets', function() {
+    wp_enqueue_style( 'gutenberg-mlops', get_template_directory_uri() . "/css/gutenberg-style.css", false, '1.0.1', 'all' );
+} );
+
+add_action('admin_footer', 'add_class_to_gutenberg_container');
+
+function add_class_to_gutenberg_container() {
+  echo 
+    '<script>
+    jQuery(window).on("load", function(){
+        jQuery("#editor .editor-styles-wrapper .is-root-container").addClass("typeset");
+    });
+    </script>';
+}
 ?>
