@@ -574,39 +574,63 @@ a.skiplink:focus, a.skiplink:active {
 }
 
 .typeset h1 {
-  font-size: 3rem;
+  font-size: 2.625rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+
+  @media(min-width: 900px){
+    font-size: 3rem;
+  }
 }
 
 .typeset h2 {
-  font-size: 2.125rem;
+  font-size: 1.75rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+
+  @media(min-width: 900px){
+    font-size: 2.125rem;
+  }
 }
 
 .typeset h3, .contact main h2, .contact aside h3, .cta-block a h6 {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+
+  @media(min-width: 900px){
+    font-size: 1.625rem;
+  }
 }
 
 .typeset h4 {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-}
-
-.typeset h5 {
-    font-size: 1.375rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-}
-
-.typeset h6 {
     font-size: 1.25rem;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+
+    @media(min-width: 900px){
+        font-size: 1.5rem;
+      }
+}
+
+.typeset h5 {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+
+    @media(min-width: 900px){
+        font-size: 1.375rem;
+      }
+}
+
+.typeset h6 {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+
+    @media(min-width: 900px){
+        font-size: 1.25rem;
+      }
 }
 
 .prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2 {
@@ -2114,7 +2138,7 @@ select:focus {
             margin-top: 20px;
         }
 
-        @media(min-width: 1200px){
+        @media(min-width: 600px){
             flex-direction: row-reverse;
             min-height: 200px;
         }
@@ -2124,18 +2148,26 @@ select:focus {
         }
 
         main {
-            padding: 30px;
-            width: 75%;
-            flex: 0 0 75%;
+            padding: 20px;
+
+            @media(min-width: 600px){
+                padding: 30px;
+                width: 75%;
+                flex: 0 0 75%;
+            }
         }
 
         .thumb {
-            margin: 0;
-            max-width: calc(100% + 40px);
             display: block;
-            width: 25%;
-            flex: 0 0 25%;
-            overflow: hidden;
+            height: 200px;
+
+            @media(min-width: 600px){
+                margin: 0;
+                max-width: calc(100% + 40px);
+                width: 25%;
+                flex: 0 0 25%;
+                height: auto;
+            }
 
             img {
                 object-fit: cover;
