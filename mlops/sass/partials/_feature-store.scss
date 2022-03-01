@@ -1289,6 +1289,16 @@ img {
       }
     }
   }
+
+  .feature-store-faq {
+    .section-header {
+        max-width: none;
+    }
+    
+    .accordion-ul {
+      margin-left: 0;
+    }
+  }
   
   .resource-video-popup {
     z-index: 203;
