@@ -1,5 +1,9 @@
 .feature-store-reviews {
 
+    .section-header {
+        max-width: none;
+    }
+
     .reviews-summary {
         margin-bottom: 40px;
     }
@@ -8,19 +12,17 @@
         margin-bottom: 40px;
 
         .glsr-no-margins {
-            text-align: center;
+            margin-bottom: 0;
         }
     }
 
     .reviews-form {
         .oneall_social_login {
             margin-top: 20px;
-            text-align: center;
         }
 
         .oneall_social_login_providers {
-            width: 440px;
-            margin: 0 auto;
+            width: 150px;
         }
 
         .reviewer-wrapper {
@@ -68,3 +70,4 @@
         margin: 0.5rem 1rem 1rem 0;
     }
 }
+

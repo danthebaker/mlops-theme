@@ -571,6 +571,9 @@ jQuery('.reviewer').each(function(){
         if(data && data.html_url){
           reviewer.find('span').wrap('<a href="'+data.html_url+'" target="_blank"></a>');
         }
+        if(data && data.login){
+            reviewer.find('.name').text(data.login);
+          }
       });
     }
     else {

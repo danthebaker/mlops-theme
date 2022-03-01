@@ -230,15 +230,27 @@ if((current_user_can('administrator') && get_field('enable_reviews_for_admins', 
     <section class="block-container wp-block-group feature-store-reviews"> 
         <div class="wp-block-group__inner-container">
             
-            <div class="section-header"><h2 style="text-align: center;">Reviews</h2></div>
+            <div class="section-header"><h2>Reviews</h2></div>
             
             <div class="reviews-summary"><?php echo do_shortcode('[site_reviews_summary assigned_posts="post_id" hide="if_empty"]'); ?></div>
             
             <div class="reviews"><?php echo do_shortcode('[site_reviews assigned_posts="post_id"]'); ?></div>
             
             <div class="reviews-form">
-                <h3 style="text-align: center;">Review <?php the_title(); ?></h3>
                 <?php
+                $ratingInfo = glsr_get_ratings([
+                    'assigned_posts' => $post->ID,
+                ]);
+                
+                if(is_user_logged_in() || (! is_user_logged_in() && $ratingInfo->reviews > 0)){
+                    printf('<h3>Review %s</h3>', get_the_title());
+                }
+                ?>
+                
+                <?php
+
+                
+
                 if(is_user_logged_in()){
 
                     $current_user = wp_get_current_user();
