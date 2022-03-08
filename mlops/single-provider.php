@@ -24,7 +24,7 @@ $cookiename = "compare_providers_".$provider_category;
         <?php
         $added = "";
         $added_text = "Add to compare";
-        if($_COOKIE[$cookiename]){
+        if(isset($_COOKIE[$cookiename])){
             $cookie = explode(',', $_COOKIE[$cookiename]);
             if(in_array(get_the_ID(), $cookie)){
                 $added = "added";
