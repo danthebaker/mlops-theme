@@ -405,7 +405,7 @@ function populate_compare_tab_from_cookie(){
 }
 
 function populate_table_item(item){
-
+    console.log(item);
   var logo = "";
   var name = "";
   var vid_button = "";
@@ -454,6 +454,19 @@ function populate_table_item(item){
         });
       }
       break;
+    case "metadata-storage-and-management":
+        if(item.overview){
+          Object.keys(item.overview).forEach(function(key) {
+            jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.overview[key]+'</td>');
+          });
+        }
+      
+        if(item.model_store_capabalities){
+          Object.keys(item.model_store_capabalities).forEach(function(key) {
+            jQuery('.comparison-table tr[data-key="'+key+'"]').append('<td>'+item.model_store_capabalities[key]+'</td>');
+          });
+        }
+        break;
     case "monitoring":
       if(item.info){
         Object.keys(item.info).forEach(function(key) {
