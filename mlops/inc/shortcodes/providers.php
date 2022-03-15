@@ -96,10 +96,11 @@ if(isset($params['category']) && $params['category'] != ""){
                         ?>
                         
                         <?php
-                        
+
                         if(isset($params['category']) && $params['category'] != ""){
                             switch($params['category']){
                                 case 'feature-store':
+                                case 'metadata-storage-and-management':
                                     if( have_rows('overview', $p->ID) ):
                                         $c_obj = get_field_object('overview', $p->ID);    
                                         $sfk = array(); // sub field keys

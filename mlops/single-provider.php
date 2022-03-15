@@ -84,6 +84,7 @@ $cookiename = "compare_providers_".$provider_category;
     <?php
     switch($provider_category){
         case "feature-store":
+        case "metadata-storage-and-management":
             ?>
             <section class="provider-profile">
                 <h2>Commercial Information</h2>
