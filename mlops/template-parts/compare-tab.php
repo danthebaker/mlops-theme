@@ -70,6 +70,7 @@ if($provider_category){
                             <?php
                             switch($provider_category){
                                 case 'feature-store':
+                                case 'metadata-storage-and-management':
                                     $post = get_posts(array('post_type' => 'provider', 'numberposts' => 1,
                                     'tax_query' => array(
                                         array(
@@ -119,6 +120,29 @@ if($provider_category){
                                     }
                                     while( have_rows('feature_store_capabilities', $id) ): the_row();
                                         echo '<table class="comparison-table feature_store_capabilities">';
+                                        foreach($sfk as $k){
+                                            $section_obj = get_sub_field_object($k);
+                                            $section_label = $section_obj['label'];
+                                            
+                                            echo '<tr data-key="'.$k.'">';
+                                                printf('<td>%s</td>', $section_label);
+                                            echo '</tr>';
+                                            
+                                        }
+                                        echo '</table>';
+                                    endwhile;
+                                endif;
+                                break;
+                            case 'metadata-storage-and-management':
+                                echo '<h2>Model Store Capabalities</h2>';
+                                if( have_rows('model_store_capabalities', $id) ):
+                                    $c_obj = get_field_object('model_store_capabalities', $id);    
+                                    $sfk = array(); // sub field keys
+                                    foreach($c_obj['value'][0] as $key => $val){
+                                        array_push($sfk, $key);
+                                    }
+                                    while( have_rows('model_store_capabalities', $id) ): the_row();
+                                        echo '<table class="comparison-table model_store_capabalities">';
                                         foreach($sfk as $k){
                                             $section_obj = get_sub_field_object($k);
                                             $section_label = $section_obj['label'];

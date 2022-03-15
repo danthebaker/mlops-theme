@@ -34,6 +34,10 @@ function mlops_add_to_compare(){
                         $item_arr['overview'] = get_field('overview', $p->ID)[0];
                         $item_arr['feature_store_capabilities'] = get_field('feature_store_capabilities', $p->ID)[0];
                         break;
+                    case "metadata-storage-and-management":
+                        $item_arr['overview'] = get_field('overview', $p->ID)[0];
+                        $item_arr['model_store_capabalities'] = get_field('model_store_capabalities', $p->ID)[0];
+                        break;
                     case "monitoring":
                         $item_arr['info']['providers_short_bio'] = get_field('providers_short_bio', $p->ID);
                         $item_arr['info']['cost'] = get_field('cost', $p->ID);
