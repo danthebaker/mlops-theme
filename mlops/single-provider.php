@@ -84,7 +84,6 @@ $cookiename = "compare_providers_".$provider_category;
     <?php
     switch($provider_category){
         case "feature-store":
-        case "metadata-storage-and-management":
             ?>
             <section class="provider-profile">
                 <h2>Commercial Information</h2>
@@ -132,6 +131,73 @@ $cookiename = "compare_providers_".$provider_category;
                     }
                     //output($sfk);
                     while( have_rows('feature_store_capabilities') ): the_row();
+                        echo '<table>';
+                        foreach($sfk as $k){
+                            $section_obj = get_sub_field_object($k);
+                            $section_label = $section_obj['label'];
+
+                            
+                            echo '<tr>';
+                                printf('<td>%s</td>', $section_label);
+                                printf('<td>%s</td>', get_sub_field($k));
+                            echo '</tr>';
+                            
+                        }
+                        echo '</table>';
+                    endwhile;
+                endif;
+                ?>
+            </section>
+            <?php
+            break;
+        case "metadata-storage-and-management":
+            ?>
+            <section class="provider-profile">
+                <h2>Model Store Overview</h2>
+                <?php
+                if( have_rows('overview') ):
+                    $c_obj = get_field_object('overview');    
+                    $sfk = array(); // sub field keys
+                    foreach($c_obj['value'][0] as $key => $val){
+                        array_push($sfk, $key);
+                    }
+                    //output($sfk);
+                    while( have_rows('overview') ): the_row();
+                        echo '<table>';
+
+                        echo '<tr>';
+                        printf('<td>%s</td>',"Vendor Name");
+                        printf('<td><p>%s</p></td>',get_the_title());
+                        echo '</tr>';
+
+                        foreach($sfk as $k){
+                            $section_obj = get_sub_field_object($k);
+                            $section_label = $section_obj['label'];
+
+                            
+                            echo '<tr>';
+                                printf('<td>%s</td>', $section_label);
+                                printf('<td>%s</td>', get_sub_field($k));
+                            echo '</tr>';
+                            
+                        }
+                        echo '</table>';
+                    endwhile;
+                endif;
+                ?>
+            </section>
+            
+            <section class="provider-profile">
+                <h2>Model Store Capabalities</h2>
+                <?php
+                if( have_rows('model_store_capabalities') ):
+                    $c_obj = get_field_object('model_store_capabalities');    
+                    $sfk = array(); // sub field keys
+                    foreach($c_obj['value'][0] as $key => $val){
+                        array_push($sfk, $key);
+                    }
+                    //output($sfk);
+                    while( have_rows('model_store_capabalities') ): the_row();
                         echo '<table>';
                         foreach($sfk as $k){
                             $section_obj = get_sub_field_object($k);
