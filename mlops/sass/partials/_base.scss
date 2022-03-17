@@ -1613,6 +1613,10 @@ select:focus {
   overflow: hidden;
   z-index: 2;
   border-bottom-right-radius: 50px;
+
+  div {
+      width: 100%;
+  }
 }
 
 .learn .hero-standard {
