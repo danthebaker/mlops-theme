@@ -29,7 +29,7 @@ $faq_items = get_field('feature_store_faq');
 
 if($faq_items){
     ?>
-    <section id="<?php echo esc_attr($id); ?>" class="block-container wp-block-group <?php echo esc_attr($className); ?>" style="<?php echo esc_attr($styles); ?>"> 
+    <section id="<?php echo esc_attr($id); ?>" class="block-container wp-block-group <?php echo esc_attr($className); ?>"> 
         <div class="wp-block-group__inner-container">
             <div class="section-header"><?php echo $faq_header_content; ?></div>
 

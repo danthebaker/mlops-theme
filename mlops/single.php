@@ -23,7 +23,7 @@
   <div class="blog-body">
     <article class="blog-article" id="post-<?php the_ID(); ?>">
       <header class="blog-author">
-        <img src="<?php echo get_avatar_url( get_the_author_email(), '60' ); ?>">
+        <img src="<?php echo get_avatar_url( get_the_author_meta('email'), '60' ); ?>">
         <h2><?php esc_html_e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></h2>
       </header>
       <main class="typeset typeset--extended typeset--article">

@@ -27,7 +27,7 @@ if( !empty($block['align']) ) {
 $resources = get_field('resource');
 
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="block-container <?php echo esc_attr($className); ?>" style="<?php echo esc_attr($styles); ?>"> 
+<section id="<?php echo esc_attr($id); ?>" class="block-container <?php echo esc_attr($className); ?>"> 
     <?php
     if($resources){
         ?>

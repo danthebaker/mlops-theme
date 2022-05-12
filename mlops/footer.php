@@ -12,7 +12,6 @@
 			for($i = 1; $i <= 3; $i++){
 				if(array_key_exists('footer-menu-'.$i, $theme_locations)):
 					$menuID = $theme_locations['footer-menu-'.$i];
-					$nav_menu = wp_get_nav_menu_object( $menuID1 );
 					$arg_f = array(
 						'theme_location'  => 'footer-menu-'.$i,
 						'container'       => '',

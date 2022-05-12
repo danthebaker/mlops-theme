@@ -68,7 +68,8 @@ if(isset($params['category']) && $params['category'] != ""){
 
                             $added = "";
                             $added_text = "Add to compare";
-                            if($_COOKIE[$cookiename]){
+
+                            if(array_key_exists($cookiename, $_COOKIE) && $_COOKIE[$cookiename]){
                                 $cookie = explode(',', $_COOKIE[$cookiename]);
                                 if(in_array($p->ID, $cookie)){
                                     $added = "added";
@@ -149,12 +150,6 @@ if(isset($params['category']) && $params['category'] != ""){
                         
                         <footer>
                             <div>
-                                <?php
-                                if($demo_link){
-                                    printf('<a href="%s" class="button" target="_blank">Book a Demo</a>', $demo_link);
-                                }
-                                ?>
-                                
                                 <a href="<?php echo $link; ?>" class="button buttonSecondary">Full profile</a>
                             </div>
                             
