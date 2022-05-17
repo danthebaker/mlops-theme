@@ -44,7 +44,7 @@
             <?php endif; ?>
 
             <?php if( get_field('company') ): ?>
-               <p><?php the_field('company'); ?></p>
+               <p class="company"><?php the_field('company'); ?></p>
             <?php endif; ?>
 
          </div>
