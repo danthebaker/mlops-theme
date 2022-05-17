@@ -489,6 +489,7 @@ function output($content){
 }
 
 include "inc/post-types/provider.php";
+include "inc/post-types/team-member.php";
 include "inc/post-types/_empty.php";
 include "inc/taxonomies/provider_category.php";
 include "inc/ajax/add_to_compare.php";

@@ -570,6 +570,22 @@ function video_popups(){
 }
 
 // --------------------------------------------------------------------
+// Teams Page Popups
+// --------------------------------------------------------------------
+
+jQuery('.grid-item').on('click', function(){
+  var id = jQuery(this).data("id");
+  jQuery('body').addClass('noscroll');
+  jQuery('#'+id).show();
+});
+
+jQuery('.modal .close').on('click', function(){
+  jQuery(this).closest('.modal-background').hide();
+  jQuery( 'body' ).removeClass('noscroll');
+});
+
+
+// --------------------------------------------------------------------
 // Reviews
 // --------------------------------------------------------------------
 
