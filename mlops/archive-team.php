@@ -5,7 +5,7 @@
    <header class="hero-standard">
       <div>
          <?php echo do_shortcode('[rank_math_breadcrumb]'); ?>
-         <h1>Teams</h1>
+         <h1>Team</h1>
       </div>
       <img src="/wp-content/themes/mlops/assets/img/hero-learn1.jpg" class="Photograph of keyboard warrior">
    </header>
@@ -14,7 +14,7 @@
       <div class="team-grid">
          <?php
     $args = array(
-			'post_type'      => 'team-member',
+			'post_type'      => 'team',
 			'posts_per_page' => -1,
 			'order'          => 'ASC',
 			'orderby'        => 'menu_order'

@@ -1,17 +1,17 @@
 <?php
-function mlops_register_team_member() {
+function mlops_register_team() {
 
 	/**
-	 * Post Type: Team Members.
+	 * Post Type: Team.
 	 */
 
 	$labels = array(
-		"name" => __( "Team Members", "mlops" ),
-		"singular_name" => __( "Team Member", "mlops" ),
+		"name" => __( "Team", "mlops" ),
+		"singular_name" => __( "Team", "mlops" ),
 	);
 
 	$args = array(
-		"label" => __( "Team Members", "mlops" ),
+		"label" => __( "Team", "mlops" ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
@@ -26,13 +26,13 @@ function mlops_register_team_member() {
 		"capability_type" => "post",
 		"map_meta_cap" => true,
 		"hierarchical" => false,
-		"rewrite" => array( "slug" => "teams", "with_front" => true ),
+		"rewrite" => array( "slug" => "team", "with_front" => true ),
 		"query_var" => false,
 		"supports" => array( "title", "revisions", "editor", "thumbnail" ),
 	);
 
-	register_post_type( "team-member", $args );
+	register_post_type( "team", $args );
 }
 
-add_action( 'init', 'mlops_register_team_member' );
+add_action( 'init', 'mlops_register_team' );
 ?>
