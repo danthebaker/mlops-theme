@@ -61,7 +61,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "team-member"
+                "value": "team"
             }
         ]
     ],
@@ -74,5 +74,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652399000
+    "modified": 1652909579
 }
