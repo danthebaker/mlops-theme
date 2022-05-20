@@ -52,9 +52,9 @@
    .team-grid{
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       @media(max-width: 1200px){
-         justify-content: center;
+         justify-content: space-around;
       }
       .grid-item{
             border-radius: 10px;
