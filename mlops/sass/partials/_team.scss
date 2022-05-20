@@ -54,12 +54,14 @@
       flex-wrap: wrap;
       justify-content: space-between;
       @media(max-width: 1200px){
-         justify-content: space-around;
+         justify-content: center;
       }
       .grid-item{
             border-radius: 10px;
             width: 276px;
             padding: 12px;
+            margin-bottom: 30px;
+            margin-bottom: 4vw;
          &:hover, &:focus{
             box-shadow: 10px 10px 10px 0 #EFEFEF;
          }
