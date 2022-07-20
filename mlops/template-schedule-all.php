@@ -62,7 +62,7 @@
 					<?php foreach($speaker_name as $sn): ?>
 					<li><?= $sn ?></li>	
 					<?php endforeach; ?>
-					<?php if (array_key_exists('DateString', $e) && $e["DateString"] != ""): ?> 
+					<?php if (isset($e["DateString"])): ?> 
 						<li><time class="dt-start" datetime="YYY-MM-DD HH:MM"><?= $e["DateString"] ?></time></li>		
 					<?php endif ?>		
 				</ul>

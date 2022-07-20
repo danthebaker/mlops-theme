@@ -35,8 +35,9 @@
 
 	<?php $i = 0; foreach($events as $e => $row): ?>
 	<?php
+	//output($row);
 		if(++$i > 2) break;
-        $talk_title = array_key_exists('TalkTitle', $row) ? $row['TalkTitle'] : '';
+        $talk_title = isset($row['TalkTitle']) ? $row['TalkTitle'] : '';
 
         if(!$talk_title) break;
 
@@ -61,7 +62,7 @@
 				<?php foreach($speaker_name as $sn): ?>
 				<li><?= $sn ?></li>	
 				<?php endforeach; ?>
-				<?php if ($row["DateString"] != ""): ?> 
+				<?php if (isset($row["DateString"])): ?> 
 					<li><time class="dt-start" datetime="YYY-MM-DD HH:MM"><?= $row["DateString"] ?></time></li>		
 				<?php endif ?>		
 			</ul>
