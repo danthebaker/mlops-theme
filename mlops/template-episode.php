@@ -176,19 +176,22 @@ endforeach;
 
 					<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
 
-					<?php if (isset($e["TalkTakeaways"])): ?>
+					<?php if (isset($e["TalkTakeaways"]) && $e["TalkTakeaways"][0]): ?>
 					<h3 class="episode_title">Take-aways</h3>
 					<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
 						<?= $e["TalkTakeaways"][0] ?>
 					</div>
-					<?php endif ?>
+					<?php 
+					endif ?>
 
 					<?php if (isset($e["Transcript"])): ?>
 					<h3 class="episode_title">Transcript</h3>
 					<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
 						<?= $e["Transcript"] ?>
 					</div>
-					<?php endif ?>
+					<?php 
+					
+					endif ?>
 
 					<h3 class="episode_title">In this episode</h3>
 
