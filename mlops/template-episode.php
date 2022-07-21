@@ -51,6 +51,46 @@ function output_speakers_hosts($e){
 		endif;
 	}
 }
+
+
+// upcoming episodes
+$query_upcoming = new AirpressQuery();
+$query_upcoming->setConfig("Schedule List");
+$query_upcoming->table("Schedule")->view("Future");
+$query_upcoming->sort("DateTime","desc");
+
+$events = new AirpressCollection($query_upcoming);
+$events->populateRelatedField("Talks", "Talk");
+$events->populateRelatedField("Hosts", "Host");
+$events->populateRelatedField("Speakers", "Speaker");
+
+$i = 0;
+$upcoming_episodes_html = '';
+
+foreach($events as $e => $row):
+
+	$talk_title = isset($row['TalkTitle']) ? $row['TalkTitle'] : '';
+
+	if(!$talk_title) break;
+
+	if(++$i > 2) break;
+
+	$speaker_name = $row['SpeakerName'];
+	
+	$upcoming_episodes_html .= '
+	<a href="/watch/'.$row["slug"].'">
+		<img src="'.$row["CoverImage"][0]['thumbnails']['large']['url'].'">
+		<div class="related_caption">
+		<span>'.$row["Type"].' #'.$row["EpisodeNumber"].'</span>
+		<h4>'.$row["TalkTitle"][0].'</h4>
+		<h5>';
+			foreach($speaker_name as $sn):
+				$upcoming_episodes_html .= $sn;
+			endforeach;
+	$upcoming_episodes_html .= '</h5>
+		</div>
+	</a>';
+endforeach;
 ?>
 <?php foreach($event as $e): ?>
 <!doctype html>
@@ -76,156 +116,129 @@ function output_speakers_hosts($e){
     <a class="skiplink" href="#bodycontent">Skip to content</a>
     <div id="uicontainer" class="uicontainer l-<?php echo get_post_meta($post->ID, 'Class', true); ?>">
 	
-      <header class="header">
-        <a href="/" rel="home" class="logo">
-          <svg width="42" height="47" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 47V40.1971H10.0338C12.3865 40.1971 14.3046 38.2785 14.3046 35.9156V32.3293C14.3046 30.4547 15.8276 28.9278 17.6975 28.9278H41.0044V35.7307H17.6975C15.3448 35.7307 13.4267 37.6493 13.4267 40.0123V43.5985C13.4267 45.4731 11.9036 47 10.0338 47H0Z" fill="white"/>
-          <path d="M0 25.8608H10.0338C12.3865 25.8608 14.3046 23.9422 14.3046 21.5793V17.993C14.3046 16.1184 15.8276 14.5915 17.6975 14.5915H24.3428V21.3944H17.6931C15.3404 21.3944 13.4223 23.313 13.4223 25.676V29.2622C13.4223 31.1368 11.8993 32.6637 10.0294 32.6637H0V25.8608Z" fill="white"/>
-          <path d="M0 11.2649H10.0338C12.3865 11.2649 14.3046 9.34632 14.3046 6.98334V3.40146C14.3046 1.52692 15.8276 0 17.6975 0H24.3428V6.80292H17.6931C15.3404 6.80292 13.4223 8.72147 13.4223 11.0844V14.6707C13.4223 16.5453 11.8993 18.0722 10.0294 18.0722H0V11.2649Z" fill="white"/>
-          </svg>
-          <span>MLOps Community</span>
-        </a>
-        <div class="navigation">
-          <button class="nav-toggle" id="nav-toggle" aria-label="Main menu" aria-expanded="false" aria-controls="nav-main"><span>Menu</span></button>
-          <nav id="nav-main">
-            <?php html5blank_nav(); ?>
-          </nav>
-        </div>
-      </header>
+		<header class="header">
+		<a href="/" rel="home" class="logo">
+			<svg width="42" height="47" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 47V40.1971H10.0338C12.3865 40.1971 14.3046 38.2785 14.3046 35.9156V32.3293C14.3046 30.4547 15.8276 28.9278 17.6975 28.9278H41.0044V35.7307H17.6975C15.3448 35.7307 13.4267 37.6493 13.4267 40.0123V43.5985C13.4267 45.4731 11.9036 47 10.0338 47H0Z" fill="white"/>
+			<path d="M0 25.8608H10.0338C12.3865 25.8608 14.3046 23.9422 14.3046 21.5793V17.993C14.3046 16.1184 15.8276 14.5915 17.6975 14.5915H24.3428V21.3944H17.6931C15.3404 21.3944 13.4223 23.313 13.4223 25.676V29.2622C13.4223 31.1368 11.8993 32.6637 10.0294 32.6637H0V25.8608Z" fill="white"/>
+			<path d="M0 11.2649H10.0338C12.3865 11.2649 14.3046 9.34632 14.3046 6.98334V3.40146C14.3046 1.52692 15.8276 0 17.6975 0H24.3428V6.80292H17.6931C15.3404 6.80292 13.4223 8.72147 13.4223 11.0844V14.6707C13.4223 16.5453 11.8993 18.0722 10.0294 18.0722H0V11.2649Z" fill="white"/>
+			</svg>
+			<span>MLOps Community</span>
+		</a>
+		<div class="navigation">
+			<button class="nav-toggle" id="nav-toggle" aria-label="Main menu" aria-expanded="false" aria-controls="nav-main"><span>Menu</span></button>
+			<nav id="nav-main">
+			<?php html5blank_nav(); ?>
+			</nav>
+		</div>
+		</header>
 	
 	<div id="bodycontent">
-<style>
-.hero-episode {
-	height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-}
-</style>
-<article class="episode-article">
 
-<!-- episode start -->
-<header class="hero-episode">
-	<div>
-		<span><?= $e["Type"] ?> #<?= $e["EpisodeNumber"] ?></span>
-		<h1><?= $e["TalkTitle"][0] ?></h1>
-	</div>
-	<img src="<?= $e["CoverImage"][0]['thumbnails']['full']['url'] ?>">
-</header>
+		<style>
+		.hero-episode {
+			height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
+		}
+		</style>
 
-<?php if ($e["PastEvent"]): ?>
-<section class="episode">
-	<aside>
-		<div class="episode_media">
-			<?php if (isset($e["YouTube"])): ?>
-				<div class="video">
-					<iframe height="315" width="560" src="https://www.youtube.com/embed/<?= $e["YouTube"] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<!-- episode start -->
+		<article class="episode-article <?php echo $upcoming_episodes_html != '' ? 'bbrr':'';?>">
+
+			<header class="hero-episode">
+				<div>
+					<span><?= $e["Type"] ?> #<?= $e["EpisodeNumber"] ?></span>
+					<h1><?= $e["TalkTitle"][0] ?></h1>
 				</div>
+				<img src="<?= $e["CoverImage"][0]['thumbnails']['full']['url'] ?>">
+			</header>
+
+			<?php if ($e["PastEvent"]): ?>
+			<section class="episode">
+				<aside>
+					<div class="episode_media">
+						<?php if (isset($e["YouTube"])): ?>
+							<div class="video">
+								<iframe height="315" width="560" src="https://www.youtube.com/embed/<?= $e["YouTube"] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+						<?php endif ?>
+						<?php if (isset($e["AnchorFM"])): ?>
+						<div class="video"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
+						<?php endif ?>
+						<?php if (isset($e["Spotify"])): ?>
+							<h4>Listen on</h4>
+							<ul>
+								<li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
+							</ul>
+						<?php endif ?>
+					</div>
+				</aside>
+				<main>
+
+					<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
+
+					<?php if (isset($e["TalkTakeaways"])): ?>
+					<h3 class="episode_title">Take-aways</h3>
+					<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
+						<?= $e["TalkTakeaways"][0] ?>
+					</div>
+					<?php endif ?>
+
+					<?php if (isset($e["Transcript"])): ?>
+					<h3 class="episode_title">Transcript</h3>
+					<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
+						<?= $e["Transcript"] ?>
+					</div>
+					<?php endif ?>
+
+					<h3 class="episode_title">In this episode</h3>
+
+
+					<div class="episode_speakers">
+						<?php output_speakers_hosts($e); ?>
+					</div>
+				</main>
+			</section>
+			<?php else: ?>
+			<section class="episode">
+				<aside>
+					<div class="episode_speakers">
+						<?php output_speakers_hosts($e); ?>
+					</div>
+				</aside>
+				<main>
+					<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
+					
+					<?php if (isset($e["TalkTakeaways"])): ?>
+					<h3 class="episode_title">Take-aways</h3>
+					<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
+						<?= $e["TalkTakeaways"][0] ?>
+					</div>
+					<?php endif ?>
+
+				</main>
+			</section>
 			<?php endif ?>
-			<?php if (isset($e["AnchorFM"])): ?>
-			<div class="video"><iframe height="102" width="560" style="margin-top:30px;" frameborder="0" scrolling="no" src="https://anchor.fm/mlops/embed/episodes/<?= $e["AnchorFM"] ?>"></iframe></div>
-			<?php endif ?>
-			<?php if (isset($e["Spotify"])): ?>
-				<h4>Listen on</h4>
-				<ul>
-					<li><a href="https://open.spotify.com/show/<?= $e["Spotify"] ?>" target="_blank"><img src="/wp-content/themes/mlops/assets/img/ico_spotify.png" alt="Logo for Spotify"></a></li>
-				</ul>
-			<?php endif ?>
-		</div>
-	</aside>
-	<main>
-
-		<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
-
-		<?php if (isset($e["TalkTakeaways"])): ?>
-		<h3 class="episode_title">Take-aways</h3>
-		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
-			<?= $e["TalkTakeaways"][0] ?>
-		</div>
-		<?php endif ?>
-
-		<?php if (isset($e["Transcript"])): ?>
-		<h3 class="episode_title">Transcript</h3>
-		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
-			<?= $e["Transcript"] ?>
-		</div>
-		<?php endif ?>
-
-		<h3 class="episode_title">In this episode</h3>
-
-
-		<div class="episode_speakers">
-			<?php output_speakers_hosts($e); ?>
-		</div>
-	</main>
-</section>
-<?php else: ?>
-<section class="episode">
-	<aside>
-		<div class="episode_speakers">
-			<?php output_speakers_hosts($e); ?>
-		</div>
-	</aside>
-	<main>
-		<p class="episode_intro"><?= $e["TalkAbstract"][0] ?></p>
-		
-		<?php if (isset($e["TalkTakeaways"])): ?>
-		<h3 class="episode_title">Take-aways</h3>
-		<div class="typeset" style="color: #e4e4f0; font-size: 1rem;">
-			<?= $e["TalkTakeaways"][0] ?>
-		</div>
-		<?php endif ?>
-
-	</main>
-</section>
-<?php endif ?>
-	
-<?php endforeach; ?>
-<!-- episode end -->
-</article>
-
-<section class="related">
-  <h5>Upcoming episodes</h5>
-  <div class="related_content">
-
-<!-- event list start -->
-<?php
-$query = new AirpressQuery();
-$query->setConfig("Schedule List");
-$query->table("Schedule")->view("Future");
-$query->sort("DateTime","desc");
-
-$events = new AirpressCollection($query);
-$events->populateRelatedField("Talks", "Talk");
-$events->populateRelatedField("Hosts", "Host");
-$events->populateRelatedField("Speakers", "Speaker");
-?>
-
-<?php $i = 0; foreach($events as $e => $row): ?>
-<?php
-	if(++$i > 2) break;	
-	$talk_title = isset($row['TalkTitle']) ? $row['TalkTitle'] : '';
-
-    if(!$talk_title) break;
-
-    $speaker_name = $row['SpeakerName'];
-    $speaker_avatar = $row['SpeakerAvatar'];
-?>	
-		<a href="/watch/<?= $row["slug"] ?>">
-			<img src="<?= $row["CoverImage"][0]['thumbnails']['large']['url'] ?>">
-			<div class="related_caption">
-			<span><?= $row["Type"] ?> #<?= $row["EpisodeNumber"] ?></span>
-			<h4><?= $row["TalkTitle"][0] ?></h4>
-			<h5>
-				<?php foreach($speaker_name as $sn): ?>
-					<?= $sn ?> 
-				<?php endforeach; ?>
-			</h5>
-			</div>
-		</a>
-<?php endforeach; ?>
-<!-- event list end -->
-
-  </div>
-</section>
+		</article>
+		<!-- episode end -->
 
 		
+		<?php 
+		if($upcoming_episodes_html != ''){
+			?>
+			<!-- event list start -->
+			<section class="related">
+				<h5>Upcoming episodes</h5>
+				<div class="related_content">
+					<?php echo $upcoming_episodes_html; ?>
+				</div>
+			</section>
+			<!-- event list end -->	
+			<?php
+		}
+		?>
+		
+
 	</div>
 	<?php get_footer(); ?>
+
+<?php endforeach; ?>

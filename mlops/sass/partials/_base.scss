@@ -2290,7 +2290,10 @@ select:focus {
 
 .episode-article {
   background-color: #1D1D2C;
-  border-bottom-right-radius: 50px;
+
+  &.bbrr {
+    border-bottom-right-radius: 50px;
+  }
 }
 
 .episode {

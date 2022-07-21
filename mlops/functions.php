@@ -135,18 +135,18 @@ function html5blank_styles()
     // wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     // wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.3.3', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.3.4', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 
     if(is_singular('provider')){
-        wp_register_style('feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2', 'all');
+        wp_register_style('feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.css', array(), '1.2.1', 'all');
         wp_enqueue_style('feature-store-faq'); // Enqueue it!
     }
 }
 
 // Load Admin styles
 function load_admin_style() {
-    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.8', 'all');
+    wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.8.1', 'all');
     wp_enqueue_style('style-admin'); // Enqueue it!
 }
 
@@ -627,7 +627,7 @@ add_action('init', function() {
 
 // This styles the gutenberg editor to resemble the front end.
 add_action( 'enqueue_block_editor_assets', function() {
-    wp_enqueue_style( 'gutenberg-mlops', get_template_directory_uri() . "/css/gutenberg-style.css", false, '1.0.1', 'all' );
+    wp_enqueue_style( 'gutenberg-mlops', get_template_directory_uri() . "/css/gutenberg-style.css", false, '1.0.2', 'all' );
 } );
 
 add_action('admin_footer', 'add_class_to_gutenberg_container');
