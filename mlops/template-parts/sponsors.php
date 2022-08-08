@@ -5,7 +5,7 @@
     <li><a href="https://www.fiddler.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/fiddler-250px-wide.png" alt="Fiddler logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://www.superwise.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/superwise-250px-wide.png" alt="Superwise logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://www.donut.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/donut_color_150.png" alt="Donut logo" style="margin:0 0 20px 0"></a></li>
-    <li><a href="https://flyte.org/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/flyte.png" alt="Flyte logo" style="margin:0 0 20px 0"></a></li>
+    <li><a href="https://www.union.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/Union_Logo_yellow.png" alt="Union logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://www.datarobot.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/datarobot.png" alt="DataRobot logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://arize.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/logo-arize.png" alt="Arize logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://www.run.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/runai.png" alt="Run.Ai logo" style="margin:0 0 20px 0"></a></li>
