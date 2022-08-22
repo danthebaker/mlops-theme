@@ -13,5 +13,6 @@
     <li><a href="https://www.rungalileo.io/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/galileo-250px-wide.png" alt="Galileo logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://ai-infrastructure.org/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/aiia-250px-wide.png" alt="AIIA logo" style="margin:0 0 20px 0"></a></li>
     <li><a href="https://www.petuum.com/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/petuum-logo.png" alt="Petuum logo" style="margin:0 0 20px 0"></a></li>
+    <li><a href="https://www.wallaroo.ai/" target="_blank"><img src="/wp-content/themes/mlops/assets/img/wallaroo-logo.png" alt="Wallaroo logo" style="margin:0 0 20px 0"></a></li>
   </ul>
 </section>
