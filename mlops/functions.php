@@ -640,4 +640,7 @@ function add_class_to_gutenberg_container() {
     });
     </script>';
 }
+
+// This makes custom fields in edit page visible
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 ?>
