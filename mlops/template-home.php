@@ -96,10 +96,10 @@
       <h6>Slack</h6>
       <p>Join us to share and ask questions about pertinent MLOps topics</p>
     </a>
-    <a href="https://go.mlops.community/medium">
-      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#medium"></use></svg>
-      <h6>Medium</h6>
-      <p>Follow our blog and random articles written by the community</p>
+    <a href="https://podcasts.apple.com/us/podcast/mlops-community/id1505372978">
+      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#podcast"></use></svg>
+      <h6>Podcast</h6>
+      <p>Listen to our interviews with the best minds in the MLOps space</p>
     </a>
     <a href="/newsletter/">
       <svg class="icon_newsletter_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#newsletter"></use></svg>
