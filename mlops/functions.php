@@ -31,6 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('meetup-img', 570, 320, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -113,7 +114,7 @@ function html5blank_conditional_scripts()
 }
 
 function scripts_setup(){
-    //wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
+    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.18', true );
     wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.js', array('jquery'), '1.0', true );
 
     wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array('jquery', 'match-height'), '1.1.8', true );
@@ -491,6 +492,7 @@ function output($content){
 include "inc/post-types/provider.php";
 include "inc/post-types/team.php";
 include "inc/post-types/_empty.php";
+include "inc/post-types/event.php";
 include "inc/taxonomies/provider_category.php";
 include "inc/ajax/add_to_compare.php";
 include "inc/shortcodes/providers.php";

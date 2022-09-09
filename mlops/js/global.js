@@ -584,7 +584,17 @@ jQuery('.modal .close').on('click', function(){
   jQuery( 'body' ).removeClass('noscroll');
 });
 
-
+// --------------------------------------------------------------------
+// Meetup Slider
+// --------------------------------------------------------------------
+jQuery('.photo-slider').slick({
+  infinite: true,
+  slidesToShow: 3,
+  centerMode: true,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 3500
+});
 // --------------------------------------------------------------------
 // Reviews
 // --------------------------------------------------------------------
