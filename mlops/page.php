@@ -3,8 +3,12 @@ get_header();
 ?>
 <style>
 .hero-learnsingle {
-	height: 60vh;
+	height: 30vh;
 }
+.learn-body {
+	min-height: 45vh;
+}
+
 .button.product_type_simple {
 	display:none;
 }

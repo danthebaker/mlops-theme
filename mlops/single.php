@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <style>
 .hero-post {
-	height: 60vh;
+	height: 30vh;
 }
 </style>		
 <section class="blog blog-single">
