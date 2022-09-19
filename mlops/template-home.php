@@ -1,9 +1,4 @@
 <?php /* Template Name: Homepage */ get_header(); ?>
-<style>
-.hero-home {
-	height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-}
-</style>
 
 <section class="home">
   
@@ -15,6 +10,37 @@
 	</header>
 
 	<?php the_content(); ?>
+
+<section class="section-content-wrapper content-block dark get-involved">
+  <h5>Ways to get involved</h5>
+  <div class="cta-block">
+    <a href="https://go.mlops.community/slack">
+      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#slack"></use></svg>
+      <h6>Slack</h6>
+      <p>Join us to share and ask questions about pertinent MLOps topics</p>
+    </a>
+    <a href="https://podcasts.apple.com/us/podcast/mlops-community/id1505372978">
+      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#podcast"></use></svg>
+      <h6>Podcast</h6>
+      <p>Listen to our interviews with the best minds in the MLOps space</p>
+    </a>
+    <a href="/newsletter/">
+      <svg class="icon_newsletter_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#newsletter"></use></svg>
+      <h6>Get our newsletter</h6>
+      <p>Weekly roundups of everything happening in the MLOps Community</p>
+    </a>
+    <a href="https://go.mlops.community/youtube">
+      <svg class="icon_youtube_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#youtube"></use></svg>
+      <h6>YouTube</h6>
+      <p>Watch all our latest videos as soon as they are released</p>
+    </a>
+    <a href="https://go.mlops.community/linkedin">
+      <svg class="icon_linkedin_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#linkedin"></use></svg>
+      <h6>LinkedIn</h6>
+      <p>Give us a follow on the professional social network</p>
+    </a>
+  </div>
+</section>
 
 	<!-- event list start -->
 	<?php 
@@ -73,7 +99,7 @@
 
 	if($upcoming_episodes_html != ''){
 		?>
-		<div class="schedule-body">
+		<div class="schedule-body section-content-wrapper content-block">
 			<h2>Upcoming episodes</h2>
 			<div class="schedule-home">
 				<?php echo $upcoming_episodes_html; ?>
@@ -88,37 +114,11 @@
 
 <?php get_template_part('template-parts/sponsors');?>
 
-<section class="prefooter prefooter--ctas">
-  <h5>Ways to get involved</h5>
-  <div class="cta-block">
-    <a href="https://go.mlops.community/slack">
-      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#slack"></use></svg>
-      <h6>Slack</h6>
-      <p>Join us to share and ask questions about pertinent MLOps topics</p>
-    </a>
-    <a href="https://podcasts.apple.com/us/podcast/mlops-community/id1505372978">
-      <svg class="icon_slack_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#podcast"></use></svg>
-      <h6>Podcast</h6>
-      <p>Listen to our interviews with the best minds in the MLOps space</p>
-    </a>
-    <a href="/newsletter/">
-      <svg class="icon_newsletter_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#newsletter"></use></svg>
-      <h6>Get our newsletter</h6>
-      <p>Weekly roundups of everything happening in the MLOps Community</p>
-    </a>
-    <a href="https://go.mlops.community/youtube">
-      <svg class="icon_youtube_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#youtube"></use></svg>
-      <h6>YouTube</h6>
-      <p>Watch all our latest videos as soon as they are released</p>
-    </a>
-    <a href="https://go.mlops.community/linkedin">
-      <svg class="icon_linkedin_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#linkedin"></use></svg>
-      <h6>LinkedIn</h6>
-      <p>Give us a follow on the professional social network</p>
-    </a>
+<div class="section-content-wrapper content-block home-video">
+  <div class="video">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/T_mBxd1T88s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
   </div>
-</section>
-
+</div>
 		
 </div>
 <?php get_footer(); ?>
