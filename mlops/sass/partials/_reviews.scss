@@ -19,6 +19,10 @@
     .reviews-form {
         .oneall_social_login {
             margin-top: 20px;
+
+            &:not(:last-child){
+                margin-bottom: 40px;
+            }
         }
 
         .oneall_social_login_providers {
