@@ -6,6 +6,6 @@
     {{ date }}
     {{ assigned_links }}
     {{ content }}
-    <?php echo reviewer($review->author_id); ?>
+    <?php echo reviewer( $review->author_id, $review ); ?>
     {{ response }}
 </div>
