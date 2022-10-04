@@ -9,8 +9,6 @@
 		<img src="/wp-content/themes/mlops/assets/img/bkg3.jpg" class="Photograph of keyboard warrior">
 	</header>
 
-	<?php the_content(); ?>
-
 <section class="section-content-wrapper content-block dark get-involved">
   <h5>Ways to get involved</h5>
   <div class="cta-block">
@@ -113,6 +111,10 @@
 </section>
 
 <?php get_template_part('template-parts/sponsors');?>
+
+<section class="home">
+  <?php the_content(); ?>
+</section>
 
 <div class="section-content-wrapper content-block home-video">
   <div class="video">
