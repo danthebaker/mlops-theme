@@ -1603,7 +1603,7 @@ select:focus {
   background-blend-mode: screen;
   background-size: cover;
   position: relative;
-  min-height: 30vh;
+  padding: 16vh 0 8vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1615,7 +1615,20 @@ select:focus {
   border-bottom-right-radius: 50px;
 
   div {
-      width: 100%;
+    width: 100%;
+    -ms-grid-row-align: end;
+        align-self: end;
+    -ms-grid-column-align: left;
+        justify-self: left;
+    z-index: 3;
+  
+    h1 {
+      font-size: 3rem;
+      font-size: calc(1rem + 4vw);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
   }
 }
 
@@ -1644,29 +1657,12 @@ select:focus {
   z-index: 1;
 }
 
-.hero-standard div {
-  -ms-grid-row-align: end;
-      align-self: end;
-  -ms-grid-column-align: left;
-      justify-self: left;
-  z-index: 3;
-}
-
-.hero-standard div h1 {
-  font-size: 3rem;
-  font-size: calc(1rem + 5vw);
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  transform: translateY(-50%);
-}
-
 .hero-episode, .hero-learnsingle, .hero-post, .hero-default, .hero-home {
   background-color: #e3fafe;
   background-blend-mode: screen;
   background-size: cover;
   position: relative;
-  height: 90vh;
+  padding: 16vh 0 8vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1737,11 +1733,14 @@ select:focus {
 
 .hero-post {
   border-bottom-right-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .hero-post div h1 {
   font-size: calc(1rem + 2vw);
   max-width: 800px;
+  margin-bottom: 0;
 }
 
 .hero-default {
@@ -1766,8 +1765,7 @@ select:focus {
   background-color: rgba(34, 34, 74, 0.6);
   background-image: linear-gradient(122deg, rgba(34, 34, 74, 0.5), rgba(152, 76, 154, 0.3));
   background-blend-mode: normal;
-  padding: 16vh 0 8vh;
-  min-height: 190px;
+  padding: 16vh 20px 8vh;
   height: auto;
   border-radius: 0;
 

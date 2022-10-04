@@ -4,11 +4,7 @@ $pages = get_pages(array(
     'meta_value' => 'template-learn.php'
 ));
 get_header(); ?>
-<style>
-.hero-standard {
-	min-height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-}
-</style>		
+	
 <section class="learn">
   
 <header class="hero-standard">
