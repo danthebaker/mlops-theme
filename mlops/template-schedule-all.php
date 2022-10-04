@@ -1,10 +1,6 @@
 <?php /* Template Name: Schedule All */ get_header(); ?>
 
-<style>
-.hero-standard {
-	min-height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-}
-</style>
+
 <section class="schedule">
   
 <header class="hero-standard">

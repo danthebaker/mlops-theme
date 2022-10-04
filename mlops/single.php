@@ -1,9 +1,4 @@
-<?php get_header(); ?>
-<style>
-.hero-post {
-	height: 30vh;
-}
-</style>		
+<?php get_header(); ?>	
 <section class="blog blog-single">
 
 <?php if ( have_posts() ) : while (have_posts() ) : the_post(); ?>

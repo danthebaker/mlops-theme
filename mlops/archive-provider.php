@@ -10,11 +10,7 @@ if($pages){
     $learn_ID  = $pages[0]->ID; // get the Learn page
 }
 get_header(); ?>
-<style>
-.hero-standard {
-	min-height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-}
-</style>		
+
 <section class="learn">
   
 <header class="hero-standard">
