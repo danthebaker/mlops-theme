@@ -633,7 +633,7 @@ a.skiplink:focus, a.skiplink:active {
       }
 }
 
-.prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2 {
+.prefooter > h5, .related > h5, .compare-heading, .compare-panel__header h1, .episode_title, .schedule-body > h2, .content-block > h5 {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 1rem;
@@ -821,7 +821,7 @@ a.skiplink:focus, a.skiplink:active {
   }
 }
 
-.prefooter, .related {
+.prefooter, .related, .get-involved, .home-video, .schedule-body {
   position: relative;
   padding-top: 16vh;
   padding-bottom: 16vh;
@@ -855,7 +855,7 @@ a.skiplink:focus, a.skiplink:active {
   left: 0px;
 }
 
-.prefooter > h5, .related > h5 {
+.prefooter > h5, .related > h5, .content-block > h5 {
   margin-bottom: 3rem;
   text-align: center;
   z-index: 3;
@@ -882,11 +882,11 @@ a.skiplink:focus, a.skiplink:active {
   background-color: #E4E4F0;
 }
 
-.prefooter--ctas {
+.prefooter--ctas, .get-involved, .home-video {
   background-color: #1D1D2C;
 }
 
-.prefooter--ctas > h5 {
+.prefooter--ctas > h5, .content-block.dark > h5 {
   color: #fff;
 }
 
@@ -1766,12 +1766,20 @@ select:focus {
   background-color: rgba(34, 34, 74, 0.6);
   background-image: linear-gradient(122deg, rgba(34, 34, 74, 0.5), rgba(152, 76, 154, 0.3));
   background-blend-mode: normal;
+  padding: 16vh 0 8vh;
+  min-height: 190px;
+  height: auto;
+  border-radius: 0;
+
+  // @media screen and (min-width: 600px) {
+  //   height: 250px;
+  // }
 
   h1 {
     font-size: calc(1rem + 4vw);
     max-width: 800px;
     color: #fff;
-    // margin-bottom: 1rem !important;
+    margin-bottom: 0 !important;
 
     @media screen and (min-width: 1600px) {
         max-width: 1100px;
@@ -2517,8 +2525,14 @@ section.home {
   position: relative;
   background-color: #1f0815;
   background-image: linear-gradient(91deg, rgba(34, 34, 74, 0.5), rgba(195, 48, 130, 0.3));
-  //padding-bottom: 6vh;
-  border-bottom-right-radius: 50px;
+
+  &:first-child {
+    border-bottom-right-radius: 50px;
+  }
+
+  &:not(:first-child){
+    border-top-left-radius: 50px;
+  }
 }
 
 .home_body {
@@ -2749,14 +2763,14 @@ section.home {
   border-bottom-right-radius: 50px;
 }
 
-.schedule-body {
-  position: relative;
-  padding-top: 3.125rem;
-  padding-bottom: 3.125rem;
-  padding-top: 8vh;
-  padding-bottom: 8vh;
-  color: #fff;
-}
+// .schedule-body {
+//   position: relative;
+//   padding-top: 3.125rem;
+//   padding-bottom: 3.125rem;
+//   padding-top: 8vh;
+//   padding-bottom: 8vh;
+//   color: #fff;
+// }
 
 .schedule-body > h2 {
   color: #fff;
@@ -3083,4 +3097,5 @@ section.home {
     border: 1px solid white;
     margin: 40px 0;
 }
+
 // to do: split the styles here into their own partial for better organizing

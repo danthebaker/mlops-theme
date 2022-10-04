@@ -136,7 +136,7 @@ function html5blank_styles()
     // wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     // wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.3.4', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array(), '1.3.6', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 
     if(is_singular('provider')){
@@ -593,31 +593,43 @@ function wpse66093_no_admin_access() {
 }
 add_action( 'admin_init', 'wpse66093_no_admin_access', 1 );
 
-
-function reviewer($user_id){
+function reviewer( $user_id, $review_obj = '' ){
     $current_user = get_user_by('id', $user_id);
-    $avatar = get_avatar($current_user->ID);
-    $name = $current_user->display_name;
+    $avatar = '';
+    $name = '';
+    
+    // Checks if the reviewew author is a user or anon
+    if( $current_user !== false ) {
+        $avatar = get_avatar($current_user->ID);
+        $name = $current_user->display_name;
 
-    // get profile link
-    $profile_link = '';
-    $signed_in_from = get_user_meta($current_user->ID, 'oa_social_login_identity_provider', true);
+        // get profile link
+        $profile_link = '';
+        $signed_in_from = get_user_meta($current_user->ID, 'oa_social_login_identity_provider', true);
 
-    if($signed_in_from == 'Github.com'){
-        $github_id = get_user_meta($current_user->ID, 'oa_social_login_user_picture', true);
-        if (strpos($github_id, 'https://avatars.githubusercontent.com/u/') !== false) {
-            $github_id = str_replace('https://avatars.githubusercontent.com/u/', '', $github_id);
-            $github_id = strtok($github_id, '?');
+        if($signed_in_from == 'Github.com'){
+            $github_id = get_user_meta($current_user->ID, 'oa_social_login_user_picture', true);
+            if (strpos($github_id, 'https://avatars.githubusercontent.com/u/') !== false) {
+                $github_id = str_replace('https://avatars.githubusercontent.com/u/', '', $github_id);
+                $github_id = strtok($github_id, '?');
 
-            if(intval($github_id) > 0){
-                $profile_link = 'https://api.github.com/user/'.$github_id;
+                if(intval($github_id) > 0){
+                    $profile_link = 'https://api.github.com/user/'.$github_id;
+                }
             }
         }
+
+        $data = $profile_link ? 'data-profile="'.$profile_link.'" data-from="'.$signed_in_from.'"':'';
+
+        return '<span class="reviewer" '.$data.'><span class="avatar">'.$avatar.'</span><span class="name">'.$name.'</span></span>';
+
+    } else {
+        $avatar = '<img alt="Anon Reviewer Gray Profile" src="' . get_template_directory_uri() . '/assets/img/anon-reviewer-avatar.png" class="avatar anon-avatar photo" height="96" width="96" loading="lazy">';
+        $name = $review_obj->author;
+        return '<span class="reviewer"><span class="avatar">'.$avatar.'</span><span class="name">'.$name.'</span></span>';
+
     }
-
-    $data = $profile_link ? 'data-profile="'.$profile_link.'" data-from="'.$signed_in_from.'"':'';
-
-    return '<span class="reviewer" '.$data.'><span class="avatar">'.$avatar.'</span><span class="name">'.$name.'</span></span>';
+    
 }
 
 add_action('init', function() {

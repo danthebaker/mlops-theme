@@ -327,11 +327,14 @@ if((current_user_can('administrator') && get_field('enable_reviews_for_admins', 
                         echo '</p>';
                         printf('<p><a href="%s">Log out</a></p>', wp_logout_url(get_permalink()));
                     echo '</div>';
-                    echo do_shortcode('[site_reviews_form assigned_posts="post_id" hide="email,name,terms"]');
+                    echo do_shortcode('[site_reviews_form assigned_posts="post_id" hide="email,name"]');
                 }
                 else {
                     do_action('oa_social_login');
+                    echo do_shortcode('[site_reviews_form assigned_posts="post_id" hide="terms"]');
                 }
+
+                
                 ?>
             </div>
 
