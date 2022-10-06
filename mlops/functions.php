@@ -128,6 +128,12 @@ function scripts_setup(){
     if(is_singular('provider')){
         wp_enqueue_script( 'feature-store-faq', get_template_directory_uri() . '/template-parts/blocks/feature-store-faq/feature-store-faq.js', array('jquery'), '1.0', true );
     }
+
+    if(is_page_template('template-meetups.php')){
+        wp_enqueue_style('tribe-events-views-v2-skeleton');
+        wp_enqueue_style('tribe-events-views-v2-full');
+        wp_enqueue_script('tribe-events-views-v2-viewport');
+    }
 }
 
 // Load HTML5 Blank styles
@@ -146,7 +152,7 @@ function html5blank_styles()
 }
 
 // Load Admin styles
-function load_admin_style() {
+function load_admin_style($hook) {
     wp_register_style('style-admin', get_template_directory_uri() . '/css/style-admin.css', array(), '1.8.1', 'all');
     wp_enqueue_style('style-admin'); // Enqueue it!
 }
@@ -492,10 +498,12 @@ function output($content){
 include "inc/post-types/provider.php";
 include "inc/post-types/team.php";
 include "inc/post-types/_empty.php";
-include "inc/post-types/event.php";
+//include "inc/post-types/event.php";
 include "inc/taxonomies/provider_category.php";
 include "inc/ajax/add_to_compare.php";
 include "inc/shortcodes/providers.php";
+include "inc/shortcodes/meetup_cities.php";
+include "inc/shortcodes/meetup_photos.php";
 include "inc/acf-blocks/resource-carousel.php";
 include "inc/acf-blocks/feature-store-faq.php";
 

@@ -10,10 +10,32 @@
 
     @import "style";
 
-    body.post-php & {
-        @media(min-width: 960px){
-            max-width: 100ch;
-            margin: 0 auto;
+    // body.post-php & {
+    //     @media(min-width: 960px){
+    //         max-width: 100ch;
+    //         margin: 0 auto;
+    //     }
+    // }
+
+    .wp-block-post-title {
+        padding: 0 15vw;
+        max-width: none;
+        font-size: 40px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+    
+        @media(min-width: 900px){
+            font-size: 50px;
+        }
+    }
+
+    .wp-block-legacy-widget__edit-preview {
+        height: 628px;
+        overflow: hidden;
+
+        iframe {
+            margin: 0;
         }
     }
 

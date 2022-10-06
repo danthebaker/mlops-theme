@@ -12,12 +12,7 @@ if($terms){
 }
 $cookiename = "compare_providers_".$provider_category;
 ?>
-<header class="feature-store-header">
-    <?php
-    if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<div class="breadcrumb">','</div>' );
-    }
-    ?>
+<header class="hero-standard feature-store-header">
     <div class="provider-title">
         <h1><?php the_title(); ?></h1>
 

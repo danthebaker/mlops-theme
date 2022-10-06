@@ -1,38 +1,15 @@
 <?php 
 get_header(); 
 ?>
-<style>
-.hero-learnsingle {
-	height: 30vh;
-}
-.learn-body {
-	min-height: 45vh;
-}
-
-.button.product_type_simple {
-	display:none;
-}
-</style>	
-
 		
-<section class="learn learn-single">
-  
-<header class="hero-learnsingle">
+<header class="hero-standard">
 	<div>
 		<h1><?php the_title(); ?></h1>
 	</div>
 	<img src="/wp-content/themes/mlops/assets/img/hero-learn2.jpg">
 </header>
+<main class="default-main typeset section-content-wrapper">
+	<?php the_content(); ?>
+</main>
 
-  <div class="learn-body">
-    <article class="learn-article">
-      <main class="typeset typeset--extended typeset--article">
-
-				<?php the_content(); ?>
-
-
-
-
-		
-</div>
 <?php get_footer(); ?>

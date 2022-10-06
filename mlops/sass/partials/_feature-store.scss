@@ -52,20 +52,21 @@ img {
   }
   
   .feature-store-header {
-    padding-top: 95px;
-    padding-bottom: 30px;
+    // padding-top: 95px;
+    // padding-bottom: 30px;
     background-image: url(../assets/img/provider_single.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-blend-mode: normal;
   }
   
-  @media(min-width: 768px){
-    .feature-store-header {
-      min-height: 30vh;
-      padding-top: 195px;
-    }
-  }
+  // @media(min-width: 768px){
+  //   .feature-store-header {
+  //     min-height: 30vh;
+  //     padding-top: 195px;
+  //   }
+  // }
   
   .feature-store-header .breadcrumb, .feature-store-header .breadcrumb a {
     color: #616161;
@@ -1282,6 +1283,9 @@ img {
         background-color: white;
   
         &.feature-store-faq {
+          .wp-block-group__inner-container > ul {
+            list-style: none;
+          }
           .accordion-ul > li {
             background-color: #f9f9f9;
           }

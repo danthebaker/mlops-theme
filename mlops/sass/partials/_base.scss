@@ -688,7 +688,7 @@ a.skiplink:focus, a.skiplink:active {
   margin-bottom: 0.5rem;
 }
 
-.typeset p:last-of-type {
+.typeset p:last-child {
   margin-bottom: 0;
 }
 
@@ -1603,7 +1603,7 @@ select:focus {
   background-blend-mode: screen;
   background-size: cover;
   position: relative;
-  padding: 16vh 0 8vh;
+  padding: 95px 0 30px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1613,6 +1613,7 @@ select:focus {
   overflow: hidden;
   z-index: 2;
   border-bottom-right-radius: 50px;
+  min-height: 268px;
 
   div {
     width: 100%;
@@ -1621,13 +1622,17 @@ select:focus {
     -ms-grid-column-align: left;
         justify-self: left;
     z-index: 3;
+  cursor: auto;
   
     h1 {
-      font-size: 3rem;
-      font-size: calc(1rem + 4vw);
+      font-size: 40px;
       line-height: 1.2;
       font-weight: 700;
       letter-spacing: -0.03em;
+
+      @media(min-width: 900px){
+        font-size: 50px;
+      }
     }
   }
 }
@@ -1655,6 +1660,7 @@ select:focus {
   position: absolute;
   filter: grayscale(100%);
   z-index: 1;
+  border-bottom-right-radius: 52px;
 }
 
 .hero-episode, .hero-learnsingle, .hero-post, .hero-default, .hero-home {
@@ -1662,7 +1668,7 @@ select:focus {
   background-blend-mode: screen;
   background-size: cover;
   position: relative;
-  padding: 16vh 0 8vh;
+  padding: 95px 0 30px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1672,6 +1678,7 @@ select:focus {
   overflow: hidden;
   z-index: 2;
   border-bottom-right-radius: 50px;
+  min-height: 268px;
 }
 
 .hero-episode img, .hero-learnsingle img, .hero-post img, .hero-default img, .hero-home img {
@@ -1704,6 +1711,8 @@ select:focus {
   margin-bottom: 1rem;
   text-align: center;
   display: block;
+  z-index: 2;
+  cursor: auto;
 }
 
 .hero-episode div h1, .hero-learnsingle div h1, .hero-post div h1, .hero-default div h1, .hero-home div h1 {
@@ -3094,6 +3103,11 @@ section.home {
     border-radius: 10px;
     border: 1px solid white;
     margin: 40px 0;
+}
+
+.default-main {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 // to do: split the styles here into their own partial for better organizing

@@ -135,16 +135,10 @@ endforeach;
 	
 	<div id="bodycontent">
 
-		<style>
-		.hero-episode {
-			height: <?php echo get_post_meta($post->ID, 'HeroHeight', true); ?>vh;
-		}
-		</style>
-
 		<!-- episode start -->
 		<article class="episode-article <?php echo $upcoming_episodes_html != '' ? 'bbrr':'';?>">
 
-			<header class="hero-episode">
+			<header class="hero-post">
 				<div>
 					<span><?= $e["Type"] ?> #<?= $e["EpisodeNumber"] ?></span>
 					<h1><?= $e["TalkTitle"][0] ?></h1>

@@ -1,7 +1,79 @@
+.meetups {
+
+   + .prefooter--sizemore {
+      &:before {
+         background-color: #f7f7f7;
+      }
+   }
+}
+
+.tribe-compatibility-container {
+   padding: 70px 15vw;
+   background-color: #F7F7F7;
+
+   .tribe-events-widget-events-list__header {
+      text-align: center;
+      margin-bottom: 25px;
+
+   }
+   h2, h3, p, time, address {
+      font-family: Poppins, sans-serif;
+   }
+
+   p {
+      font-size: 14px;
+      line-height: calc(21/14);
+   }
+
+   address {
+      font-style: normal;
+
+      .tribe-events-calendar-list__event-venue-title {
+         margin-right: 5px;
+      }
+   }
+}
+
+.meetup-intro, .who-meetup, .meetup-cities {
+   padding-top: 50px;
+   padding-bottom: 50px;
+   @extend .section-content-wrapper;
+}
+
+.meetup-intro, .who-meetup {
+
+   > div {
+      max-width: 800px;
+      margin: 0 auto;
+
+      > *:last-child {
+         margin-bottom: 0;
+      }
+   }
+
+   h2 {
+      margin-bottom: 25px;
+   }
+
+   p, li {
+      font-size: 16px;
+      line-height: calc(24/16);
+      margin-bottom: 20px;
+   }
+
+   li::marker {
+      color: black;
+   }
+
+   p {
+      + ul, + ol {
+         margin-top: 25px;
+      }
+   }
+}
+
 .meetup-cities{
-   max-width: 1250px;
-   margin: 0 auto;
-   padding: 50px 30px;
+   background-color:#F7F7F7;
 
    h2{
       text-align: center;
@@ -12,27 +84,28 @@
 .cities-grid{
    display: -ms-grid;
    display: grid;
-   max-width: 1250px;
-   margin-left: auto;
-   margin-right: auto;
    -ms-grid-columns: 1fr 30px 1fr;
    grid-template-columns: repeat(2, 1fr);
    grid-gap: 30px;
    align-items: center;
    justify-content: center;
- }
- 
- @media screen and (min-width: 600px) {
-   .cities-grid{
-     -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
-     grid-template-columns: repeat(4, 1fr);
-   }
+
+   @media screen and (min-width: 600px) {
+      -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
+      grid-template-columns: repeat(4, 1fr);
+  }
 
    .city{
       a{
          text-decoration: none;
+         img {
+            margin-bottom: 10px;
+            margin-top: 0;
+         }
          h3{
-            margin-top: 5px;
+            font-size: 18px;
+            line-height: calc(27/18);
+            margin-bottom: 0;
          }
          p{
             color: #000000;
@@ -41,25 +114,72 @@
    }
  }
 
+
  .photo-slider{
    position: relative;
+
+   .slick-list {
+      padding: 0 50px !important;
+
+      @media(min-width: 600px){
+         padding: 0 100px !important;
+      }
+   }
 
    .slick-arrow{
       position: absolute;
       top: 50%;
       transform:translate(0, -50%);
       color: transparent;
-      height: 40px;
-      width: 30px;
+      height: 100%;
+      width: 49px;
       z-index: 10;
+      background: rgba(195,48,130,0.4);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+
+      @media(min-width: 600px){
+         width: 99px;
+         background-size: auto;
+      }
    }
    .slick-prev{
-      left: 20px;
+      left: 0;
       background-image: url(/wp-content/themes/mlops/assets/icons/arrow/left/large/icon-arrow-left-large-white.svg);
    }
    .slick-next{
-      right: 20px;
+      right: 0;
       background-image: url(/wp-content/themes/mlops/assets/icons/arrow/right/large/icon-arrow-right-large-white.svg);
+   }
 
+   .photo {
+      height: auto;
+      padding: 0 1px;
+      img {
+         object-fit: cover;
+         object-position: center;
+         max-width: none;
+         width: 100%;
+         height: 100%;
+         margin: 0;
+      }
+   }
+
+   .slick-track {
+      display: flex;
+   }
+ }
+
+ .who-meetup {
+   ul {
+      @media (min-width: 600px){
+         column-count: 2;
+      }
+
+      @media(max-width: 599px){
+         list-style: none;
+         text-align: center;
+      }
    }
  }
