@@ -92,8 +92,13 @@
 
    @media screen and (min-width: 600px) {
       -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   @media screen and (min-width: 900px) {
+      -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
       grid-template-columns: repeat(4, 1fr);
-  }
+   }
 
    .city{
       a{
