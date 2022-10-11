@@ -9,7 +9,11 @@ if($cities){  ?>
         <div>
             <h2>Cities</h2>
             <div class="cities-grid">
-                <?php foreach($cities as $city){ 
+                <?php foreach($cities as $index => $city){ 
+
+                        if($index >= 8){
+                            break;
+                        }
                         $image = $city['city_image'];
                         $name = $city['city_name'];
                         $url = $city['meetup_url'];
@@ -25,7 +29,35 @@ if($cities){  ?>
                     </a>
                 </div>
                 <?php }//end while ?>
-            </div>
+            </div> <!-- eo .cities-grid -->
+
+            <?php if(count($cities) > 8){ ?>
+                <div class="more">
+                    <div class="cities-grid">
+                        <?php
+                        foreach ($cities as $index => $city) {
+                            if ($index >= 8) continue;
+                            $image = $city['city_image'];
+                            $name = $city['city_name'];
+                            $url = $city['meetup_url'];
+                            $type = $city['meetup_type'];  
+                            ?>
+                            <div class="city">
+                                <a href="<?php echo $url; ?>" target="_blank">
+                                    <?php  
+                                            echo wp_get_attachment_image($image, 'meetup-img');
+                                            ?>
+                                    <h3><?php echo $name; ?></h3>
+                                    <p><?php echo $type; ?></p>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div> <!-- eo .cities-grid -->
+                </div> <!-- eo .more -->
+
+                <button type="button" class="view-toggle" id="view-cities-toggle"><span class="view-more">View more cities +</span><span class="view-less">View less cities -</span></button>
+
+            <?php } ?>
         </div>
     </div>
 <?php }

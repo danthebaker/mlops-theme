@@ -585,8 +585,10 @@ jQuery('.modal .close').on('click', function(){
 });
 
 // --------------------------------------------------------------------
-// Meetup Slider
+// Meetups
 // --------------------------------------------------------------------
+
+// Slider
 jQuery('.photo-slider').slick({
   infinite: true,
   slidesToShow: 3,
@@ -613,6 +615,16 @@ jQuery('.photo-slider').slick({
     // settings: "unslick"
     // instead of a settings object
   ]
+});
+
+// Cities view toggle button
+jQuery('#view-cities-toggle').on('click', function(){
+  if(jQuery('.more').is(':hidden')){
+    jQuery('.more').slideDown().addClass('expanded');
+  }
+  else {
+    jQuery('.more').slideUp().removeClass('expanded');
+  }
 });
 // --------------------------------------------------------------------
 // Reviews

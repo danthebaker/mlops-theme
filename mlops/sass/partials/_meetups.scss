@@ -90,9 +90,28 @@
    align-items: center;
    justify-content: center;
 
-   @media screen and (min-width: 600px) {
-      -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
-      grid-template-columns: repeat(3, 1fr);
+   &:not(:last-child){
+      margin-bottom: 50px;
+   }
+
+   + .more {
+      display: none;
+
+      &.expanded {
+         + .view-toggle {
+            .view-more {
+               display: none;
+            }
+         }
+      }
+
+      &:not(.expanded) {
+         + .view-toggle {
+            .view-less {
+               display: none;
+            }
+         }
+      }
    }
 
    @media screen and (min-width: 900px) {
@@ -188,4 +207,14 @@
          text-align: center;
       }
    }
+ }
+
+ .view-toggle {
+   font-size: 20px;
+   line-height: calc(24/20);
+   font-weight: 600;
+   color: #C33182;
+   text-align: center;
+   margin: 50px auto 0;
+   display: block;
  }
