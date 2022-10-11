@@ -36,22 +36,23 @@ if($cities){  ?>
                     <div class="cities-grid">
                         <?php
                         foreach ($cities as $index => $city) {
-                            if ($index >= 8) continue;
-                            $image = $city['city_image'];
-                            $name = $city['city_name'];
-                            $url = $city['meetup_url'];
-                            $type = $city['meetup_type'];  
-                            ?>
-                            <div class="city">
-                                <a href="<?php echo $url; ?>" target="_blank">
-                                    <?php  
-                                            echo wp_get_attachment_image($image, 'meetup-img');
-                                            ?>
-                                    <h3><?php echo $name; ?></h3>
-                                    <p><?php echo $type; ?></p>
-                                </a>
-                            </div>
-                        <?php } ?>
+                            if ($index >= 8){
+                                $image = $city['city_image'];
+                                $name = $city['city_name'];
+                                $url = $city['meetup_url'];
+                                $type = $city['meetup_type'];  
+                                ?>
+                                <div class="city" data-index="<?php echo $index; ?>">
+                                    <a href="<?php echo $url; ?>" target="_blank">
+                                        <?php  
+                                                echo wp_get_attachment_image($image, 'meetup-img');
+                                                ?>
+                                        <h3><?php echo $name; ?></h3>
+                                        <p><?php echo $type; ?></p>
+                                    </a>
+                                </div>
+                        <?php } 
+                        }?>
                     </div> <!-- eo .cities-grid -->
                 </div> <!-- eo .more -->
 
