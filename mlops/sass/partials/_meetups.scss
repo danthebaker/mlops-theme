@@ -157,7 +157,7 @@
       transform:translate(0, -50%);
       color: transparent;
       height: 100%;
-      width: 49px;
+      width: 48px;
       z-index: 10;
       background: rgba(195,48,130,0.4);
       background-repeat: no-repeat;
@@ -165,7 +165,7 @@
       background-size: 50%;
 
       @media(min-width: 600px){
-         width: 99px;
+         width: 98px;
          background-size: auto;
       }
    }
@@ -180,7 +180,8 @@
 
    .photo {
       height: auto;
-      padding: 0 1px;
+      // padding: 0 1px;
+      margin-right: 2px;
       img {
          object-fit: cover;
          object-position: center;
