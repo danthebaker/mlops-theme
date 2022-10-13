@@ -32,6 +32,18 @@
          margin-right: 5px;
       }
    }
+
+   .tribe-events-l-container {
+      padding: 0 !important;
+   }
+
+   .tribe-events-c-subscribe-dropdown__container {
+      display: none !important;
+   }
+
+   .tribe-events-c-top-bar__today-button {
+      background-color: transparent !important;
+   }
 }
 
 .meetup-intro, .who-meetup, .meetup-cities {
