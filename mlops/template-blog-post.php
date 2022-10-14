@@ -26,16 +26,17 @@ get_header();
 
   <div class="blog-body">
     <article class="blog-article" id="post-<?php the_ID(); ?>">
+      <header class="blog-author">
+        <img src="<?php echo get_avatar_url( get_the_author_email(), '60' ); ?>">
+        <h2><?php esc_html_e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></h2>
+      </header>
       <main class="typeset typeset--extended typeset--article">
 				<?php the_content(); // Dynamic Content. ?>
 
 				<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>' ); // Separated by commas with a line break at the end. ?>
 
 				<!-- <p><?php esc_html_e( 'Categorised in: ', 'html5blank' ); the_category( ', ' ); // Separated by commas. ?></p> -->
-        <footer class="blog-author">
-          <img src="<?php echo get_avatar_url( get_the_author_meta('email'), '60' ); ?>">
-          <h2><?php esc_html_e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></h2>
-        </footer>
+
       </main>
       <!-- <footer class="blog-footer">
         <div class="typeset typeset--article">

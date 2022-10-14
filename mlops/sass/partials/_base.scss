@@ -2086,7 +2086,7 @@ select:focus {
   -ms-grid-columns: 40px 1em 1fr;
   grid-template-columns: 40px 1fr;
   align-items: center;
-  //margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .blog-author h2 {
@@ -2101,8 +2101,6 @@ select:focus {
   height: 40px;
   display: block;
   border-bottom-right-radius: 50%;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .blog-body {
