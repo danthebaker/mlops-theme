@@ -197,6 +197,8 @@ background-color: #1D1D2C;
     .navigation nav {
         > ul {
             padding: 0;
+            display: flex;
+            margin: 0 clamp(-1.5625rem, unquote("-0.19886363636363635rem - 1.1363636363636365vw"), -0.625rem); // min -25px, max -10px. this is to align the last parent menu item to the header container's right side. without this, it is not left-aligned. put in quotes the incompatible units
 
             li {
                 text-align: left;
@@ -206,6 +208,7 @@ background-color: #1D1D2C;
             > li {
                 > a {
                     padding: 10px 25px;
+                    padding: clamp(5px, 10px, 10px) clamp(0.625rem, unquote("0.19886363636363635rem + 1.1363636363636365vw"), 1.5625rem); // min 10px, max 25px. this plays together with the margin clamp on .navigation nav>ul above. put in quotes the incompatible units
                     display: block;
                     transition: background-color 0.15s, color 0.15s ease-in-out;
                     border-radius: 10px;
@@ -220,6 +223,7 @@ background-color: #1D1D2C;
                     > a {
                         position: relative;
                         background-color: transparent;
+                        white-space: nowrap;
 
                         &:before {
                             content: "";

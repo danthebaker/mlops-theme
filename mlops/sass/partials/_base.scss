@@ -812,6 +812,7 @@ a.skiplink:focus, a.skiplink:active {
     grid-template-rows: auto;
     -ms-grid-columns: minmax(50px, 80px) 1fr;
     grid-template-columns: minmax(50px, 80px) 1fr;
+    column-gap: 20px;
   }
 }
 
