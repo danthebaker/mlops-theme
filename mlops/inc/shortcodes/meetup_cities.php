@@ -7,7 +7,6 @@ $cities = get_field('cities');
 if($cities){  ?>
     <div class="meetup-cities">
         <div>
-            <h2>Cities</h2>
             <div class="cities-grid">
                 <?php foreach($cities as $index => $city){ 
 
