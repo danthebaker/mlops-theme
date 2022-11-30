@@ -32,6 +32,11 @@
       <h6>YouTube</h6>
       <p>Watch all our latest videos as soon as they are released</p>
     </a>
+    <a href="/meetups/">
+      <svg class="icon_youtube_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#meetup"></use></svg>
+      <h6>Meetups</h6>
+      <p>Join one of our local Meetups today</p>
+    </a>
     <a href="https://go.mlops.community/linkedin">
       <svg class="icon_linkedin_svg"><use xlink:href="/wp-content/themes/mlops/assets/icons/renders/sprite.svg#linkedin"></use></svg>
       <h6>LinkedIn</h6>

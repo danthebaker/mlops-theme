@@ -3,13 +3,23 @@ module.exports = function (grunt) {
 	//var autoprefixer = require('autoprefixer');
 
 	// Uncomment config to use the svg_sprite task
-	// const config = {
-	// 	dest: "assets/icons/renders",
-	// 	mode: {
-	// 		inline: true, // Prepare for inline embedding
-	// 		symbol: true, // Create a «symbol» sprite
-	// 	},
-	// };
+	const config = {
+		dest: "assets/icons/renders",
+		shape: {
+			id: {
+				separator: "",
+				generator: ""
+			},
+		},
+		mode: {
+			symbol: {        // Create a «symbol» sprite
+				inline: true, // Prepare for inline embedding
+				sprite: "sprite.svg", // Sprite path and name
+				example: true, // Create an HTML example document
+				dest: "",
+			},
+		},
+	};
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 		watch: {
@@ -32,13 +42,13 @@ module.exports = function (grunt) {
 				},
 			},
 		},
-		// svg_sprite: {
-		// 	minimal: {
-		// 		src: ["assets/icons/source/**/*.svg"],
-		// 		dest: "assets/icons/renders",
-		// 		options: config,
-		// 	},
-		// },
+		svg_sprite: {
+			minimal: {
+				src: ["assets/icons/source/**/*.svg"],
+				dest: "assets/icons/renders",
+				options: config,
+			},
+		},
 		// uglify: {
 		//     // This is for minifying all of our scripts.
 		//     options: {
@@ -169,7 +179,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-postcss");
 	grunt.loadNpmTasks("grunt-sass");
 	//grunt.loadNpmTasks('grunt-purifycss');
-	// grunt.loadNpmTasks("grunt-svg-sprite");
+	grunt.loadNpmTasks("grunt-svg-sprite");
 
 	grunt.file.setBase("../");
 
@@ -178,5 +188,5 @@ module.exports = function (grunt) {
 
 	// the default task can be run just by typing "grunt" on the command line. this will not output maps
 	// run "grunt watch" when developing. this will output maps
-	grunt.registerTask("default", ["sass:prod", "postcss:prod"]);
+	grunt.registerTask("default", ["sass:prod", "postcss:prod", "svg_sprite"]);
 };
