@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+
+  mlops-wp-web:
+    container_name: mlops-wp-web
+    image: quay.io/pachyderm_mops/wordpress_web:v3
+    restart: always
+    ports:
+      - 8140:80
+    environment:
+      WORDPRESS_DB_HOST: mlops-wp-db
+      WORDPRESS_DB_USER: mlops
+      WORDPRESS_DB_PASSWORD: XUogR38lYaFvso74
+      WORDPRESS_DB_NAME: mlopsdb
+      #WORDPRESS_DEBUG: 1
+    volumes:
+      - ./mlops:/var/www/html/wp-content/themes/mlops
+
+  mlops-wp-db:
+    container_name: mlops-wp-db
+    image: quay.io/pachyderm_mops/wordpress_db:v3
+    restart: always
+    ports:
+      - 3140:3306
+    environment:
+      MYSQL_DATABASE: mlopsdb
+      MYSQL_USER: mlops
+      MYSQL_PASSWORD: XUogR38lYaFvso74
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
